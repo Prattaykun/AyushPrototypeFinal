@@ -16,7 +16,7 @@ const RegistrationForm2 = () => {
     parentName: "",
     gender: "",
     dob: "",
-    members: "0",
+    members: 1,
   });
 
   const handleChange = (e) => {
@@ -135,7 +135,6 @@ const RegistrationForm2 = () => {
             onChange={handleChange}
             required
           >
-            <option value={0}>0</option>
             <option value={1}>1</option>
             <option value={2}>2</option>
             <option value={3}>3</option>
@@ -144,7 +143,7 @@ const RegistrationForm2 = () => {
         </div>
 
         {/* For each member's details */}
-        {[...Array(Number(formData.members) || 0)].map((_, idx) => (
+        {[...Array(Number(formData.members) || 1)].map((_, idx) => (
           <div key={idx}>
             <h4>Member {idx + 1} Details</h4>
             <div className="input-group">
