@@ -1,0 +1,99 @@
+/* styles.css */
+
+/* Container for the form */
+.form-container {
+  width: 600px;
+  margin: 80px auto;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  background-color: #e8f5e9; /* Light green for AYUSH theme */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Form heading */
+h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 28px;
+  color: #004d40; /* Deep green color for AYUSH theme */
+}
+
+/* Input group for form fields */
+.input-group {
+  margin-bottom: 15px;
+}
+
+/* Labels for form fields */
+label {
+  display: block;
+  margin-bottom: 5px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 16px;
+  color: #004d40; /* Deep green color */
+}
+
+/* Styling for input fields and textareas */
+input, textarea {
+  width: 100%;
+  padding: 10px;
+  box-sizing: border-box;
+  border: 1px solid #b0bec5; /* Light gray border */
+  border-radius: 5px;
+  font-family: 'Poppins', sans-serif;
+  background-color: #ffffff;
+  font-size: 16px;
+  transition: border-color 0.3s ease;
+}
+
+/* Change border color on focus */
+input:focus, textarea:focus {
+  border-color: #00796b; /* AYUSH-inspired teal */
+  outline: none;
+}
+
+/* Styling for textareas */
+textarea {
+  height: 100px;
+  resize: vertical;
+}
+
+/* Styling for submit button */
+button {
+  width: 100%;
+  padding: 12px;
+  background-color: #00796b; /* Teal color for AYUSH theme */
+  color: white;
+  font-family: 'Poppins', sans-serif;
+  font-size: 18px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+/* Button hover effect */
+button:hover {
+  background-color: #004d40; /* Darker green on hover */
+}
+
+/* Responsive design for smaller screens */
+@media (max-width: 768px) {
+  .form-container {
+      width: 90%;
+      margin: 40px auto;
+  }
+
+  h2 {
+      font-size: 24px;
+  }
+
+  input, textarea {
+      font-size: 14px;
+  }
+
+  button {
+      font-size: 16px;
+  }
+}
