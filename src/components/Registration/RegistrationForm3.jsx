@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useLocation } from "react-router-dom";
 import "./RegistrationForm.css";
 
+
 const RegistrationForm3 = () => {
   const [formData, setFormData] = useState({});
   const location = useLocation();

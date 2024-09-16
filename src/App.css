@@ -41,6 +41,11 @@ label {
   font-weight: 600;
 }
 
+nav{
+  display: flex;
+  flex-direction: row;
+}
+
 /* Input and Textarea Fields */
 input, textarea {
   width: 100%;
