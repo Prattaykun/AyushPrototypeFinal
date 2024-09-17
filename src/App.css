@@ -193,3 +193,23 @@ button:active {
     width: 60px;
   }
 }
+
+.header-main{
+  position: sticky;
+  height: 10vh;
+
+}
+
+.navbar-main {
+  display: flex;
+  position: absolute;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.logo-img{
+  height: 15vh;
+  padding-left: 1vw;
+}

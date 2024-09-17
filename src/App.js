@@ -9,28 +9,26 @@ import RegistrationForm3 from "./components/Registration/RegistrationForm3";
 import Home from "./components/Home/HomePage";
 // import Dashboard from "./components/Dashboard";
 import { Link } from "react-router-dom";
-// import logo_icon from "./components/Assets/favicon.png"
+import Logo from "./components/Assets/favicon.png";
 function App() {
   return (
     <div className="App">
+      <header className="header-main">
+        <div class="">
+          <img src={Logo} alt="Logo Icon" className="logo-img"/>
+        </div>
+        <div className="navbar-main">
+          <h1>Ayush Ministry - Startup Initiative</h1>
 
-
-      <header className="header">
-        
-        {/* <div class="image-container"> */}
-        {/* <img src={logo_icon} alt="Logo Icon" /> */}
-        {/* </div> */}
-        
-        <h1>Ayush Ministry - Startup Initiative</h1>
-       
-        <nav>
-          <Link to="/" className="nav-link">
-            <>Home</>
-          </Link>
-          <Link to="/LoginSignup" className="nav-link">
-            <>Login/Signup</>
-          </Link>
-        </nav>
+          <nav>
+            <Link to="/" className="nav-link">
+              <>Home</>
+            </Link>
+            <Link to="/LoginSignup" className="nav-link">
+              <>Login/Signup</>
+            </Link>
+          </nav>
+        </div>
       </header>
       <Routes>
         {/* /*<Route path="/" element={<Home />} />* */}
