@@ -57,6 +57,11 @@ export default function StartupDashboard() {
     padding: "10px 20px",
     borderRadius: "4px",
     cursor: "pointer",
+    transition: "background-color 0.3s ease",
+  };
+
+  const buttonHoverStyle = {
+    backgroundColor: "#0056b3",
   };
 
   return (
@@ -135,7 +140,11 @@ export default function StartupDashboard() {
             </tbody>
           </table>
           <Link to="/RegistrationForm1">
-            <button className="edit-button" onClick={handleEdit}>
+            <button
+              className="edit-button"
+              onClick={handleEdit}
+              style={buttonStyle}
+            >
               Edit Information
             </button>
           </Link>
@@ -158,10 +167,73 @@ export default function StartupDashboard() {
             gap: "10px",
           }}
         >
-          <button style={buttonStyle}>Update Company Info</button>
-          <button style={buttonStyle}>Manage Team</button>
-          <button style={buttonStyle}>Submit Documents</button>
-          <button style={buttonStyle}>Schedule Meeting</button>
+          <button
+            style={buttonStyle}
+            onMouseOver={(e) =>
+              (e.currentTarget.style.backgroundColor =
+                buttonHoverStyle.backgroundColor)
+            }
+            onMouseOut={(e) =>
+              (e.currentTarget.style.backgroundColor =
+                buttonStyle.backgroundColor)
+            }
+          >
+            Update Company Info
+          </button>
+          <button
+            style={buttonStyle}
+            onMouseOver={(e) =>
+              (e.currentTarget.style.backgroundColor =
+                buttonHoverStyle.backgroundColor)
+            }
+            onMouseOut={(e) =>
+              (e.currentTarget.style.backgroundColor =
+                buttonStyle.backgroundColor)
+            }
+          >
+            Manage Team
+          </button>
+          <button
+            style={buttonStyle}
+            onMouseOver={(e) =>
+              (e.currentTarget.style.backgroundColor =
+                buttonHoverStyle.backgroundColor)
+            }
+            onMouseOut={(e) =>
+              (e.currentTarget.style.backgroundColor =
+                buttonStyle.backgroundColor)
+            }
+          >
+            Submit Documents
+          </button>
+          <button
+            style={buttonStyle}
+            onMouseOver={(e) =>
+              (e.currentTarget.style.backgroundColor =
+                buttonHoverStyle.backgroundColor)
+            }
+            onMouseOut={(e) =>
+              (e.currentTarget.style.backgroundColor =
+                buttonStyle.backgroundColor)
+            }
+          >
+            Schedule Meeting
+          </button>
+          <Link to="/TrackApplication">
+            <button
+              style={buttonStyle}
+              onMouseOver={(e) =>
+                (e.currentTarget.style.backgroundColor =
+                  buttonHoverStyle.backgroundColor)
+              }
+              onMouseOut={(e) =>
+                (e.currentTarget.style.backgroundColor =
+                  buttonStyle.backgroundColor)
+              }
+            >
+              Track Application
+            </button>
+          </Link>
         </div>
       </div>
     </div>
