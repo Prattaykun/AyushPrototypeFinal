@@ -1,0 +1,100 @@
+.track-container {
+    max-width: 1000px;
+    margin: 40px auto;
+    padding: 30px;
+    font-family: 'Arial', sans-serif;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+  }
+  
+  .track-title {
+    font-size: 32px;
+    margin-bottom: 30px;
+    text-align: center;
+    color: #333;
+    font-weight: bold;
+  }
+  
+  .track-card {
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .track-card:hover {
+    transform: scale(1.02);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+  }
+  
+  .status-title {
+    font-size: 24px;
+    margin-bottom: 15px;
+    font-weight: bold;
+  }
+  
+  .status-badge {
+    display: inline-block;
+    padding: 15px 25px;
+    font-size: 20px;
+    color: white;
+    border-radius: 20px;
+    margin-bottom: 20px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .status-badge.pending {
+    background-color: #f0ad4e;
+  }
+  
+  .status-badge.in-review {
+    background-color: #5bc0de;
+  }
+  
+  .status-badge.approved {
+    background-color: #5cb85c;
+  }
+  
+  .status-badge.rejected {
+    background-color: #d9534f;
+  }
+  
+  .progress-container {
+    background-color: #e0e0e0;
+    border-radius: 12px;
+    height: 30px;
+    margin-bottom: 15px;
+    overflow: hidden;
+  }
+  
+  .progress-bar {
+    height: 100%;
+    background-color: #007bff;
+    border-radius: 12px;
+    transition: width 0.4s ease-in-out;
+  }
+  
+  .progress-text {
+    font-size: 18px;
+    color: #666;
+    text-align: center;
+    margin: 10px 0;
+  }
+  
+  .details-container {
+    margin-top: 30px;
+  }
+  
+  .details-container h3 {
+    font-size: 20px;
+    margin-bottom: 15px;
+    font-weight: bold;
+  }
+  
+  .details-container p {
+    font-size: 18px;
+    margin: 8px 0;
+  }
+  
