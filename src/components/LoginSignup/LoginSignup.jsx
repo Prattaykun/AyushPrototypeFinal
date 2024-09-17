@@ -32,6 +32,14 @@ function LoginSignup() {
           <img src={password_icon} alt="" />
           <input type="password" placeholder="Password" />
         </div>
+        {action === "Login" ? (
+          <div></div>
+        ) : (
+        <div className="input">
+          <img src={password_icon} alt="" />
+          <input type="password" placeholder="Re-Enter Password" />
+        </div>
+         )}
       </div>
       {action === "Sign Up" ? (
         <div></div>
