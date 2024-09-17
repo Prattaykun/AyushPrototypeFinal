@@ -9,12 +9,20 @@ import RegistrationForm3 from "./components/Registration/RegistrationForm3";
 import Home from "./components/Home/HomePage";
 // import Dashboard from "./components/Dashboard";
 import { Link } from "react-router-dom";
-
+// import logo_icon from "./components/Assets/favicon.png"
 function App() {
   return (
     <div className="App">
+
+
       <header className="header">
+        
+        {/* <div class="image-container"> */}
+        {/* <img src={logo_icon} alt="Logo Icon" /> */}
+        {/* </div> */}
+        
         <h1>Ayush Ministry - Startup Initiative</h1>
+       
         <nav>
           <Link to="/" className="nav-link">
             <>Home</>
