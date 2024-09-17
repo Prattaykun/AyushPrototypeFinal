@@ -1,0 +1,31 @@
+.edit-button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-top: 20px;
+  font-size: 16px;
+  font-weight: 500;
+  text-transform: uppercase;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+  position: relative;
+  display: inline-block;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.edit-button:hover {
+  background-color: #0056b3; /* Darker shade of blue for hover */
+  transform: translateY(-2px); /* Slight lift on hover */
+}
+
+.edit-button:active {
+  background-color: #004494; /* Even darker shade for active state */
+  transform: translateY(1px); /* Slightly pressed effect */
+}
+
+.edit-button:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.5); /* Focus outline */
+}

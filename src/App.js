@@ -1,12 +1,13 @@
 import logo_icon from "./ayushlogo.jpg";
 import "./App.css";
+import Dashboard from "./components/Dashboard/Dashboard";
 import LoginSignup from "./components/LoginSignup/LoginSignup";
 import RegistrationForm1 from "./components/Registration/RegistrationForm1";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import RegistrationForm2 from "./components/Registration/RegistrationForm2";
 import RegistrationForm3 from "./components/Registration/RegistrationForm3";
 import Home from "./components/Home/HomePage";
-import Dashboard from "./components/Dashboard";
+// import Dashboard from "./components/Dashboard";
 import { Link } from "react-router-dom";
 
 function App() {
@@ -19,10 +20,7 @@ function App() {
             <>Home</>
           </Link>
           <Link to="/LoginSignup" className="nav-link">
-            <>Login</>
-          </Link>
-          <Link to="/RegistrationForm1" className="nav-link">
-            <>Registration</>
+            <>Login/Signup</>
           </Link>
         </nav>
       </header>

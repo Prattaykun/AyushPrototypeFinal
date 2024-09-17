@@ -1,5 +1,3 @@
-/* App.css */
-
 /* Base Styling */
 body {
   font-family: 'Poppins', sans-serif;
@@ -17,6 +15,7 @@ body {
   border-radius: 8px;
   background-color: #ffffff; /* Clean white background */
   box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.1);
+  animation: fade-in 0.8s ease-out; /* Fade-in animation */
 }
 
 /* Form Title */
@@ -26,11 +25,26 @@ h2 {
   color: #004d40; /* Dark green to reflect nature, relevant to AYUSH */
   font-size: 28px;
   font-weight: bold;
+  position: relative;
+}
+
+h2:after {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 4px;
+  background-color: #00796b; /* Teal accent */
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  animation: underline-grow 0.6s ease-out; /* Underline animation */
 }
 
 /* Input Group for Spacing */
 .input-group {
   margin-bottom: 15px;
+  position: relative;
 }
 
 /* Labels */
@@ -39,11 +53,11 @@ label {
   margin-bottom: 5px;
   color: #666666;
   font-weight: 600;
+  transition: color 0.3s ease; /* Smooth color transition */
 }
 
-nav{
-  display: flex;
-  flex-direction: row;
+label:hover {
+  color: #00796b; /* Teal accent on hover */
 }
 
 /* Input and Textarea Fields */
@@ -54,8 +68,16 @@ input, textarea {
   border-radius: 4px;
   box-sizing: border-box;
   font-size: 16px;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease; /* Smooth transitions */
 }
 
+input:focus, textarea:focus {
+  border-color: #00796b; /* Teal border on focus */
+  box-shadow: 0 0 8px rgba(0, 121, 107, 0.3); /* Subtle glow effect */
+  outline: none;
+}
+
+/* Styling for textareas */
 textarea {
   height: 100px;
   resize: vertical;
@@ -64,18 +86,27 @@ textarea {
 /* Submit Button */
 button {
   width: 100%;
-  padding: 12px;
+  padding: 14px;
   background-color: #00eeff; /* Indian Government blue tone */
   color: white;
   border: none;
   border-radius: 4px;
   font-size: 18px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease, transform 0.2s ease; /* Smooth transitions */
+  position: relative;
+  overflow: hidden;
 }
 
+/* Button hover effect */
 button:hover {
   background-color: #4444d3;
+  transform: scale(1.05); /* Slight scale on hover */
+}
+
+button:active {
+  background-color: #3333cc; /* Darker blue on click */
+  transform: scale(0.98); /* Slight scale down on click */
 }
 
 /* Animation for "Ministry of AYUSH" */
@@ -87,12 +118,12 @@ button:hover {
 
 @keyframes slideInAlternate {
   0% {
-      opacity: 0;
-      transform: translateX(-100px); /* Slide in from the left */
+    opacity: 0;
+    transform: translateX(-100px); /* Slide in from the left */
   }
   100% {
-      opacity: 1;
-      transform: translateX(0); /* Reset position */
+    opacity: 1;
+    transform: translateX(0); /* Reset position */
   }
 }
 
@@ -107,6 +138,7 @@ button:hover {
   border-radius: 10px;
   background-color: #004d40;
   box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
+  animation: fade-in 1s ease-out; /* Fade-in effect */
 }
 
 /* Ministry of AYUSH Title */
@@ -128,14 +160,36 @@ button:hover {
 /* Responsive Design */
 @media (max-width: 768px) {
   .form-container {
-      width: 90%;
+    width: 90%;
   }
 
   .animated-title {
-      font-size: 28px;
+    font-size: 28px;
   }
 
   button {
-      font-size: 16px;
+    font-size: 16px;
+  }
+}
+
+/* Fade-in Animation */
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Underline Grow Animation */
+@keyframes underline-grow {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: 60px;
   }
 }

@@ -7,37 +7,48 @@ import startup_icon from "../Assets/startupindia.jpg";
 function HomePage() {
   return (
     <main className="main-content">
-      <img src={logo_icon} alt="" />
-      <img src={startup_icon} alt="" />
+      <div class="image-container">
+        <img src={logo_icon} alt="Logo Icon" />
+        <img src={startup_icon} alt="Startup Icon" />
+      </div>
+
       <section className="about-us">
-        <h2>About Us</h2>
-        <p>
-          <b>
-            The **Ministry of Ayush** was formed in 2014 to provide a dedicated
-            focus on India’s traditional systems of medicine and holistic
-            healthcare. Its core mission is to promote and develop the practices
-            of **Ayurveda, Yoga, Naturopathy, Unani, Siddha, and Homeopathy
-            (AYUSH)**, which have been integral to India’s healthcare heritage
-            for centuries. The ministry works on several fronts: - **Regulation
-            and Standardization**: It ensures the safety, efficacy, and quality
-            of AYUSH medicines and practices by setting standards and promoting
-            scientific research. - **Education and Training**: The ministry
-            oversees educational institutions, ensuring quality training for
-            practitioners of AYUSH disciplines, and encourages the incorporation
-            of these systems into the mainstream healthcare sector. - **Public
-            Health Programs**: It runs awareness campaigns, community programs,
-            and wellness centers to promote preventive and alternative
-            healthcare practices. - **Global Promotion**: Ayush collaborates
-            with international organizations to promote India’s traditional
-            medical systems globally, establishing AYUSH institutions and
-            programs abroad. - **Support for Innovation**: The ministry
-            encourages entrepreneurship and startups in the wellness and
-            healthcare sector through various schemes and initiatives. By
-            promoting these natural and sustainable healthcare systems, the
-            Ministry of Ayush seeks to enhance well-being, reduce disease
-            burden, and promote global health alternatives.
-          </b>
-        </p>
+        <div class="about-us-box">
+          <h2>About Us</h2>
+          <p>
+            <b>
+              The <strong>Ministry of Ayush</strong> was formed in 2014 to
+              provide a dedicated focus on India’s traditional systems of
+              medicine and holistic healthcare. Its core mission is to promote
+              and develop the practices of{" "}
+              <strong>
+                Ayurveda, Yoga, Naturopathy, Unani, Siddha, and Homeopathy
+                (AYUSH)
+              </strong>
+              , which have been integral to India’s healthcare heritage for
+              centuries. The ministry works on several fronts: -{" "}
+              <strong>Regulation and Standardization</strong>: It ensures the
+              safety, efficacy, and quality of AYUSH medicines and practices by
+              setting standards and promoting scientific research. -{" "}
+              <strong>Education and Training</strong>: The ministry oversees
+              educational institutions, ensuring quality training for
+              practitioners of AYUSH disciplines, and encourages the
+              incorporation of these systems into the mainstream healthcare
+              sector. - <strong>Public Health Programs</strong>: It runs
+              awareness campaigns, community programs, and wellness centers to
+              promote preventive and alternative healthcare practices. -{" "}
+              <strong>Global Promotion</strong>: Ayush collaborates with
+              international organizations to promote India’s traditional medical
+              systems globally, establishing AYUSH institutions and programs
+              abroad. - <strong>Support for Innovation</strong>: The ministry
+              encourages entrepreneurship and startups in the wellness and
+              healthcare sector through various schemes and initiatives. By
+              promoting these natural and sustainable healthcare systems, the
+              Ministry of Ayush seeks to enhance well-being, reduce disease
+              burden, and promote global health alternatives.
+            </b>
+          </p>
+        </div>
       </section>
       <section className="key-initiatives">
         <h2>Key Initiatives</h2>
