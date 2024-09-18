@@ -5,7 +5,14 @@ import email_icon from "../Assets/email.png";
 import password_icon from "../Assets/password.png";
 import google_icon from "../Assets/google.png"; // Assuming you have a Google logo
 import { Link, useNavigate } from "react-router-dom";
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfile, GoogleAuthProvider, signInWithPopup } from "firebase/auth";
+import {
+  getAuth,
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+  updateProfile,
+  GoogleAuthProvider,
+  signInWithPopup,
+} from "firebase/auth";
 import { app } from "../../firebase";
 import { Eye, EyeOff } from "lucide-react";
 
@@ -16,11 +23,14 @@ function LoginSignup() {
 
   const [name, setName] = useState(""); // State for name
   const [email, setEmail] = useState("");
-  const [password, setPassword] = useState(true); // State for password
-  const handleClick = () => {
-    setPassword(!password);
-      };
+  const [password, setPassword] = useState(""); // Separate state for the password value
+  const [isPasswordVisible, setIsPasswordVisible] = useState(false); // Separate state for visibility toggle
   const navigate = useNavigate(); // useNavigate hook for redirecting
+
+  // Toggle password visibility
+  const handlePasswordVisibility = () => {
+    setIsPasswordVisible(!isPasswordVisible);
+  };
 
   const createUser = () => {
     createUserWithEmailAndPassword(auth, email, password)
@@ -97,16 +107,16 @@ function LoginSignup() {
           <img src={password_icon} alt="" />
           <input
             className="input"
-            type={password ? "password" : "text"}
+            type={isPasswordVisible ? "text" : "password"} // Use isPasswordVisible to toggle between text and password types
             placeholder="Password"
             onChange={(e) => setPassword(e.target.value)}
-            value={password}
+            value={password} // Use password state for input value
             required
           />
-           {password ? (
-            <Eye onClick={handleClick} />
+          {isPasswordVisible ? (
+            <EyeOff onClick={handlePasswordVisibility} />
           ) : (
-            <EyeOff onClick={handleClick} />
+            <Eye onClick={handlePasswordVisibility} />
           )}
         </div>
         {action === "Login" ? (
@@ -115,14 +125,15 @@ function LoginSignup() {
           <div className="password-container input">
             <img src={password_icon} alt="" />
             <input
-            className="input"
-            type={password ? "password" : "text"}
-             placeholder="Re-Enter Password" required 
-             />
-             {password ? (
-              <Eye onClick={handleClick} />
+              className="input"
+              type={isPasswordVisible ? "text" : "password"}
+              placeholder="Re-Enter Password"
+              required
+            />
+            {isPasswordVisible ? (
+              <EyeOff onClick={handlePasswordVisibility} />
             ) : (
-              <EyeOff onClick={handleClick} />
+              <Eye onClick={handlePasswordVisibility} />
             )}
           </div>
         )}
