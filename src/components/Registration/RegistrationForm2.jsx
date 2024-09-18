@@ -51,6 +51,16 @@ const RegistrationForm2 = () => {
             required
           />
         </div>
+        <div className="input-group">
+          <label>Name of The Company</label>
+          <input
+            type="text"
+            name="companyName"
+            value={formData.companyName}
+            onChange={handleChange}
+            required
+          />
+        </div>
 
         <div className="input-group">
           <label>Theme of the Startup</label>

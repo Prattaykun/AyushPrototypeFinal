@@ -12,6 +12,7 @@ import ChatBoticon from "./components/ChatBotIcon/ChatBotIcon";
 import { Link } from "react-router-dom";
 import Logo from "./components/Assets/favicon.png";
 import TrackApplication from "./components/TrackApplication/TrackApplication";
+// import { Alert } from 'react-alert'
 
 function App() {
   const [menuOpen, setMenuOpen] = useState(false);

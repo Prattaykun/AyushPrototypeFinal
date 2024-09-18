@@ -20,24 +20,30 @@ function LoginSignup() {
         ) : (
           <div className="input">
             <img src={user_icon} alt="" />
-            <input type="text" placeholder="Name" />
+            <input type="text" placeholder="Name" 
+            required 
+            />
           </div>
         )}
 
         <div className="input">
           <img src={email_icon} alt="" />
-          <input type="email" placeholder="Email Id" />
+          <input type="email" placeholder="Email Id" 
+          required 
+          />
         </div>
         <div className="input">
           <img src={password_icon} alt="" />
-          <input type="password" placeholder="Password" />
+          <input type="password" placeholder="Password" 
+          required 
+          />
         </div>
         {action === "Login" ? (
           <div></div>
         ) : (
         <div className="input">
           <img src={password_icon} alt="" />
-          <input type="password" placeholder="Re-Enter Password" />
+          <input type="password" placeholder="Re-Enter Password" required />
         </div>
          )}
       </div>
