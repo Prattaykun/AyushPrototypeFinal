@@ -3,10 +3,59 @@ import "./LoginSignup.css";
 import user_icon from "../Assets/person.png";
 import email_icon from "../Assets/email.png";
 import password_icon from "../Assets/password.png";
-import { Link } from "react-router-dom";
+import google_icon from "../Assets/google.png"; // Assuming you have a Google logo
+import { Link, useNavigate } from "react-router-dom";
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfile, GoogleAuthProvider, signInWithPopup } from "firebase/auth";
+import { app } from "../../firebase";
+const auth = getAuth(app);
 
 function LoginSignup() {
   const [action, setAction] = useState("Login");
+
+  const [name, setName] = useState(""); // State for name
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState(""); // State for password
+
+  const navigate = useNavigate(); // useNavigate hook for redirecting
+
+  const createUser = () => {
+    createUserWithEmailAndPassword(auth, email, password)
+      .then((userCredential) => {
+        // Update the user profile with the name
+        return updateProfile(userCredential.user, { displayName: name });
+      })
+      .then(() => {
+        alert("Success! User created with name: " + name);
+      })
+      .catch((error) => {
+        alert(error.message); // Handle errors
+      });
+  };
+
+  const signinUser = () => {
+    signInWithEmailAndPassword(auth, email, password)
+      .then((value) => {
+        console.log("Sign in Success");
+        navigate("/Dashboard"); // Redirect to dashboard on successful login
+      })
+      .catch((err) => {
+        console.log(err);
+        alert(err.message); // Display error if sign in fails
+      });
+  };
+
+  const signinWithGoogle = () => {
+    const provider = new GoogleAuthProvider();
+    signInWithPopup(auth, provider)
+      .then((result) => {
+        console.log("Google Sign-In Success");
+        navigate("/Dashboard"); // Redirect to dashboard on successful login
+      })
+      .catch((error) => {
+        console.log(error);
+        alert(error.message); // Handle errors
+      });
+  };
 
   return (
     <div className="container">
@@ -20,32 +69,44 @@ function LoginSignup() {
         ) : (
           <div className="input">
             <img src={user_icon} alt="" />
-            <input type="text" placeholder="Name" 
-            required 
+            <input
+              type="text"
+              placeholder="Name"
+              onChange={(e) => setName(e.target.value)}
+              value={name}
+              required
             />
           </div>
         )}
 
         <div className="input">
           <img src={email_icon} alt="" />
-          <input type="email" placeholder="Email Id" 
-          required 
+          <input
+            onChange={(e) => setEmail(e.target.value)}
+            value={email}
+            type="email"
+            placeholder="Email Id"
+            required
           />
         </div>
         <div className="input">
           <img src={password_icon} alt="" />
-          <input type="password" placeholder="Password" 
-          required 
+          <input
+            type="password"
+            placeholder="Password"
+            onChange={(e) => setPassword(e.target.value)}
+            value={password}
+            required
           />
         </div>
         {action === "Login" ? (
           <div></div>
         ) : (
-        <div className="input">
-          <img src={password_icon} alt="" />
-          <input type="password" placeholder="Re-Enter Password" required />
-        </div>
-         )}
+          <div className="input">
+            <img src={password_icon} alt="" />
+            <input type="password" placeholder="Re-Enter Password" required />
+          </div>
+        )}
       </div>
       {action === "Sign Up" ? (
         <div></div>
@@ -67,31 +128,30 @@ function LoginSignup() {
               Sign up
             </div>
 
-            <Link to="/Dashboard">
-              <div
-                className={action === "Sign Up" ? "submit gray" : "submit"}
-                onClick={() => {
-                  setAction("Login");
-                }}
-              >
-                Login
-              </div>
-            </Link>
+            <div
+              className={action === "Sign Up" ? "submit gray" : "submit"}
+              onClick={() => signinUser()} // Call signinUser on click
+            >
+              Login
+            </div>
+
+            <div
+              className="google-signin-button"
+              onClick={signinWithGoogle} // Call Google sign-in on click
+            >
+              <img src={google_icon} alt="Google Logo" /> Google
+            </div>
           </>
         )}
 
         {action === "Sign Up" && (
           <>
-            <Link to="/RegistrationForm1">
-              <div
-                className={action === "Login" ? "submit gray" : "submit"}
-                onClick={() => {
-                  setAction("Sign Up");
-                }}
-              >
-                Sign up
-              </div>
-            </Link>
+            <div
+              className={action === "Login" ? "submit gray" : "submit"}
+              onClick={() => createUser()} // Call createUser on click
+            >
+              Sign up
+            </div>
 
             <div
               className={action === "Sign Up" ? "submit gray" : "submit"}

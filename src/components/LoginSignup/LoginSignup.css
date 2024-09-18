@@ -48,6 +48,7 @@
   .inputs {
     margin-top: 55px;
     display: flex;
+    color: #000000;
     flex-direction: column;
     gap: 25px;
   }
@@ -120,7 +121,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 220px;
+    width: 150px;
     height: 59px;
     color: #fff;
     border-radius: 50px;
@@ -129,6 +130,42 @@
     cursor: pointer;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease, background-color 0.3s ease;
+  }
+  .google-signin-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 160px;
+    height: 20%;
+    color: #fff;
+    background-color: #4285F4;
+    border-radius: 50px;
+    font-size: 19px;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, background-color 0.3s ease;
+
+  }
+  
+  .google-signin-button img {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+  }
+  /* Main google-signin-button Button */
+  .google-signin-button {
+    background: #0f11a3;
+  }
+  
+  .google-signin-button:hover {
+    background-color: #1f23d6;
+    transform: translateY(-3px);
+  }
+  
+  .google-signin-button:active {
+    background-color: #000275;
+    transform: translateY(0);
   }
   
   /* Main Submit Button */
@@ -198,5 +235,22 @@
       transform: translateY(0);
       opacity: 1;
     }
+  }
+  .google-signin-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #4285F4;
+    color: white;
+    padding: 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 10px;
+  }
+  
+  .google-signin-button img {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
   }
   
