@@ -4,9 +4,15 @@ import user_icon from "../Assets/person.png";
 import email_icon from "../Assets/email.png";
 import password_icon from "../Assets/password.png";
 import { Link } from "react-router-dom";
+import { Eye, EyeOff } from "lucide-react";
 
 function LoginSignup() {
   const [action, setAction] = useState("Login");
+  const [password, setPassword] = useState(true);
+
+  const handleClick = () => {
+    setPassword(!password);
+  };
 
   return (
     <div className="container">
@@ -28,19 +34,40 @@ function LoginSignup() {
           <img src={email_icon} alt="" />
           <input type="email" placeholder="Email Id" />
         </div>
-        <div className="input">
+
+        <div className="password-container input">
           <img src={password_icon} alt="" />
-          <input type="password" placeholder="Password" />
+          <input
+            className="input"
+            placeholder="Password"
+            type={password ? "password" : "text"}
+          />
+          {password ? (
+            <Eye onClick={handleClick} />
+          ) : (
+            <EyeOff onClick={handleClick} />
+          )}
         </div>
+
         {action === "Login" ? (
           <div></div>
         ) : (
-        <div className="input">
-          <img src={password_icon} alt="" />
-          <input type="password" placeholder="Re-Enter Password" />
-        </div>
-         )}
+          <div className="password-container input">
+            <img src={password_icon} alt="" />
+            <input
+              className="input"
+              placeholder="Re-Enter Password"
+              type={password ? "password" : "text"}
+            />
+            {password ? (
+              <Eye onClick={handleClick} />
+            ) : (
+              <EyeOff onClick={handleClick} />
+            )}
+          </div>
+        )}
       </div>
+
       {action === "Sign Up" ? (
         <div></div>
       ) : (

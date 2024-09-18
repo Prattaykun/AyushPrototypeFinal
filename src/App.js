@@ -12,6 +12,9 @@ import ChatBoticon from "./components/ChatBotIcon/ChatBotIcon";
 import { Link } from "react-router-dom";
 import Logo from "./components/Assets/favicon.png";
 import TrackApplication from "./components/TrackApplication/TrackApplication";
+import Eligiblity from "./components/menu/Eligiblity";
+import feedback from "./components/menu/feedback";
+import policy from "./components/menu/policy";
 
 function App() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -23,7 +26,7 @@ function App() {
   return (
     <div className="App">
       <header className="header-main">
-        <div className="">
+        <div className="logo-container">
           <img src={Logo} alt="Logo Icon" className="logo-img" />
         </div>
         <div className="navbar-main">
@@ -31,12 +34,43 @@ function App() {
 
           <nav>
             <Link to="/" className="nav-link">
-              <>Home</>
+              Home
             </Link>
             <Link to="/LoginSignup" className="nav-link">
-              <>Login/Signup</>
+              Login/Signup
             </Link>
           </nav>
+
+          <div className="menu-container">
+            <button className="menu-button" onClick={toggleMenu}>
+              Menu
+            </button>
+            {menuOpen && (
+              <div className="menu-dropdown">
+                <Link to="/policy" className="menu-item">
+                  Policy and Guidelines
+                </Link>
+                <Link to="/" className="menu-item">
+                  Home
+                </Link>
+                <Link to="/LoginSignup" className="menu-item">
+                  Login/Signup
+                </Link>
+                <Link to="/Dashboard" className="menu-item">
+                  Dashboard
+                </Link>
+                <Link to="/TrackApplication" className="menu-item">
+                  Track Application
+                </Link>
+                <Link to="/Eligiblity" className="menu-item">
+                  Eligiblity
+                </Link>
+                <Link to="/feedback" className="menu-item">
+                  Feedback
+                </Link>
+              </div>
+            )}
+          </div>
         </div>
       </header>
       <Routes>

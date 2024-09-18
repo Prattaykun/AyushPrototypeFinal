@@ -1,181 +1,181 @@
 /* Container Styling */
 .container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    margin: 40px auto;
-    margin-top: 150px;
-    width: 600px;
-    background: #fff;
-    padding-bottom: 20px;
-    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
-    border-radius: 15px;
-    animation: fade-in 0.8s ease-in-out;
-  }
-  
-  /* Header Styling */
-  .header {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 9px;
-    width: 100%;
-    margin-top: 30px;
-  }
-  
-  .text {
-    color: #290875;
-    font-size: 48px;
-    font-weight: 700;
-    text-align: center;
-    animation: slide-down 0.8s ease-in-out;
-  }
-  
-  .underline {
-    width: 61px;
-    height: 6px;
-    background: #07cf9a;
-    border-radius: 9px;
-    transition: width 0.4s ease-in-out;
-  }
-  
-  .underline:hover {
-    width: 80px;
-  }
-  
-  /* Input Styling */
-  .inputs {
-    margin-top: 55px;
-    display: flex;
-    flex-direction: column;
-    gap: 25px;
-  }
-  
-  .input {
-    display: flex;
-    align-items: center;
-    margin: auto;
-    width: 480px;
-    height: 80px;
-    background: #f5f5f5;
-    border-radius: 8px;
-    padding-left: 20px;
-    box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.1);
-    transition: background-color 0.3s ease-in-out, transform 0.2s ease-in-out;
-  }
-  
-  .input img {
-    margin-right: 20px;
-  }
-  
-  .input input {
-    height: 50px;
-    width: 100%;
-    background: transparent;
-    border: none;
-    outline: none;
-    color: #f5f5f5;
-    font-size: 19px;
-  }
-  
-  .input:hover {
-    background-color: #ebebeb;
-    transform: translateY(-2px);
-  }
-  
-  .input:focus-within {
-    background-color: #e0e0e0;
-  }
-  
-  /* Forgot Password Styling */
-  .forgot-password {
-    padding-left: 62px;
-    margin-top: 27px;
-    color: #2918bb;
-    font-size: 18px;
-    text-align: left;
-  }
-  
-  .forgot-password span {
-    color: #1363df;
-    cursor: pointer;
-    transition: color 0.3s ease;
-  }
-  
-  .forgot-password span:hover {
-    color: #0b46a7;
-    text-decoration: underline;
-  }
-  
-  /* Submit Button Container */
-  .submit-container {
-    display: flex;
-    gap: 30px;
-    margin: 60px auto;
-  }
-  
-  /* Button Styling */
-  .submit, .Enter {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 220px;
-    height: 59px;
-    color: #fff;
-    border-radius: 50px;
-    font-size: 19px;
-    font-weight: 700;
-    cursor: pointer;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease, background-color 0.3s ease;
-  }
-  
-  /* Main Submit Button */
-  .submit {
-    background: #0f11a3;
-  }
-  
-  .submit:hover {
-    background-color: #1f23d6;
-    transform: translateY(-3px);
-  }
-  
-  .submit:active {
-    background-color: #000275;
-    transform: translateY(0);
-  }
-  
-  /* Secondary Button */
-  .Enter {
-    background: #00b4a5;
-  }
-  
-  .Enter:hover {
-    background-color: #00c9b7;
-    transform: translateY(-3px);
-  }
-  
-  .Enter:active {
-    background-color: #008c7e;
-    transform: translateY(0);
-  }
-  
-  /* Gray Button */
-  .gray {
-    background: #eaeaea;
-    color: #676767;
-  }
-  
-  .gray:hover {
-    background-color: #d3d3d3;
-    transform: translateY(-3px);
-  }
-  
-  .gray:active {
-    background-color: #b8b8b8;
-    transform: translateY(0);
-  }
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin: 40px auto;
+  margin-top: 150px;
+  width: 600px;
+  background: #fff;
+  padding-bottom: 20px;
+  box-shadow: none;
+  border-radius: 15px;
+  animation: fade-in 0.8s ease-in-out;
+}
+
+/* Header Styling */
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 9px;
+  width: 100%;
+  margin-top: 30px;
+}
+
+.text {
+  color: #290875;
+  font-size: 48px;
+  font-weight: 700;
+  text-align: center;
+  animation: slide-down 0.8s ease-in-out;
+}
+
+.underline {
+  width: 61px;
+  height: 6px;
+  background: #07cf9a;
+  border-radius: 9px;
+  transition: width 0.4s ease-in-out;
+}
+
+.underline:hover {
+  width: 80px;
+}
+
+/* Input Styling */
+.inputs {
+  margin-top: 55px;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.input {
+  display: flex;
+  align-items: center;
+  margin: auto;
+  width: 480px;
+  height: 80px;
+  background: #f5f5f5;
+  border-radius: 8px;
+  padding-left: 20px;
+  box-shadow: none; /* Remove the shadow for blending */
+  transition: background-color 0.3s ease-in-out, transform 0.2s ease-in-out;
+}
+
+.input img {
+  margin-right: 20px;
+}
+
+.input input {
+  height: 50px;
+  width: 100%;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: #000; /* Set input text color to black */
+  font-size: 19px;
+}
+
+.input:hover {
+  background-color: #ebebeb;
+  transform: translateY(-2px);
+}
+
+.input:focus-within {
+  background-color: #e0e0e0;
+}
+
+/* Forgot Password Styling */
+.forgot-password {
+  padding-left: 62px;
+  margin-top: 27px;
+  color: #2918bb;
+  font-size: 18px;
+  text-align: left;
+}
+
+.forgot-password span {
+  color: #1363df;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.forgot-password span:hover {
+  color: #0b46a7;
+  text-decoration: underline;
+}
+
+/* Submit Button Container */
+.submit-container {
+  display: flex;
+  gap: 30px;
+  margin: 60px auto;
+}
+
+/* Button Styling */
+.submit, .Enter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 220px;
+  height: 59px;
+  color: #fff;
+  border-radius: 50px;
+  font-size: 19px;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+/* Main Submit Button */
+.submit {
+  background: #0f11a3;
+}
+
+.submit:hover {
+  background-color: #1f23d6;
+  transform: translateY(-3px);
+}
+
+.submit:active {
+  background-color: #000275;
+  transform: translateY(0);
+}
+
+/* Secondary Button */
+.Enter {
+  background: #00b4a5;
+}
+
+.Enter:hover {
+  background-color: #00c9b7;
+  transform: translateY(-3px);
+}
+
+.Enter:active {
+  background-color: #008c7e;
+  transform: translateY(0);
+}
+
+/* Gray Button */
+.gray {
+  background: #eaeaea;
+  color: #676767;
+}
+
+.gray:hover {
+  background-color: #d3d3d3;
+  transform: translateY(-3px);
+}
+
+.gray:active {
+  background-color: #b8b8b8;
+  transform: translateY(0);
+}
   
   /* Animations */
   @keyframes fade-in {
@@ -199,4 +199,35 @@
       opacity: 1;
     }
   }
-  
+/* Password Container Styling */
+.password-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  max-width: 480px; /* Adjust to match your input width */
+}
+
+/* Input Field Styling */
+.input {
+  position: relative; /* Ensure positioning context for the eye icon */
+}
+
+/* Eye Icon Styling */
+.input svg {
+  position: absolute;
+  right: 15px; /* Space from the right edge of the input field */
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  width: 20px; /* Smaller size */
+  height: 20px; /* Smaller size */
+  color: #000; /* Icon color */
+}
+
+/* Ensure SVGs are responsive */
+.input svg {
+  width: 30px; /* Consistent smaller size */
+  height: 30px; /* Consistent smaller size */
+}
+

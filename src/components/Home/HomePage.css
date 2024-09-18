@@ -25,7 +25,7 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); /* Softer shadow */
   position: sticky;
   top: 0;
   z-index: 100;
@@ -36,10 +36,11 @@ header:hover {
   background-color: #388e3c;
 }
 
+/* Header Text Styling */
 h1 {
   font-size: 24px;
   margin: 0;
-  font-weight: 600;
+  font-weight: 700; /* Increased weight for emphasis */
   letter-spacing: 1px;
   animation: slide-in 1s ease forwards;
 }
@@ -51,23 +52,23 @@ h1 {
   margin-left: 20px;
   font-weight: 500;
   font-size: 18px;
-  transition: color 0.3s ease;
+  transition: color 0.3s ease, text-shadow 0.3s ease;
 }
 
 .nav-link:hover {
   color: #341bc0;
-  text-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+  text-shadow: 0 4px 12px rgba(0, 0, 0, 0.25); /* Enhanced shadow for hover */
 }
 
 /* Main Content Styling */
 main {
   flex-grow: 1;
-  padding: 40px;
-  max-width: 1200px;
+  padding: 80px 40px; /* Reduced padding for a balanced layout */
+  max-width: 1050px;
   margin: auto;
-  background: rgba(255, 255, 255, 0.9); /* Semi-transparent white background for readability */
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background: rgba(255, 255, 255, 0.95); /* Slightly less transparent for better readability */
+  border-radius: 12px; /* Slightly larger radius for a softer look */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* Softer shadow for depth */
   animation: page-fade-in 1s ease;
 }
 
@@ -75,43 +76,38 @@ main {
 section {
   margin-bottom: 40px;
 }
+
 /* Container for images */
 .image-container {
   display: flex;
   justify-content: center;
-  gap: 30px; /* Space between images */
+  gap: 20px; /* Slightly less space between images */
   padding: 20px;
-  margin: 50px 0;
+  margin: 40px 0; /* Reduced vertical margin */
 }
 
-/* General styling for images */
 .image-container img {
-  width: 150px; /* Larger size for visibility */
+  width: 320px; /* Slightly larger size for better visibility */
   height: auto; /* Maintain aspect ratio */
-  border-radius: 10px; /* Rounded corners */
-  box-shadow: 0 0 10px rgba(0, 255, 0, 0.7); /* Green glow */
-  /* Removed transition property */
+  border-radius: 12px; /* Increased border-radius for rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 255, 0, 0.3); /* Reduced green glow */
 }
-
-
-
 
 /* Container for the About Us section */
 .about-us-box {
   background-color: #ffffff; /* White background for the box */
   border: 1px solid #e0e0e0; /* Light gray border */
-  border-radius: 10px;
+  border-radius: 12px; /* Increased border-radius for a softer look */
   padding: 20px;
   max-width: 800px;
   margin: 30px auto;
-  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1); /* Subtle shadow */
-  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* Softer shadow for depth */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* Hover effect for the box */
 .about-us-box:hover {
-  transform: scale(1.03); /* Slightly enlarge the box */
-  box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.2); /* Increase shadow for depth effect */
+  transform: scale(1.02); /* Slightly enlarge the box */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Increased shadow for hover effect */
 }
 
 /* Heading Style */
@@ -121,8 +117,7 @@ section {
   margin-bottom: 15px;
   border-bottom: 2px solid #004d40;
   padding-bottom: 10px;
-  font-weight: bold;
-  /* Removed animation */
+  font-weight: 700; /* Increased weight for emphasis */
 }
 
 /* Paragraph Style */
@@ -145,22 +140,9 @@ section {
   color: #2e7d32; /* Change color on hover */
 }
 
-/* Animations */
-@keyframes fade-up {
-  0% {
-    transform: translateY(20px);
-    opacity: 0;
-  }
-  100% {
-    transform: translateY(0);
-    opacity: 1;
-  }
-}
-
-
 /* List Styling */
 ul {
-  list-style-type: square;
+  list-style-type: disc; /* More common bullet style */
   margin: 20px auto;
   padding: 0;
   max-width: 600px;
@@ -169,7 +151,7 @@ ul {
 }
 
 li {
-  margin-bottom: 10px;
+  margin-bottom: 12px; /* Slightly increased spacing */
   font-size: 16px;
   color: #555;
   transition: transform 0.3s ease, color 0.3s ease;
@@ -188,7 +170,7 @@ ol {
 }
 
 ol li {
-  margin-bottom: 10px;
+  margin-bottom: 12px; /* Slightly increased spacing */
   font-size: 16px;
   color: #555;
   transition: transform 0.3s ease, color 0.3s ease;
@@ -205,30 +187,30 @@ ol li:hover {
   color: white;
   padding: 12px 24px;
   border: none;
-  border-radius: 5px;
+  border-radius: 6px; /* Slightly larger radius */
   cursor: pointer;
   font-size: 16px;
   margin-top: 20px;
   transition: background-color 0.3s ease, transform 0.2s ease;
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Softer shadow */
 }
 
 .apply-btn:hover {
   background-color: #45a049;
-  transform: translateY(-3px) scale(1.02);
+  transform: translateY(-2px) scale(1.02); /* Reduced elevation on hover */
 }
 
 .apply-btn:active {
   background-color: #388e3c;
   transform: translateY(0);
-  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 /* Contact Us Section */
 .contact-us {
-  background-color: #f1f1f1;
+  background-color: #f9f9f9; /* Slightly lighter background */
   padding: 30px;
-  border-radius: 8px;
+  border-radius: 10px; /* Rounded corners for a softer look */
   max-width: 600px;
   margin: auto;
   transition: transform 0.4s ease, background-color 0.3s ease;
@@ -236,18 +218,18 @@ ol li:hover {
 }
 
 .contact-us:hover {
-  background-color: #e1e1e1;
+  background-color: #e0e0e0;
   transform: scale(1.02);
 }
 
 .contact-us h2 {
   margin-bottom: 20px;
   font-size: 24px;
-  font-weight: bold;
+  font-weight: 700; /* Increased weight for emphasis */
 }
 
 .contact-us p {
-  margin-bottom: 10px;
+  margin-bottom: 12px; /* Increased spacing */
   font-size: 16px;
   transition: color 0.3s ease;
 }
@@ -259,7 +241,7 @@ ol li:hover {
 .contact-us a {
   color: #2e7d32;
   text-decoration: none;
-  font-weight: bold;
+  font-weight: 700; /* Increased weight for emphasis */
   transition: color 0.3s ease;
 }
 
@@ -278,7 +260,7 @@ footer {
   position: relative;
   bottom: 0;
   width: 100%;
-  box-shadow: 0px -2px 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
   animation: slide-in-bottom 1s ease forwards;
 }
 
@@ -351,4 +333,95 @@ footer p {
     transform: translateY(0);
     opacity: 1;
   }
+}
+
+.heading {
+  text-align: center; /* Center align the heading */
+  padding: 40px 20px; /* Add padding around the heading */
+  background: #ffffff; /* White background for contrast */
+  border-radius: 20px; /* Increased border-radius for a more prominent look */
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2); /* More pronounced shadow for emphasis */
+  margin: 40px auto; /* Center align with margin */
+  max-width: 800px; /* Max width of the heading container */
+  animation: fade-in-up 1s ease-out; /* Animation for entrance effect */
+}
+
+.heading h1 {
+  font-size: 36px; /* Increased font size for impact */
+  font-weight: 700; /* Bold font weight */
+  color: #004d40; /* Deep green color for the text */
+  margin: 0;
+  letter-spacing: 2px; /* Increased letter spacing */
+  text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.25); /* Subtle text shadow for depth */
+  line-height: 1.4; /* Line height for readability */
+  animation: fade-in-up 1s ease-out; /* Animation for entrance effect */
+}
+
+/* Animations */
+@keyframes fade-in-up {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+/* New Heading Styling */
+.welcome-heading {
+  text-align: center; /* Center align the heading */
+  padding: 40px 20px; /* Add padding around the heading */
+  background: linear-gradient(135deg, #7f8c4f, #a3b37d); /* Herbal green gradient background */
+  border-radius: 20px; /* Rounded corners for a more pronounced look */
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2); /* More pronounced shadow for emphasis */
+  margin: 40px auto; /* Center align with margin */
+  max-width: 1000px; /* Max width of the heading container */
+}
+
+.welcome-heading h1 {
+  font-size: 50px; /* Larger font size for impact */
+  font-weight: 700; /* Bold font weight */
+  color: #ffffff; /* White color for text */
+  margin: 0;
+  letter-spacing: 2px; /* Increased letter spacing for readability */
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.8), /* Soft white glow */
+               0 0 20px rgba(100, 67, 178, 0.6), /* Stronger white glow */
+               0 0 30px rgba(0, 128, 0, 0.5); /* Herbal green glow */
+  line-height: 1.4; /* Line height for readability */
+  animation: fade-in-up 1s ease-out; /* Animation for entrance effect */
+}
+
+/* Animations */
+@keyframes fade-in-up {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Full-Page Watermark Styling */
+.watermark {
+  position: fixed; /* Fixes the watermark in place */
+  top: 0; /* Align to the top of the viewport */
+  left: 0; /* Align to the left of the viewport */
+  width: 100vw; /* Full viewport width */
+  height: 100vh; /* Full viewport height */
+  z-index: -1; /* Places the watermark behind all other content */
+  pointer-events: none; /* Ensures the watermark does not block interactions */
+  opacity: 0.1; /* Adjust opacity for subtle visibility */
+  display: flex; /* Center the image */
+  align-items: center; /* Center vertically */
+  justify-content: center; /* Center horizontally */
+}
+
+.watermark img {
+  width: 100%; /* Scale the image to cover the container */
+  height: 100%; /* Scale the image to cover the container */
+  object-fit: cover; /* Ensure the image covers the area without distortion */
+  mix-blend-mode: multiply; /* Blend the image with the background */
 }

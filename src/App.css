@@ -210,92 +210,71 @@ button:active {
 }
 
 .logo-img{
-  height: 15vh;
+  height: 12vh;
   padding-left: 1vw;
 }
-/* 3-dot menu styling */
-/* 3-dot menu styling */
-.menu-icon {
-  position: absolute;
-  top: 20px;
-  right: 20px;
+
+
+.header-main {
   display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  width: 25px; /* Slightly larger for better visibility */
-  height: 25px;
-  cursor: pointer;
-  z-index: 1100; /* Ensure it's above other elements */
+  justify-content: space-between; /* Ensures space between logo and menu */
+  align-items: center;
+  padding: 10px 30px; 
+  background-color: #004d40;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 100;
 }
 
-.dot {
-  width: 5px;
-  height: 5px;
-  background-color: #333;
-  border-radius: 50%;
-  transition: background-color 0.3s ease; /* Smooth color transition */
-}
-
-.menu-icon:hover .dot {
-  background-color: #07cf9a; /* Color change on hover */
-}
-
-/* Dropdown Menu Styling */
-.dropdown-menu {
+.menu-container {
   position: absolute;
-  top: 50px;
-  right: 20px;
-  background-color: #fff;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  top: 10px; /* Adjust to position the container vertically */
+  right:100px; /* This will move the container 20px from the right edge of the screen */
+  height: 20px; /* Set the height of the container */
+}
+
+
+.menu-button {
+  background-color: #26a69a;
+  color: #ffffff;
+  border: none;
+  padding: 8px 20px;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.menu-button:hover {
+  background-color: #00796b;
+}
+
+
+.menu-dropdown {
+  position:absolute;
+  top: 120%;
+  right: 20px; /* Adjusted to match the menu button spacing */
+  background-color: #ffffff;
+  border: none;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
   z-index: 1000;
-  padding: 10px;
-  opacity: 0;
-  transform: scale(0.95);
-  transform-origin: top right;
-  transition: opacity 0.3s ease, transform 0.3s ease; /* Add transition for smooth appearance */
-  pointer-events: none;
+  min-width: 200px;
 }
 
-.dropdown-menu.active {
-  opacity: 1;
-  transform: scale(1);
-  pointer-events: auto;
-}
-
-.dropdown-menu ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-}
-
-.dropdown-menu ul li {
-  margin: 10px 0;
-}
-
-.dropdown-menu ul li a {
-  text-decoration: none;
-  color: #333;
-  font-size: 14px;
-  padding: 8px 12px;
+.menu-item {
   display: block;
+  padding: 12px 20px;
+  text-decoration: none;
+  color: #004d40;
+  font-weight: 500;
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-.dropdown-menu ul li a:hover {
-  background-color: #07cf9a;
-  color: #fff;
-}
-
-/* Add responsive styling for smaller screens */
-@media (max-width: 768px) {
-  .menu-icon {
-    top: 15px;
-    right: 15px;
-  }
-  .dropdown-menu {
-    top: 40px;
-    right: 15px;
-  }
+.menu-item:hover {
+  background-color: #e0f2f1;
+  color: #00796b;
 }
