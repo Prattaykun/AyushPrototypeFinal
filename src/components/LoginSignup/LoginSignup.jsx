@@ -7,6 +7,8 @@ import google_icon from "../Assets/google.png"; // Assuming you have a Google lo
 import { Link, useNavigate } from "react-router-dom";
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfile, GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 import { app } from "../../firebase";
+import { Eye, EyeOff } from "lucide-react";
+
 const auth = getAuth(app);
 
 function LoginSignup() {
@@ -14,8 +16,10 @@ function LoginSignup() {
 
   const [name, setName] = useState(""); // State for name
   const [email, setEmail] = useState("");
-  const [password, setPassword] = useState(""); // State for password
-
+  const [password, setPassword] = useState(true); // State for password
+  const handleClick = () => {
+    setPassword(!password);
+      };
   const navigate = useNavigate(); // useNavigate hook for redirecting
 
   const createUser = () => {
@@ -89,22 +93,37 @@ function LoginSignup() {
             required
           />
         </div>
-        <div className="input">
+        <div className="password-container input">
           <img src={password_icon} alt="" />
           <input
-            type="password"
+            className="input"
+            type={password ? "password" : "text"}
             placeholder="Password"
             onChange={(e) => setPassword(e.target.value)}
             value={password}
             required
           />
+           {password ? (
+            <Eye onClick={handleClick} />
+          ) : (
+            <EyeOff onClick={handleClick} />
+          )}
         </div>
         {action === "Login" ? (
           <div></div>
         ) : (
-          <div className="input">
+          <div className="password-container input">
             <img src={password_icon} alt="" />
-            <input type="password" placeholder="Re-Enter Password" required />
+            <input
+            className="input"
+            type={password ? "password" : "text"}
+             placeholder="Re-Enter Password" required 
+             />
+             {password ? (
+              <Eye onClick={handleClick} />
+            ) : (
+              <EyeOff onClick={handleClick} />
+            )}
           </div>
         )}
       </div>

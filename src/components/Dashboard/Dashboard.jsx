@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import "./Dashboard.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { getAuth, signOut } from "firebase/auth";
+import logoutIcon from "../Assets/logout.png"; // Ensure you have the logout.png image in the Assets folder
 
 export default function StartupDashboard() {
   const [startupData, setStartupData] = useState({
@@ -15,8 +17,22 @@ export default function StartupDashboard() {
       "InnoTech Solutions is a cutting-edge startup focused on developing AI-powered solutions for small businesses. Our mission is to democratize access to advanced technology and help local businesses thrive in the digital age.",
   });
 
+  const auth = getAuth(); // Firebase authentication instance
+  const navigate = useNavigate(); // For navigation after logout
+
+  // Logout function
+  const handleLogout = () => {
+    signOut(auth)
+      .then(() => {
+        console.log("User logged out successfully");
+        navigate("/LoginSignup"); // Redirect to login page after logout
+      })
+      .catch((error) => {
+        console.error("Error logging out: ", error);
+      });
+  };
+
   const handleEdit = () => {
-    // In a real application, this would open a form to edit the startup information
     console.log("Edit startup information");
   };
 
@@ -69,11 +85,32 @@ export default function StartupDashboard() {
       <h1 style={{ fontSize: "24px", marginBottom: "20px" }}>
         Startup Dashboard
       </h1>
+
+      {/* Logout Button
+      <div style={{ textAlign: "right", marginBottom: "20px" }}>
+        <button
+          onClick={handleLogout}
+          style={{
+            background: "none",
+            border: "none",
+            cursor: "pointer",
+            padding: "0",
+          }}
+        >
+          <img
+            src={logoutIcon}
+            alt="Logout"
+            style={{ width: "40px", height: "40px" }}
+          />
+        </button>
+      </div> */}
+
       <div style={flexContainerStyle}>
         <div style={{ ...cardStyle, flex: 2 }}>
           <h2 style={{ fontSize: "20px", marginBottom: "10px" }}>
             Startup Information
           </h2>
+          
           <div
             style={{
               display: "flex",
@@ -96,6 +133,7 @@ export default function StartupDashboard() {
             >
               {startupData.companyName.substring(0, 2).toUpperCase()}
             </div>
+            
             <div>
               <h3 style={{ fontSize: "18px", margin: "0" }}>
                 {startupData.companyName}
@@ -104,6 +142,25 @@ export default function StartupDashboard() {
                 Founded by {startupData.founderName}
               </p>
             </div>
+            {/* Logout Button */}
+      <div style={{ textAlign: "right", marginBottom: "20px" }}>
+        <button
+          onClick={handleLogout}
+          style={{
+            background: "none",
+            border: "none",
+            cursor: "pointer",
+            padding: "100",
+            alignItems: "left",
+          }}
+        >
+          <img
+            src={logoutIcon}
+            alt="Logout"
+            style={{ width: "25px", height: "25px" }}
+          />
+        </button>
+      </div>
           </div>
           <table style={tableStyle}>
             <tbody>
@@ -157,9 +214,7 @@ export default function StartupDashboard() {
         </div>
       </div>
       <div style={cardStyle}>
-        <h2 style={{ fontSize: "20px", marginBottom: "10px" }}>
-          Quick Actions
-        </h2>
+        <h2 style={{ fontSize: "20px", marginBottom: "10px" }}>Quick Actions</h2>
         <div
           style={{
             display: "grid",
