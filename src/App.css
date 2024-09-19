@@ -131,7 +131,7 @@ button:active {
 .title-container {
   text-align: center;
   margin: 50px 0;
-  border: 5px solid transparent;
+  border: 10px solid transparent;
   border-image: linear-gradient(to right, #ff9933, #ffffff, #138808) 1;
   padding: 15px;
   display: inline-block;
@@ -220,7 +220,7 @@ button:active {
   justify-content: space-between; /* Ensures space between logo and menu */
   align-items: center;
   padding: 10px 30px; 
-  background-color: #004d40;
+  background-color: #138808;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   position: sticky;
   top: 0;
