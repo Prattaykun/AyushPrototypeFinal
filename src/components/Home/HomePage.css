@@ -427,3 +427,37 @@ footer p {
   object-fit: cover; /* Ensure the image covers the area without distortion */
   mix-blend-mode: multiply; /* Blend the image with the background */
 }
+input[type="number"],
+select {
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+  color: #333;
+  background-color: #fff;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  outline-style: solid;
+}
+
+input[type="number"]:focus,
+select:focus {
+  border-color: #034006;
+  box-shadow: 0 0 8px rgba(46, 125, 50, 0.3); /* Green shadow when focused */
+}
+
+select {
+  appearance: none; /* Removes default OS-specific styles for dropdowns */
+  background: url("data:image/svg+xml;charset=US-ASCII,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='10' viewBox='0 0 10 10'%3E%3Cpolygon fill='%23464646' points='0,0 5,5 10,0'/%3E%3C/svg%3E")
+    no-repeat right 10px center; /* Custom dropdown arrow */
+  background-size: 12px; /* Size of the arrow */
+}
+
+input[type="number"]::placeholder,
+select {
+  color: #888; /* Light gray for placeholder text */
+}
+
+select option {
+  color: #333; /* Text color of the options */
+  background-color: #fff;
+}

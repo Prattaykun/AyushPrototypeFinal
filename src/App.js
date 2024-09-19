@@ -11,13 +11,14 @@ import ChatBoticon from "./components/ChatBotIcon/ChatBotIcon";
 import { Link } from "react-router-dom";
 import Logo from "./components/Assets/favicon.png";
 import TrackApplication from "./components/TrackApplication/TrackApplication";
-import Eligiblity from "./components/menu/Eligiblity";
+import Eligibility from "./components/menu/Eligibility";
 import feedback from "./components/menu/feedback";
 import policy from "./components/menu/policy";
 
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 import { app } from "./firebase";
 import ProtectedRoute from "./components/ProtectedRoute"; // Import ProtectedRoute
+import Feedback from "./components/menu/feedback";
 
 
 
@@ -88,8 +89,8 @@ function App() {
                 <Link to="/TrackApplication" className="menu-item">
                   Track Application
                 </Link> */}
-                <Link to="/Eligiblity" className="menu-item">
-                  Eligiblity
+                <Link to="/Eligibility" className="menu-item">
+                  Eligibility
                 </Link>
                 <Link to="/feedback" className="menu-item">
                   Feedback
@@ -105,6 +106,8 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/Dashboard" element={<ProtectedRoute><Dashboard /></ProtectedRoute>} />
         <Route path="/Dashboard" element={<Dashboard />} />
+        <Route path="/Eligibility" element={<Eligibility />} />
+        <Route path="/feedback" element={<Feedback />} />
         <Route path="/LoginSignup" element={<LoginSignup />} />
         <Route path="/RegistrationForm1" element={<RegistrationForm1 />} />
         <Route path="/RegistrationForm2" element={<RegistrationForm2 />} />
