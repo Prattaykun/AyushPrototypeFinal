@@ -12,12 +12,12 @@ import { Link } from "react-router-dom";
 import Logo from "./components/Assets/favicon.png";
 import TrackApplication from "./components/TrackApplication/TrackApplication"; // Ensure this is the correct path
 import Eligibility from "./components/menu/Eligibility";
-import feedback from "./components/menu/feedback";
+import Feedback from "./components/menu/Feedback";
 import policy from "./components/menu/policy";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 import { app } from "./firebase";
 import ProtectedRoute from "./components/ProtectedRoute"; // Import ProtectedRoute
-import Feedback from "./components/menu/feedback";
+// import Feedback from "./components/menu/Feedback";
 
 const auth = getAuth(app);
 
@@ -29,25 +29,27 @@ function App() {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
       if (currentUser) {
         setUser(currentUser);
-
-        // Only navigate to dashboard if not already on a protected route
-        if (location.pathname === "/" || location.pathname === "/LoginSignup") {
+  
+        // Navigate to the dashboard only if the current route is "/" or "/LoginSignup"
+        if ( location.pathname === "/LoginSignup") {
           navigate("/Dashboard");
         }
       } else {
-        // If logged out, navigate to LoginSignup
         setUser(null);
-        if (location.pathname !== "/LoginSignup") {
-          navigate("/");
+  
+        // Navigate to LoginSignup only if not already on the allowed routes (Login, Feedback, Eligibility)
+        const allowedPaths = ["/", "/LoginSignup", "/Eligibility", "/Feedback"];
+        if (!allowedPaths.includes(location.pathname)) {
+          navigate("/LoginSignup");
         }
+  
         console.log("You are Logged Out!");
       }
     });
-
-    // Clean up the subscription on unmount
+  
     return () => unsubscribe();
   }, [navigate, location.pathname]); // Added location.pathname as a dependency
-
+  
 
   const [menuOpen, setMenuOpen] = useState(false);
 
@@ -86,12 +88,9 @@ function App() {
                 <Link to="/LoginSignup" className="menu-item">
                   Login/Signup
                 </Link>
-                <Link to="/Eligibility" className="menu-item">
-                  Eligibility
-                </Link>
-                <Link to="/feedback" className="menu-item">
-                  Feedback
-                </Link>
+                <Link to="/Feedback" className="menu-item">Feedback</Link>
+                 <Link to="/Eligibility" className="menu-item">Eligibility</Link>
+
               </div>
             )}
           </div>
@@ -101,8 +100,8 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/Dashboard" element={<ProtectedRoute><Dashboard /></ProtectedRoute>} />
-        <Route path="/Eligibility" element={<Eligibility />} />
-        <Route path="/feedback" element={<Feedback />} />
+        <Route path="/Eligibility" element={<ProtectedRoute><Eligibility /></ProtectedRoute>} />
+        <Route path="/Feedback" element={<ProtectedRoute><Feedback/></ProtectedRoute>} />
         <Route path="/LoginSignup" element={<LoginSignup />} />
         <Route path="/RegistrationForm1" element={<ProtectedRoute><RegistrationForm1 /></ProtectedRoute>} />
         <Route path="/RegistrationForm2" element={<ProtectedRoute><RegistrationForm2 /></ProtectedRoute>} />
