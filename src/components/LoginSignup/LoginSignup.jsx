@@ -40,6 +40,7 @@ function LoginSignup() {
       })
       .then(() => {
         alert("Success! User created with name: " + name);
+        navigate("/RegistrationForm1"); // Redirect to RegistrationForm1 after sign-up
       })
       .catch((error) => {
         alert(error.message); // Handle errors
@@ -63,7 +64,13 @@ function LoginSignup() {
     signInWithPopup(auth, provider)
       .then((result) => {
         console.log("Google Sign-In Success");
-        navigate("/Dashboard"); // Redirect to dashboard on successful login
+
+        // Differentiate between login and sign-up for Google
+        if (action === "Sign Up") {
+          navigate("/RegistrationForm1"); // Redirect to RegistrationForm1 after Google sign-up
+        } else {
+          navigate("/Dashboard"); // Redirect to dashboard on Google login
+        }
       })
       .catch((error) => {
         console.log(error);
@@ -157,6 +164,13 @@ function LoginSignup() {
             >
               Sign up
             </div>
+             
+            <div
+              className="google-signin-button"
+              onClick={signinWithGoogle} // Call Google sign-in on click
+            >
+              <img src={google_icon} alt="Google Logo" /> Sign in
+            </div>
 
             <div
               className={action === "Sign Up" ? "submit gray" : "submit"}
@@ -165,12 +179,7 @@ function LoginSignup() {
               Login
             </div>
 
-            <div
-              className="google-signin-button"
-              onClick={signinWithGoogle} // Call Google sign-in on click
-            >
-              <img src={google_icon} alt="Google Logo" /> Google
-            </div>
+           
           </>
         )}
 
@@ -181,6 +190,13 @@ function LoginSignup() {
               onClick={() => createUser()} // Call createUser on click
             >
               Sign up
+            </div>
+
+            <div
+              className="google-signin-button"
+              onClick={signinWithGoogle} // Call Google sign-up on click
+            >
+              <img src={google_icon} alt="Google Logo" /> Sign up
             </div>
 
             <div

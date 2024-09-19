@@ -1,12 +1,17 @@
 import React, { useState } from "react";
 import { useLocation } from "react-router-dom";
 import "./RegistrationForm.css";
+import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage";
+import { doc, setDoc } from "firebase/firestore";
+import { db,app } from "../../firebase";
+import { useAuth } from "../hooks/useAuth"; // Custom hook to get the current authenticated user
 
+const storage = getStorage(app); // Initialize Firebase Storage
 
 const RegistrationForm3 = () => {
   const [formData, setFormData] = useState({});
   const location = useLocation();
-
+  const user = useAuth();
   // Function to parse query parameters
   const getQueryParams = (search) => {
     return new URLSearchParams(search);
@@ -23,11 +28,64 @@ const RegistrationForm3 = () => {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("Registered:", formData);
-    // Handle form submission, API calls, etc.
+    
+    // Log the user to ensure it's defined
+    console.log("Current User: ", user);
+  
+    if (!user) {
+      alert("No user is logged in.");
+      return;
+    }
+  
+    try {
+      const uploadedFiles = {};
+  
+      const uploadPromises = Object.keys(formData).map(async (key) => {
+        const file = formData[key];
+  
+        // Check if the file exists before uploading
+        if (!file) {
+          throw new Error(`No file selected for ${key}`);
+        }
+  
+        const fileRef = ref(storage, `users/${user.uid}/${key}`);
+  
+        console.log("Uploading file for key:", key, "File:", file);
+  
+        // Proceed with the file upload
+        await uploadBytes(fileRef, file);
+  
+        // Get download URL
+        const downloadURL = await getDownloadURL(fileRef);
+        uploadedFiles[key] = downloadURL; // Store the file URLs in the object
+      });
+  
+      // Wait for all files to be uploaded
+      await Promise.all(uploadPromises);
+  
+      // Store the URLs in Firestore
+      await setDoc(
+        doc(db, "users", user.uid),
+        {
+          ...uploadedFiles,
+          step: 3, // Indicate that step 3 is completed
+        },
+        { merge: true }
+      );
+  
+      // Alert user upon success
+      alert("Documents uploaded and saved successfully");
+    } catch (error) {
+      console.error("Error uploading documents:", error);
+      alert("Error uploading documents: " + error.message); // Alert the error as well
+    }
   };
+  
+  
+  
+  
 
   return (
     <div className="form-container">

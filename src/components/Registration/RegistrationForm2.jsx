@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import "./RegistrationForm.css";
-import { Link, redirect } from "react-router-dom";
+import { Link, redirect,useNavigate } from "react-router-dom";
+import { doc, setDoc } from "firebase/firestore";
+import { useAuth } from "../hooks/useAuth"; // Custom hook to get the current authenticated user
+import { db } from "../../firebase"; // Import Firestore instance
 
 const RegistrationForm2 = () => {
   const themes = [
@@ -11,6 +14,8 @@ const RegistrationForm2 = () => {
     "Siddha",
     "Homeopathy",
   ];
+  const navigate = useNavigate();
+  const user = useAuth();
   const [formData, setFormData] = useState({
     name: "",
     parentName: "",
@@ -32,15 +37,26 @@ const RegistrationForm2 = () => {
     // nextStep();
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    return redirect(`/RegistrationForm3?members=${formData.members}`);
+    try {
+      // Update the existing user document in Firestore
+      await setDoc(doc(db, "users", user.uid), {
+        ...formData, // Save the form 2 data
+        step: 2,
+      }, { merge: true }); // Use merge to avoid overwriting previous data
+      navigate(`/RegistrationForm3?members=${formData.members}`);
+    } catch (error) {
+      console.error("Error saving form data:", error);
+    }
   };
 
   return (
     <div className="form-container">
       <h2>Startup Details</h2>
-      <form action="/RegistrationForm3">
+      <form action="/RegistrationForm3"
+      onSubmit={handleSubmit}
+      >
         <div className="input-group">
           <label>Title of the Startup</label>
           <input
@@ -170,7 +186,8 @@ const RegistrationForm2 = () => {
             <div className="input-group">
               <label>Mobile Number</label>
               <input
-                type="tel"
+                type="number"
+                maxLength="10"
                 name={`member${idx}_mobile`}
                 value={formData[`member${idx}_mobile`]}
                 onChange={handleChange}

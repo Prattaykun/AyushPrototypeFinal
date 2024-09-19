@@ -104,9 +104,9 @@ function App() {
         <Route path="/Eligibility" element={<Eligibility />} />
         <Route path="/feedback" element={<Feedback />} />
         <Route path="/LoginSignup" element={<LoginSignup />} />
-        <Route path="/RegistrationForm1" element={<RegistrationForm1 />} />
-        <Route path="/RegistrationForm2" element={<RegistrationForm2 />} />
-        <Route path="/RegistrationForm3" element={<RegistrationForm3 />} />
+        <Route path="/RegistrationForm1" element={<ProtectedRoute><RegistrationForm1 /></ProtectedRoute>} />
+        <Route path="/RegistrationForm2" element={<ProtectedRoute><RegistrationForm2 /></ProtectedRoute>} />
+        <Route path="/RegistrationForm3" element={<ProtectedRoute><RegistrationForm3 /></ProtectedRoute>} />
         <Route path="/TrackApplication" element={<ProtectedRoute><TrackApplication /></ProtectedRoute>} />
       </Routes>
 
