@@ -38,7 +38,7 @@ function App() {
         // If logged out, navigate to LoginSignup
         setUser(null);
         if (location.pathname !== "/LoginSignup") {
-          navigate("/LoginSignup");
+          navigate("/");
         }
         console.log("You are Logged Out!");
       }
