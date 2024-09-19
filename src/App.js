@@ -17,6 +17,8 @@ import policy from "./components/menu/policy";
 
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 import { app } from "./firebase";
+import ProtectedRoute from "./components/ProtectedRoute"; // Import ProtectedRoute
+
 
 
 const auth = getAuth(app);
@@ -101,6 +103,7 @@ function App() {
       
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/Dashboard" element={<ProtectedRoute><Dashboard /></ProtectedRoute>} />
         <Route path="/Dashboard" element={<Dashboard />} />
         <Route path="/LoginSignup" element={<LoginSignup />} />
         <Route path="/RegistrationForm1" element={<RegistrationForm1 />} />
