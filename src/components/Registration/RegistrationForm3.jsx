@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation,useNavigate } from "react-router-dom";
 import "./RegistrationForm.css";
 import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage";
 import { doc, setDoc } from "firebase/firestore";
@@ -12,6 +12,7 @@ const RegistrationForm3 = () => {
   const [formData, setFormData] = useState({});
   const location = useLocation();
   const user = useAuth();
+  const navigate = useNavigate();
   // Function to parse query parameters
   const getQueryParams = (search) => {
     return new URLSearchParams(search);
@@ -77,6 +78,7 @@ const RegistrationForm3 = () => {
   
       // Alert user upon success
       alert("Documents uploaded and saved successfully");
+      navigate("/Dashboard");
     } catch (error) {
       console.error("Error uploading documents:", error);
       alert("Error uploading documents: " + error.message); // Alert the error as well
@@ -90,7 +92,9 @@ const RegistrationForm3 = () => {
   return (
     <div className="form-container">
       <h2>Upload Documents</h2>
-      <form onSubmit={handleSubmit}>
+      <form 
+      onSubmit={handleSubmit}
+      >
         {/* Dynamically generate ID proof upload fields */}
         {[...Array(membersCount)].map((_, idx) => (
           <div className="input-group" key={idx}>

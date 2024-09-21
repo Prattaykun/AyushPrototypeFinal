@@ -2,16 +2,16 @@ import React, { useState } from "react";
 import "../Home/HomePage.css"; // Import the existing CSS for consistent styling
 
 const Eligibility = () => {
-  const [age, setAge] = useState("");
   const [startupAge, setStartupAge] = useState("");
   const [location, setLocation] = useState("");
+  const [turnover, setTurnover] = useState("");
   const [eligibility, setEligibility] = useState(null);
 
   // Function to check eligibility
   const checkEligibility = () => {
     const isEligible =
-      parseInt(age) >= 12 &&
       parseInt(startupAge) < 10 &&
+      parseFloat(turnover) <= 10000 &&
       location === "India";
     setEligibility(isEligible);
   };
@@ -20,16 +20,6 @@ const Eligibility = () => {
     <div className="eligibility-container">
       <h2>Check Your Eligibility</h2>
       <div className="input-group">
-        <label htmlFor="age">Your Age:</label>
-        <input
-          type="number"
-          id="age"
-          value={age}
-          onChange={(e) => setAge(e.target.value)}
-          placeholder="Enter your age"
-        />
-      </div>
-      <div className="input-group">
         <label htmlFor="startupAge">Startup Age (in years):</label>
         <input
           type="number"
@@ -37,6 +27,16 @@ const Eligibility = () => {
           value={startupAge}
           onChange={(e) => setStartupAge(e.target.value)}
           placeholder="Enter startup age"
+        />
+      </div>
+      <div className="input-group">
+        <label htmlFor="turnover">Startup Yearly Turnover (in INR Lakhs):</label>
+        <input
+          type="number"
+          id="turnover"
+          value={turnover}
+          onChange={(e) => setTurnover(e.target.value)}
+          placeholder="Enter startup turnover"
         />
       </div>
       <div className="input-group">
@@ -55,7 +55,7 @@ const Eligibility = () => {
           {/* Add more country options as needed */}
         </select>
       </div>
-      <button className="apply-btn" onClick={checkEligibility}>
+      <button className="check-elg" onClick={checkEligibility}>
         Check Eligibility
       </button>
 

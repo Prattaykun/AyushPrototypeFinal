@@ -461,3 +461,172 @@ select option {
   color: #333; /* Text color of the options */
   background-color: #fff;
 }
+/* General styles for the result container */
+.result {
+  margin-top: 20px;
+  padding: 15px;
+  border-radius: 8px;
+  font-size: 18px;
+  text-align: center;
+  font-weight: bold;
+  animation: zoomOut 1s ease-out forwards;
+  transform-origin: center;
+}
+
+/* Ayurvedic-themed eligible style */
+.eligible {
+  background-color: #e6f4ea; /* Soft herbal green background */
+  color: #3b5738; /* Deep herbal green text */
+  border: 2px solid #b4d8a6; /* Herbal green border */
+  box-shadow: 0 4px 6px rgba(59, 87, 56, 0.1); /* Subtle shadow */
+}
+
+/* Ayurvedic-themed not eligible style */
+.not-eligible {
+  background-color: #fae3d9; /* Soft clay/red earthy background */
+  color: #7a2e1b; /* Deep reddish-brown text */
+  border: 2px solid #f1b8a8; /* Reddish-brown border */
+  box-shadow: 0 4px 6px rgba(122, 46, 27, 0.1); /* Subtle shadow */
+}
+
+/* Animation for zoom out effect */
+@keyframes zoomOut {
+  0% {
+    transform: scale(1.2);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+/* Check Eligibility button styles */
+.check-elg {
+  background-color: #8bc34a; /* Herbal green background */
+  color: white; /* White text for contrast */
+  border: 2px solid #689f38; /* Darker green border */
+  border-radius: 8px;
+  padding: 10px 20px;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  text-transform: uppercase;
+  outline: none;
+  width: 25%; /* Button width */
+  display: block;
+  margin: 20px auto; /* Centers the button horizontally */
+}
+
+/* Hover and active state for button */
+.check-elg:hover {
+  background-color: #689f38; /* Darker green on hover */
+  transform: scale(1.05); /* Slight zoom in */
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2); /* Slightly deeper shadow */
+}
+
+.check-elg:active {
+  transform: scale(0.98); /* Slight zoom out on click */
+}
+
+/* Beautiful Ayurvedic ripple effect */
+.check-elg::after {
+  content: '';
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.6) 10%, transparent 10.01%);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 0%;
+  transition: background-size 0.5s ease-out;
+  border-radius: 8px;
+}
+
+.check-elg:hover::after {
+  background-size: 300%; /* Ripple animation */
+}
+
+/* Position the button within the document flow */
+.check-elg {
+  position: relative;
+  overflow: hidden;
+}
+/* Container for input groups */
+.input-group {
+  margin-bottom: 20px; /* Spacing between input fields */
+  width: 80%; /* Limit the width so it's not 100% of the screen */
+  max-width: 400px; /* Max width to keep inputs compact */
+  margin-left: auto;
+  margin-right: auto;
+  text-align: left;
+  font-family: 'Arial', sans-serif; /* Use a clean, readable font */
+}
+
+/* Styling for labels */
+.input-group label {
+  display: block;
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 8px;
+  color: #4f772d; /* Herbal green color for Ayurvedic feel */
+}
+
+/* Styling for input boxes */
+.input-group input,
+.input-group select {
+  width: 100%; /* Ensures inputs take up available space */
+  padding: 10px;
+  border-radius: 6px;
+  border: 2px solid #689f38; /* Darker herbal green border */
+  background-color: #f0f4e3; /* Light earthy green background */
+  font-size: 16px;
+  color: #333;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Styling for placeholder */
+.input-group input::placeholder {
+  color: #999;
+  font-style: italic;
+}
+
+/* Styling for select dropdown */
+.input-group select {
+  appearance: none; /* Remove default select arrow */
+  background-image: url('data:image/svg+xml;base64,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-down"><polyline points="6 9 12 15 18 9"></polyline></svg>'); /* Custom dropdown arrow */
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  background-size: 16px;
+  padding-right: 30px;
+}
+
+/* Hover and focus effects */
+.input-group input:focus,
+.input-group select:focus {
+  border-color: #4f772d; /* Highlight input border on focus */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Slightly deeper shadow */
+  outline: none; /* Remove the default outline */
+}
+
+/* Ayurvedic animation for input appearance */
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Apply animation to each input group */
+.input-group {
+  animation: fadeInUp 0.6s ease-in-out both;
+}
