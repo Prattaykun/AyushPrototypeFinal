@@ -3,7 +3,7 @@ import "./App.css";
 import Dashboard from "./components/Dashboard/Dashboard";
 import LoginSignup from "./components/LoginSignup/LoginSignup";
 import RegistrationForm1 from "./components/Registration/RegistrationForm1";
-import { BrowserRouter as Router, Routes, Route, useNavigate,useLocation } from "react-router-dom";
+import { Routes, Route, useNavigate,useLocation } from "react-router-dom";
 import RegistrationForm2 from "./components/Registration/RegistrationForm2";
 import RegistrationForm3 from "./components/Registration/RegistrationForm3";
 import Home from "./components/Home/HomePage";
