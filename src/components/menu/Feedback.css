@@ -1,88 +1,90 @@
 /* Feedback Container */
-.feedback-container {
-    max-width: 600px;
-    margin: 50px auto;
-    padding: 20px;
-    background: rgba(255, 255, 255, 0.95); /* White with slight transparency */
-    border-radius: 12px;
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* Soft shadow */
-    text-align: center;
-    animation: page-fade-in 1s ease;
-  }
-  
-  .feedback-container h2 {
-    font-size: 28px;
-    margin-bottom: 20px;
-    color: #2e7d32; /* Green color for heading */
-  }
-  
-  /* Feedback Success */
-  .feedback-success {
-    color: #2e7d32;
-    font-size: 20px;
-    font-weight: 500;
-  }
-  
-  /* Input Group Styling */
-  .input-group {
-    margin-bottom: 20px;
-    text-align: left;
-  }
-  
-  .input-group label {
-    font-weight: 500;
-    margin-bottom: 8px;
-    font-size: 16px;
-    color: #2e7d32;
-  }
-  
-  input[type="text"],
-  input[type="email"],
-  textarea {
-    width: 100%;
-    padding: 12px;
-    border-radius: 6px;
-    border: 1px solid #ccc;
-    font-size: 16px;
-    color: #333;
-    background-color: #fff;
-    transition: border-color 0.3s ease, box-shadow 0.3s ease;
-    outline: none;
-  }
-  
-  input[type="text"]:focus,
-  input[type="email"]:focus,
-  textarea:focus {
-    border-color: #2e7d32;
-    box-shadow: 0 0 8px rgba(46, 125, 50, 0.3);
-  }
-  
-  textarea {
-    resize: vertical;
-  }
-  
-  /* Submit Button */
-  .submit-btn {
-    background-color: #2e7d32;
-    color: white;
-    padding: 12px 24px;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-    font-size: 16px;
-    margin-top: 20px;
-    transition: background-color 0.3s ease, transform 0.2s ease;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  }
-  
-  .submit-btn:hover {
-    background-color: #45a049;
-    transform: translateY(-2px) scale(1.02);
-  }
-  
-  .submit-btn:active {
-    background-color: #388e3c;
-    transform: translateY(0);
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  }
-  
+.feedback-container {  
+  max-width: 500px;  
+  margin: 40px auto;  
+  padding: 20px;  
+  background-color: #f9f9f9;  
+  border: 1px solid #ddd;  
+  border-radius: 10px;  
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);  
+  animation: fadeIn 0.5s ease-in; /* Added easing for smoother animation */
+}  
+
+.feedback-container h2 {  
+  text-align: center;  
+  margin-bottom: 20px;  
+}  
+
+.feedback-form {  
+  display: flex;  
+  flex-direction: column;  
+  align-items: center;  
+}  
+
+.input-group {  
+  margin-bottom: 20px;  
+  width: 100%;  
+}  
+
+.input-group label {  
+  display: block;  
+  margin-bottom: 10px;  
+}  
+
+.input-group input, .input-group textarea {  
+  width: 100%;  
+  padding: 10px;  
+  border: 1px solid #ccc;  
+  border-radius: 5px;  
+  font-size: 16px;  
+  transition: border-color 0.2s ease, box-shadow 0.2s ease; /* Smooth transitions */
+}  
+
+.input-group input:focus, .input-group textarea:focus {  
+  border-color: #aaa;  
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);  
+}  
+
+.submit-btn {  
+  background-color: #4CAF50;  
+  color: #fff;  
+  padding: 10px 20px;  
+  border: none;  
+  border-radius: 5px;  
+  cursor: pointer;  
+  transition: background-color 0.2s ease; /* Smooth button hover */
+}  
+
+.submit-btn:hover {  
+  background-color: #3e8e41;  
+}  
+
+.feedback-success {  
+  text-align: center;  
+  margin-top: 20px;  
+  animation: slideIn 0.5s ease-in-out; /* Slide-in animation for success message */
+}  
+
+.feedback-success p {  
+  font-size: 18px;  
+  color: #666;  
+}  
+
+/* Animations */
+@keyframes fadeIn {  
+  from {  
+    opacity: 0;  
+  }  
+  to {  
+    opacity: 1;  
+  }  
+}  
+
+@keyframes slideIn {  
+  from {  
+    transform: translateY(100%);  
+  }  
+  to {  
+    transform: translateY(0);  
+  }  
+}
