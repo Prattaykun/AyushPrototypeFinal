@@ -4,7 +4,7 @@ import user_icon from "../Assets/person.png";
 import email_icon from "../Assets/email.png";
 import password_icon from "../Assets/password.png";
 import google_icon from "../Assets/google.png"; // Assuming you have a Google logo
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import {
   getAuth,
   createUserWithEmailAndPassword,
@@ -164,7 +164,7 @@ function LoginSignup() {
             >
               Sign up
             </div>
-             
+
             <div
               className="google-signin-button"
               onClick={signinWithGoogle} // Call Google sign-in on click
@@ -178,8 +178,6 @@ function LoginSignup() {
             >
               Login
             </div>
-
-           
           </>
         )}
 
