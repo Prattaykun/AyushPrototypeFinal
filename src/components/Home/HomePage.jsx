@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import "./HomePage.css";
 import logo_icon from "../Assets/ayushlogo.jpg";
 import startup_icon from "../Assets/startupindia.jpg";
-import watermark from "../Assets/herb.jpg";
+import watermark from "../Assets/Plants.jpg.jpg";
 
 function HomePage() {
   return (
@@ -35,31 +35,48 @@ function HomePage() {
                   (AYUSH)
                 </strong>
                 , which have been integral to India’s healthcare heritage for
-                centuries. The ministry works on several fronts: -{" "}
-                <strong>Regulation and Standardization</strong>: It ensures the
-                safety, efficacy, and quality of AYUSH medicines and practices
-                by setting standards and promoting scientific research. -{" "}
-                <strong>Education and Training</strong>: The ministry oversees
-                educational institutions, ensuring quality training for
-                practitioners of AYUSH disciplines, and encourages the
-                incorporation of these systems into the mainstream healthcare
-                sector. - <strong>Public Health Programs</strong>: It runs
-                awareness campaigns, community programs, and wellness centers to
-                promote preventive and alternative healthcare practices. -{" "}
-                <strong>Global Promotion</strong>: Ayush collaborates with
-                international organizations to promote India’s traditional
-                medical systems globally, establishing AYUSH institutions and
-                programs abroad. - <strong>Support for Innovation</strong>: The
-                ministry encourages entrepreneurship and startups in the
-                wellness and healthcare sector through various schemes and
-                initiatives. By promoting these natural and sustainable
-                healthcare systems, the Ministry of Ayush seeks to enhance
-                well-being, reduce disease burden, and promote global health
-                alternatives.
+                centuries. The ministry works on several fronts:
+              </b>
+              <ul>
+                <li>
+                  <strong>Regulation and Standardization</strong>: It ensures
+                  the safety, efficacy, and quality of AYUSH medicines and
+                  practices by setting standards and promoting scientific
+                  research.
+                </li>
+                <li>
+                  <strong>Education and Training</strong>: The ministry oversees
+                  educational institutions, ensuring quality training for
+                  practitioners of AYUSH disciplines, and encourages the
+                  incorporation of these systems into the mainstream healthcare
+                  sector.
+                </li>
+                <li>
+                  <strong>Public Health Programs</strong>: It runs awareness
+                  campaigns, community programs, and wellness centers to promote
+                  preventive and alternative healthcare practices.
+                </li>
+                <li>
+                  <strong>Global Promotion</strong>: Ayush collaborates with
+                  international organizations to promote India’s traditional
+                  medical systems globally, establishing AYUSH institutions and
+                  programs abroad.
+                </li>
+                <li>
+                  <strong>Support for Innovation</strong>: The ministry
+                  encourages entrepreneurship and startups in the wellness and
+                  healthcare sector through various schemes and initiatives.
+                </li>
+              </ul>
+              <b>
+                By promoting these natural and sustainable healthcare systems,
+                the Ministry of Ayush seeks to enhance well-being, reduce
+                disease burden, and promote global health alternatives.
               </b>
             </p>
           </div>
         </section>
+
         <section className="key-initiatives">
           <h2>Key Initiatives</h2>
           <ul>
@@ -69,6 +86,7 @@ function HomePage() {
             <li>Access to Government Grants and Resources</li>
           </ul>
         </section>
+
         <section className="how-to-apply">
           <h2>How to Apply</h2>
           <p>
@@ -86,6 +104,7 @@ function HomePage() {
             <button className="apply-btn">Apply Now</button>
           </Link>
         </section>
+
         <section className="contact-us">
           <h2>Contact Us</h2>
           <p>If you have any questions, feel free to reach out to us at:</p>
