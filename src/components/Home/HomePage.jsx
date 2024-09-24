@@ -100,7 +100,7 @@ function HomePage() {
               Our team will review and get back to you with the next steps.
             </li>
           </ol>
-          <Link to="/LoginSignup">
+          <Link to="/RoleSelect">
             <button className="apply-btn">Apply Now</button>
           </Link>
         </section>

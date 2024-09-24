@@ -1,0 +1,101 @@
+/* Base Styles */
+.container {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(to bottom, #f6f2e9, #d6e4be);
+    padding: 2rem;
+  }
+  
+  .wrapper {
+    max-width: 60rem;
+    width: 100%;
+    text-align: center;
+  }
+  
+  .title {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 2rem;
+    color: #5a7d36; /* Herbal green inspired by Ayurveda */
+  }
+  
+  .grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  @media (min-width: 768px) {
+    .grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  
+  .role-card {
+    background-color: #ffffff;
+    border: 2px solid #d1d5db;
+    border-radius: 12px;
+    padding: 1.5rem;
+    text-align: center;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+  }
+  
+  .role-card:hover {
+    background-color: #f5f5f5;
+    transform: translateY(-10px);
+  }
+  
+  .role-icon {
+    width: 2.5rem;
+    height: 2.5rem;
+    margin-bottom: 0.75rem;
+    color: #b28c43; /* A gold hue to represent ancient Ayurveda symbols */
+  }
+  
+  .role-label {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #4d4d4d;
+    transition: color 0.3s ease;
+  }
+  
+  .role-card:hover .role-label {
+    color: #7a8e4e;
+  }
+  
+  /* Animations */
+  @keyframes pulse {
+    0% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.05);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+  
+  @keyframes fadeInUp {
+    0% {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .grid {
+    animation: fadeInUp 0.6s ease-out;
+  }
+  
+  .role-card:hover {
+    animation: pulse 0.6s ease infinite;
+  }
+  

@@ -14,6 +14,11 @@ import TrackApplication from "./components/TrackApplication/TrackApplication"; /
 import Eligibility from "./components/menu/Eligibility";
 import Feedback from "./components/menu/Feedback";
 import policy from "./components/menu/policy";
+import RoleSelect from "./components/RoleSelect/RoleSelect";
+import Admin from "./components/Admin/Admin";
+import LogSignGov from "./components/LoginSignup/LogSignGov";
+import LogSignStake from "./components/LoginSignup/LogSignStake";
+import LogAdmin from "./components/LoginSignup/LogAdmin";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 import { app } from "./firebase";
 import ProtectedRoute from "./components/ProtectedRoute"; // Import ProtectedRoute
@@ -38,9 +43,10 @@ function App() {
         setUser(null);
   
         // Navigate to LoginSignup only if not already on the allowed routes (Login, Feedback, Eligibility)
-        const allowedPaths = ["/", "/LoginSignup", "/Eligibility", "/Feedback"];
+        const allowedPaths = ["/", "/LoginSignup", "/Eligibility", "/Feedback","/RoleSelect",
+          "/LogSignGov","/LogSignStake","/LogAdmin","/Admin"];
         if (!allowedPaths.includes(location.pathname)) {
-          navigate("/LoginSignup");
+          navigate("/RoleSelect");
         }
   
         console.log("You are Logged Out!");
@@ -70,7 +76,7 @@ function App() {
             {user ? (
               <Link to="/Dashboard" className="nav-link">Dashboard</Link>
             ) : (
-              <Link to="/LoginSignup" className="nav-link">Login/Signup</Link>
+              <Link to="/RoleSelect" className="nav-link">Login/Signup</Link>
             )}
           </nav>
           <div className="menu-container">
@@ -103,6 +109,11 @@ function App() {
         <Route path="/Eligibility" element={<ProtectedRoute><Eligibility /></ProtectedRoute>} />
         <Route path="/Feedback" element={<ProtectedRoute><Feedback/></ProtectedRoute>} />
         <Route path="/LoginSignup" element={<LoginSignup />} />
+        <Route path="/LogSignGov" element={<LogSignGov />} />
+        <Route path="/LogSignStake" element={<LogSignStake />} />
+        <Route path="/LogAdmin" element={<LogAdmin />} />
+        <Route path="/Admin" element={<Admin />} />
+        <Route path="/RoleSelect" element={<RoleSelect/>} />
         <Route path="/RegistrationForm1" element={<ProtectedRoute><RegistrationForm1 /></ProtectedRoute>} />
         <Route path="/RegistrationForm2" element={<ProtectedRoute><RegistrationForm2 /></ProtectedRoute>} />
         <Route path="/RegistrationForm3" element={<ProtectedRoute><RegistrationForm3 /></ProtectedRoute>} />

@@ -267,3 +267,17 @@
   width: 30px; /* Consistent smaller size */
   height: 30px; /* Consistent smaller size */
 }
+@keyframes backgroundAnimation {
+  from {
+    background: linear-gradient(135deg, #7b904b 0%, #c6b28e 100%); /* Start with Ayurvedic green */
+  }
+  to {
+    background: linear-gradient(135deg, #c6b28e 0%, #7b904b 100%); /* Transition to beige */
+  }
+}
+
+.element {
+  animation: backgroundAnimation 8s infinite alternate;
+  background-size: 400% 400%; /* Optional: Adjust the gradient scale */
+  background-position: center;
+}
