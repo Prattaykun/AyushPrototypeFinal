@@ -21,41 +21,53 @@ import GovLoadScreen from "./components/LoginSignup/GovLoadScreen";
 import LogSignStake from "./components/LoginSignup/LogSignStake";
 import LogAdmin from "./components/LoginSignup/LogAdmin";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
-import { app } from "./firebase";
+import { app,auth, db } from "./firebase";
+import { getDoc, doc } from "firebase/firestore";
+
 import ProtectedRoute from "./components/ProtectedRoute"; // Import ProtectedRoute
 // import Feedback from "./components/menu/Feedback";
 
-const auth = getAuth(app);
+// const auth = getAuth(app);
 
 function App() {
   const [user, setUser] = useState(null);
+  const [role, setRole] = useState(null);
+
   const navigate = useNavigate(); // useNavigate for navigation
   const location = useLocation();
   useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+    const unsubscribe = onAuthStateChanged(auth, async (currentUser) => {
       if (currentUser) {
         setUser(currentUser);
-  
-        // Navigate to the dashboard only if the current route is "/" or "/LoginSignup"
-        if ( location.pathname === "/LoginSignup") {
+        const roleDoc = await getDoc(doc(db, 'roles', currentUser.uid));
+        if (roleDoc.exists()) {
+          setRole(roleDoc.data().role);
+        }
+
+        // Navigate to the dashboard only if the current route is "/LoginSignup"
+        if (location.pathname === "/LoginSignup") {
           navigate("/Dashboard");
         }
       } else {
         setUser(null);
-  
-        // Navigate to LoginSignup only if not already on the allowed routes (Login, Feedback, Eligibility)
-        const allowedPaths = ["/", "/LoginSignup", "/Eligibility", "/Feedback","/RoleSelect",
-          "/LogSignGov","/LogSignStake","/LogAdmin","/Admin","/GovLoadScreen"];
+        setRole(null);
+
+        // Navigate to RoleSelect only if not already on the allowed routes
+        const allowedPaths = [
+          "/", "/LoginSignup", "/Eligibility", "/Feedback", "/RoleSelect",
+          "/LogSignGov", "/LogSignStake", "/LogAdmin", "/Admin", "/GovLoadScreen"
+        ];
         if (!allowedPaths.includes(location.pathname)) {
           navigate("/RoleSelect");
         }
-  
+
         console.log("You are Logged Out!");
       }
     });
-  
+
     return () => unsubscribe();
   }, [navigate, location.pathname]); // Added location.pathname as a dependency
+
   
 
   const [menuOpen, setMenuOpen] = useState(false);
@@ -73,13 +85,17 @@ function App() {
         <div className="navbar-main">
           <h1>Ministry of AYUSH - Startup Initiative</h1>
           <nav>
-            <Link to="/" className="nav-link">Home</Link>
-            {user ? (
-              <Link to="/Dashboard" className="nav-link">Dashboard</Link>
-            ) : (
-              <Link to="/RoleSelect" className="nav-link">Login/Signup</Link>
-            )}
-          </nav>
+      <Link to="/" className="nav-link">Home</Link>
+      {user ? (
+        role === 'startup' ? (
+          <Link to="/Dashboard" className="nav-link">Dashboard</Link>
+        ) : role === 'govtofficial' ? (
+          <Link to="/GovDashboard" className="nav-link">Government Dashboard</Link>
+        ) : null
+      ) : (
+        <Link to="/RoleSelect" className="nav-link">Login/Signup</Link>
+      )}
+    </nav>
           <div className="menu-container">
             <button className="menu-button" onClick={toggleMenu}>
               Menu
