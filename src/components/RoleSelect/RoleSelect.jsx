@@ -17,7 +17,7 @@ export default function RoleSelect() {
   };
 
   return (
-    <div className="container">
+    <div className="container-role">
       <div className="wrapper">
         <h1 className="title">Select Your Role</h1>
         <div className="grid">

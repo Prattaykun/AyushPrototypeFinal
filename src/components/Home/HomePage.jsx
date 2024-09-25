@@ -4,6 +4,8 @@ import "./HomePage.css";
 import logo_icon from "../Assets/ayushlogo.jpg";
 import startup_icon from "../Assets/startupindia.jpg";
 import watermark from "../Assets/Plants.jpg.jpg";
+// import 'bootstrap/dist/css/bootstrap.min.css';
+import { Container } from 'react-bootstrap';
 
 function HomePage() {
   return (
@@ -16,10 +18,17 @@ function HomePage() {
         <div className="watermark">
           <img src={watermark} alt="water" />
         </div>
-        <div className="image-container">
-          <img src={logo_icon} alt="Logo Icon" />
-          <img src={startup_icon} alt="Startup Icon" />
-        </div>
+        <Container className="custom-container">
+      <div className="custom-embed">
+        <iframe 
+          width="640" 
+          height="360" 
+          src="https://www.youtube.com/embed/RPqgNibeKEI"
+          allowFullScreen
+          title="YouTube Video"
+        ></iframe>
+      </div>
+    </Container>
 
         <section className="about-us">
           <div className="about-us-box">
