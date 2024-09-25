@@ -21,7 +21,7 @@ import LogSignGov from "./components/LoginSignup/LogSignGov";
 import GovLoadScreen from "./components/LoginSignup/GovLoadScreen";
 import LogSignStake from "./components/LoginSignup/LogSignStake";
 import LogAdmin from "./components/LoginSignup/LogAdmin";
-import { getAuth, onAuthStateChanged } from "firebase/auth";
+import { getAuth,signOut, onAuthStateChanged } from "firebase/auth";
 import { app,auth, db } from "./firebase";
 import { getDoc, doc } from "firebase/firestore";
 
@@ -69,7 +69,17 @@ function App() {
     return () => unsubscribe();
   }, [navigate, location.pathname]); // Added location.pathname as a dependency
 
-  
+  // Logout function
+  const handleLogout = () => {
+    signOut(auth)
+      .then(() => {
+        console.log("User logged out successfully");
+        navigate("/"); // Redirect to login page after logout
+      })
+      .catch((error) => {
+        console.error("Error logging out: ", error);
+      });
+  };
 
   const [menuOpen, setMenuOpen] = useState(false);
 
@@ -114,6 +124,12 @@ function App() {
                 </Link>
                 <Link to="/Feedback" className="menu-item">Feedback</Link>
                  <Link to="/Eligibility" className="menu-item">Eligibility</Link>
+                 <Link 
+                 onClick={handleLogout}
+                 className="menu-item"
+                 >
+                  Log Out
+                </Link>
 
               </div>
             )}

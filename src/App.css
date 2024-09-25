@@ -85,8 +85,8 @@ textarea {
 
 /* Submit Button */
 button {
-  width: 100%;
-  padding: 14px;
+  width: 90%;
+  padding: 20px;
   background-color: #00eeff; /* Indian Government blue tone */
   color: white;
   border: none;
@@ -96,6 +96,7 @@ button {
   transition: background-color 0.3s ease, transform 0.2s ease; /* Smooth transitions */
   position: relative;
   overflow: hidden;
+  align-content: center;
 }
 
 /* Button hover effect */
