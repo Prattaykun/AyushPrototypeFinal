@@ -135,19 +135,25 @@ textarea {
   margin: 40px 0;
 }
 
+
 /* Button Styling */
 button {
-  flex: 1;
-  padding: 15px;
+  padding: 15px 220px; /* Padding for top/bottom and left/right */
   background-color: #00796b; /* Teal color for AYUSH theme */
-  color: #ffffff;
-  font-size: 18px;
-  border: none;
-  border-radius: 25px;
-  cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  color: #ffffff; /* Text color */
+  font-size: 18px; /* Font size */
+  border: none; /* No border */
+  border-radius: 25px; /* Rounded corners */
+  cursor: pointer; /* Pointer cursor on hover */
+  transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease; /* Smooth transition */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+
+  /* Positioning adjustments */
+  display: block; /* Ensure the button behaves like a block element */
+  margin: 20px auto; /* Center the button horizontally with auto margins */
+  width: fit-content; /* Button width adapts to its content */
 }
+
 
 /* Primary Submit Button */
 button.submit {

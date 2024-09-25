@@ -9,6 +9,12 @@ body {
   background-position: center;
   transition: background-color 0.3s ease-in-out;
 }
+.button-container {
+  display: flex;
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+  min-height: 100vh; /* Full viewport height */
+}
 
 /* General Page Container */
 .App {
@@ -120,6 +126,7 @@ section {
   font-weight: 700; /* Increased weight for emphasis */
 }
 
+
 /* Paragraph Style */
 .about-us-box p {
   font-size: 16px;
@@ -193,9 +200,9 @@ ol li:hover {
     #ea4335,
     #4285f4
   );
-  background-size: 200% 100%;
+  background-size: auto;
   color: white;
-  padding: 14px 28px;
+  padding: 14px 280px;
   border: none;
   border-radius: 50px;
   cursor: pointer;
@@ -715,4 +722,58 @@ select option {
   align-items: center;
   /* background: linear-gradient(to bottom, #f6f2e9, #d6e4be); */
   /* padding: 3px; */
+}
+.how-to-apply {
+  max-width: 800px; /* Maximum width for the section */
+  margin: 40px auto; /* Center the section */
+  padding: 20px; /* Padding around the content */
+  background-color: #ffffff; /* White background */
+  border-radius: 10px; /* Rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+.how-to-apply h2 {
+  
+  font-size: 32px; /* Font size for the heading */
+  margin-bottom: 15px; /* Space below the heading */
+  text-align: center; /* Center align the heading */
+}
+
+.how-to-apply p {
+  color: #333; /* Dark gray for better readability */
+  font-size: 18px; /* Font size for paragraph */
+  margin-bottom: 20px; /* Space below the paragraph */
+  line-height: 1.6; /* Line height for better readability */
+  text-align: center; /* Center align the text */
+}
+
+.how-to-apply ol {
+  list-style-type: decimal; /* Use decimal list style */
+  padding-left: 20px; /* Indent the list */
+}
+
+.how-to-apply li {
+  color: #555; /* Medium gray for list items */
+  font-size: 16px; /* Font size for list items */
+  margin: 10px 0; /* Space between list items */
+  line-height: 1.5; /* Line height for better readability */
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+  .how-to-apply {
+    padding: 15px; /* Reduce padding for smaller screens */
+  }
+
+  .how-to-apply h2 {
+    font-size: 28px; /* Smaller font size for heading */
+  }
+
+  .how-to-apply p {
+    font-size: 16px; /* Smaller font size for paragraph */
+  }
+
+  .how-to-apply li {
+    font-size: 14px; /* Smaller font size for list items */
+  }
 }
