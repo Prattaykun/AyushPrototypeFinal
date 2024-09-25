@@ -16,6 +16,7 @@ import Feedback from "./components/menu/Feedback";
 import policy from "./components/menu/policy";
 import RoleSelect from "./components/RoleSelect/RoleSelect";
 import Admin from "./components/Admin/Admin";
+import GovDashboard from "./components/Dashboard/GovDashboard";
 import LogSignGov from "./components/LoginSignup/LogSignGov";
 import GovLoadScreen from "./components/LoginSignup/GovLoadScreen";
 import LogSignStake from "./components/LoginSignup/LogSignStake";
@@ -108,7 +109,7 @@ function App() {
                 <Link to="/" className="menu-item">
                   Home
                 </Link>
-                <Link to="/LoginSignup" className="menu-item">
+                <Link to="/RoleSelect" className="menu-item">
                   Login/Signup
                 </Link>
                 <Link to="/Feedback" className="menu-item">Feedback</Link>
@@ -128,6 +129,8 @@ function App() {
         <Route path="/LoginSignup" element={<LoginSignup />} />
         <Route path="/LogSignGov" element={<LogSignGov />} />
         <Route path="/GovLoadScreen" element={<GovLoadScreen />} />
+        <Route path="/GovDashboard" element={<ProtectedRoute><Dashboard /></ProtectedRoute>} />
+        <Route path="/policy" element={<policy />} />
         <Route path="/LogSignStake" element={<LogSignStake />} />
         <Route path="/LogAdmin" element={<LogAdmin />} />
         <Route path="/Admin" element={<Admin />} />
