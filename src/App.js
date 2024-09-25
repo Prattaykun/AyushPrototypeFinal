@@ -17,6 +17,7 @@ import policy from "./components/menu/policy";
 import RoleSelect from "./components/RoleSelect/RoleSelect";
 import Admin from "./components/Admin/Admin";
 import LogSignGov from "./components/LoginSignup/LogSignGov";
+import GovLoadScreen from "./components/LoginSignup/GovLoadScreen";
 import LogSignStake from "./components/LoginSignup/LogSignStake";
 import LogAdmin from "./components/LoginSignup/LogAdmin";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
@@ -44,7 +45,7 @@ function App() {
   
         // Navigate to LoginSignup only if not already on the allowed routes (Login, Feedback, Eligibility)
         const allowedPaths = ["/", "/LoginSignup", "/Eligibility", "/Feedback","/RoleSelect",
-          "/LogSignGov","/LogSignStake","/LogAdmin","/Admin"];
+          "/LogSignGov","/LogSignStake","/LogAdmin","/Admin","/GovLoadScreen"];
         if (!allowedPaths.includes(location.pathname)) {
           navigate("/RoleSelect");
         }
@@ -110,6 +111,7 @@ function App() {
         <Route path="/Feedback" element={<ProtectedRoute><Feedback/></ProtectedRoute>} />
         <Route path="/LoginSignup" element={<LoginSignup />} />
         <Route path="/LogSignGov" element={<LogSignGov />} />
+        <Route path="/GovLoadScreen" element={<GovLoadScreen />} />
         <Route path="/LogSignStake" element={<LogSignStake />} />
         <Route path="/LogAdmin" element={<LogAdmin />} />
         <Route path="/Admin" element={<Admin />} />

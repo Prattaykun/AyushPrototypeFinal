@@ -1,23 +1,23 @@
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap'); */
 
-:root {
-  --primary-color: #7b904b; /* Ayurvedic green */
-  --secondary-color: #c6b28e; /* Soft golden beige */
-  --background-color: #f5efdc; /* Soft off-white background */
-  --button-color: #8a5a44; /* Earthy brown */
-  --button-hover-color: #6e432f;
-  --text-color: #4a4a4a; /* Dark grey text */
-  --input-focus-color: #5f9f36;
-}
+/* :root { */
+  /* --primary-color: #7b904b; Ayurvedic green */
+  /* --secondary-color: #c6b28e; Soft golden beige */
+  /* --background-color: #f5efdc; Soft off-white background */
+  /* --button-color: #8a5a44; Earthy brown */
+  /* --button-hover-color: #6e432f; */
+  /* --text-color: #4a4a4a; Dark grey text */
+  /* --input-focus-color: #5f9f36; */
+/* } */
 
-body {
+/* body {
   font-family: 'Playfair Display', serif;
   background-color: var(--background-color);
   margin: 0;
   padding: 0;
-}
+} */
 
-.submit-container {
+/* .submit-container {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -60,8 +60,8 @@ form {
   padding: 30px;
   border-radius: 15px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-  width: 100%;
-  max-width: 400px;
+  width: 100%; */
+  /* max-width: 400px;
   text-align: center;
   animation: scaleIn 1s ease-in-out;
 }
@@ -104,8 +104,8 @@ input:focus {
 .Login {
   background-color: var(--button-color);
   color: white;
-  font-size: 1.2rem;
-  padding: 10px 20px;
+  font-size: 1.2rem; */
+  /* padding: 10px 20px;
   border-radius: 8px;
   border: none;
   cursor: pointer;
@@ -137,4 +137,4 @@ input:focus {
     font-size: 1rem;
     padding: 8px 15px;
   }
-}
+} */

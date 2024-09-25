@@ -79,6 +79,17 @@ const RegistrationForm2 = () => {
         </div>
 
         <div className="input-group">
+          <label>Name of The Founder</label>
+          <input
+            type="text"
+            name="founderName"
+            value={formData.founderName}
+            onChange={handleChange}
+            required
+          />
+        </div>
+
+        <div className="input-group">
           <label>Theme of the Startup</label>
           <select
             name="theme"
@@ -125,6 +136,7 @@ const RegistrationForm2 = () => {
             onChange={handleChange}
             required
           >
+            <option value="">Select</option>
             <option value="Ideation">Ideation</option>
             <option value="Validation">Validation</option>
             <option value="Early Traction">Early Traction</option>
@@ -140,6 +152,7 @@ const RegistrationForm2 = () => {
             onChange={handleChange}
             required
           >
+             <option value="">Select</option>
             <option value="Funded">Funded</option>
             <option value="Bootstrapped">Bootstrapped</option>
           </select>
@@ -168,7 +181,7 @@ const RegistrationForm2 = () => {
           </select>
         </div>
 
-        {/* For each member's details */}
+       
         {[...Array(Number(formData.members) || 1)].map((_, idx) => (
           <div key={idx}>
             <h4>Member {idx + 1} Details</h4>
@@ -177,7 +190,7 @@ const RegistrationForm2 = () => {
               <input
                 type="text"
                 name={`member${idx}_fatherName`}
-                value={formData[`member${idx}_fatherName`]}
+                value={formData[`member${idx}_fatherName`] || ""}
                 onChange={handleChange}
                 required
               />
@@ -189,7 +202,18 @@ const RegistrationForm2 = () => {
                 type="number"
                 maxLength="10"
                 name={`member${idx}_mobile`}
-                value={formData[`member${idx}_mobile`]}
+                value={formData[`member${idx}_mobile`] || ""}
+                onChange={handleChange}
+                required
+              />
+            </div>
+
+            <div className="input-group">
+              <label>Date of Birth</label>
+              <input
+                type="date"
+                name={`member${idx}_dob`}
+                value={formData[`member${idx}_dob`] || ""}
                 onChange={handleChange}
                 required
               />
@@ -200,10 +224,25 @@ const RegistrationForm2 = () => {
               <input
                 type="email"
                 name={`member${idx}_email`}
-                value={formData[`member${idx}_email`]}
+                value={formData[`member${idx}_email`] || ""}
                 onChange={handleChange}
                 required
               />
+            </div>
+
+            <div className="input-group">
+              <label>Gender</label>
+              <select
+                name={`member${idx}_gender`}
+                value={formData[`member${idx}_gender`] || ""}
+                onChange={handleChange}
+                required
+              >
+                <option value="">Select</option>
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+                <option value="other">Other</option>
+              </select>
             </div>
 
             <div className="input-group">
@@ -211,7 +250,7 @@ const RegistrationForm2 = () => {
               <input
                 type="text"
                 name={`member${idx}_address`}
-                value={formData[`member${idx}_address`]}
+                value={formData[`member${idx}_address`] || ""}
                 onChange={handleChange}
                 required
               />
@@ -221,7 +260,7 @@ const RegistrationForm2 = () => {
               <label>ID Proof</label>
               <select
                 name={`member${idx}_idProofType`}
-                value={formData[`member${idx}_idProofType`]}
+                value={formData[`member${idx}_idProofType`] || ""}
                 onChange={handleChange}
                 required
               >
@@ -237,15 +276,13 @@ const RegistrationForm2 = () => {
               <input
                 type="text"
                 name={`member${idx}_idNumber`}
-                value={formData[`member${idx}_idNumber`]}
+                value={formData[`member${idx}_idNumber`] || ""}
                 onChange={handleChange}
                 required
               />
             </div>
           </div>
         ))}
-
-        {/* <Link to={`/RegistrationForm3?members=${formData.members}`}> */}
         <button type="submit">Confirm</button>
         {/* </Link> */}
       </form>

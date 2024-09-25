@@ -1,24 +1,37 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import "./Dashboard.css";
 import { Link, useNavigate } from "react-router-dom";
 import { getAuth, signOut } from "firebase/auth";
 import logoutIcon from "../Assets/logout.png"; // Ensure you have the logout.png image in the Assets folder
+import { db } from "../../firebase";
+import { getDoc, doc } from "firebase/firestore";
 
-export default function StartupDashboard() {
-  const [startupData, setStartupData] = useState({
-    username: "johndoe",
-    dob: "1990-01-01",
-    address: "123 Startup Street, Tech City, 12345",
-    groupSize: "5",
-    idProof: "ID_12345.pdf",
-    companyName: "InnoTech Solutions",
-    founderName: "John Doe",
-    description:
-      "InnoTech Solutions is a cutting-edge startup focused on developing AI-powered solutions for small businesses. Our mission is to democratize access to advanced technology and help local businesses thrive in the digital age.",
-  });
+
+export default function Dashboard() {
+  const [startupData, setStartupData] = useState(null);
 
   const auth = getAuth(); // Firebase authentication instance
   const navigate = useNavigate(); // For navigation after logout
+
+
+  useEffect(() => {
+    // Fetch the user's startup data from Firestore
+    const fetchData = async () => {
+      const user = auth.currentUser;
+      if (user) {
+        const docRef = doc(db, "users", user.uid);
+        const docSnap = await getDoc(docRef);
+        if (docSnap.exists()) {
+          setStartupData(docSnap.data());
+        } else {
+          console.log("No such document!");
+        }
+      }
+    };
+
+    fetchData();
+  }, [auth]);
+
 
   // Logout function
   const handleLogout = () => {
@@ -35,6 +48,11 @@ export default function StartupDashboard() {
   const handleEdit = () => {
     console.log("Edit startup information");
   };
+
+  if (!startupData) {
+    return <div>Loading...</div>; // Show loading state while fetching data
+  }
+
 
   const containerStyle = {
     maxWidth: "1200px",
@@ -81,119 +99,108 @@ export default function StartupDashboard() {
   };
 
   return (
-    <div style={containerStyle}>
+    <div className="dashboard-container" style={containerStyle}>
       <h1 style={{ fontSize: "24px", marginBottom: "20px" }}>
         Startup Dashboard
       </h1>
 
-      {/* Logout Button
-      <div style={{ textAlign: "right", marginBottom: "20px" }}>
-        <button
-          onClick={handleLogout}
-          style={{
-            background: "none",
-            border: "none",
-            cursor: "pointer",
-            padding: "0",
-          }}
-        >
-          <img
-            src={logoutIcon}
-            alt="Logout"
-            style={{ width: "40px", height: "40px" }}
-          />
-        </button>
-      </div> */}
-
       <div style={flexContainerStyle}>
-        <div style={{ ...cardStyle, flex: 2 }}>
+        <div className="startup-info-card" style={{ ...cardStyle, flex: 2 }}>
           <h2 style={{ fontSize: "20px", marginBottom: "10px" }}>
             Startup Information
           </h2>
           
           <div
-            style={{
-              display: "flex",
-              alignItems: "center",
-              marginBottom: "20px",
-            }}
-          >
-            <div
-              style={{
-                width: "60px",
-                height: "60px",
-                backgroundColor: "#007bff",
-                borderRadius: "50%",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                color: "white",
-                marginRight: "20px",
-              }}
-            >
-              {startupData.companyName.substring(0, 2).toUpperCase()}
-            </div>
-            
-            <div>
-              <h3 style={{ fontSize: "18px", margin: "0" }}>
-                {startupData.companyName}
-              </h3>
-              <p style={{ margin: "0", color: "#666" }}>
-                Founded by {startupData.founderName}
-              </p>
-            </div>
-            {/* Logout Button */}
-      <div style={{ textAlign: "right", marginBottom: "20px" }}>
-        <button
-          onClick={handleLogout}
-          style={{
-            background: "none",
-            border: "none",
-            cursor: "pointer",
-            padding: "100",
-            alignItems: "left",
-          }}
-        >
-          <img
-            src={logoutIcon}
-            alt="Logout"
-            style={{ width: "25px", height: "25px" }}
-          />
-        </button>
-      </div>
+  style={{
+    display: "flex",
+    justifyContent: "space-between",
+    alignItems: "center",
+    marginBottom: "20px",
+  }}
+>
+  <div style={{ display: "flex", alignItems: "center" }}>
+    <div
+      style={{
+        width: "60px",
+        height: "60px",
+        backgroundColor: "#007bff",
+        borderRadius: "50%",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        color: "white",
+        marginRight: "20px",
+      }}
+    >
+      {startupData.companyName.substring(0, 2).toUpperCase()}
+    </div>
+    <div>
+      <h3 style={{ fontSize: "18px", margin: "0" }}>
+        {startupData.companyName}
+      </h3>
+      <p style={{ margin: "0", color: "#666" }}>
+        Founded by {startupData.founderName}
+      </p>
+    </div>
+  </div>
+  {/* Logout Button */}
+  <div style={{ display: "flex", alignItems: "center" }}>
+    <button
+      onClick={handleLogout}
+      style={{
+        background: "none",
+        border: "none",
+        cursor: "pointer",
+        padding: "0", // Adjust padding if needed
+      }}
+    >
+      <img
+        src={logoutIcon}
+        alt="Logout"
+        style={{ width: "25px", height: "25px" }}
+      />
+    </button>
+  </div>
           </div>
           <table style={tableStyle}>
             <tbody>
               <tr>
                 <td style={tableCellStyle}>
-                  <strong>Username</strong>
+                  <strong>Title of Startup:</strong>
                 </td>
-                <td style={tableCellStyle}>{startupData.username}</td>
+                <td style={tableCellStyle}>{startupData.startupTitle}</td>
               </tr>
               <tr>
                 <td style={tableCellStyle}>
-                  <strong>Date of Birth</strong>
+                  <strong>Company Name:</strong>
                 </td>
-                <td style={tableCellStyle}>{startupData.dob}</td>
+                <td style={tableCellStyle}>{startupData.companyName}</td>
               </tr>
               <tr>
                 <td style={tableCellStyle}>
-                  <strong>Address</strong>
+                  <strong>Stage :</strong>
                 </td>
-                <td style={tableCellStyle}>{startupData.address}</td>
+                <td style={tableCellStyle}>{startupData.stage}</td>
               </tr>
               <tr>
                 <td style={tableCellStyle}>
-                  <strong>Group Size</strong>
+                  <strong>Group Size:</strong>
                 </td>
-                <td style={tableCellStyle}>{startupData.groupSize} people</td>
+                <td style={tableCellStyle}>{startupData.members} members</td>
               </tr>
               <tr>
                 <td style={tableCellStyle}>
-                  <strong>ID Proof</strong>
+                  <strong>Theme:</strong>
                 </td>
-                <td style={tableCellStyle}>{startupData.idProof}</td>
+                <td style={tableCellStyle}>{startupData.theme}</td>
               </tr>
+              <tr>
+                <td style={tableCellStyle}>
+                  <strong>Funding Status:</strong>
+                </td>
+                <td style={tableCellStyle}>{startupData.funded}</td>
+              </tr>
+
             </tbody>
           </table>
           <Link to="/RegistrationForm1">
@@ -210,7 +217,7 @@ export default function StartupDashboard() {
           <h2 style={{ fontSize: "20px", marginBottom: "10px" }}>
             Startup Description
           </h2>
-          <p style={{ lineHeight: "1.6" }}>{startupData.description}</p>
+          <p style={{ lineHeight: "1.6" }}>{startupData.abstract}</p>
         </div>
       </div>
       <div style={cardStyle}>

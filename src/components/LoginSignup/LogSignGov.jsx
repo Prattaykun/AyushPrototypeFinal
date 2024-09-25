@@ -10,7 +10,7 @@ import {
   signInWithEmailAndPassword,
   updateProfile,
 } from "firebase/auth";
-import { getFirestore, collection, getDocs } from "firebase/firestore";
+import { getFirestore, collection, getDocs,setDoc,doc } from "firebase/firestore";
 import { app } from "../../firebase";
 import { Eye, EyeOff } from "lucide-react";
 
@@ -55,8 +55,16 @@ function LogSignGov() {
       try {
         const userCredential = await createUserWithEmailAndPassword(auth, email, password);
         await updateProfile(userCredential.user, { displayName: name });
+
+        // Add role to Firestore
+        const userRole = {
+          uid: userCredential.user.uid,
+          role: "govtofficial"
+        };
+        await setDoc(doc(db, "roles", userCredential.user.uid), userRole);
+
         alert("Success! Government Official registered.");
-        navigate("/Dashboard"); // Redirect after successful registration
+        navigate("/GovLoadScreen"); // Redirect after successful registration
       } catch (error) {
         setError(error.message);
       }
@@ -69,7 +77,7 @@ function LogSignGov() {
     try {
       await signInWithEmailAndPassword(auth, email, password);
       console.log("Sign in Success");
-      navigate("/Dashboard"); // Redirect to dashboard on successful login
+      navigate("/GovLoadScreen"); // Redirect to dashboard on successful login
     } catch (err) {
       console.error("Sign in error: ", err);
       alert(err.message); // Display error if sign in fails

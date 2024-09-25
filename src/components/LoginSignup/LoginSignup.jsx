@@ -4,6 +4,9 @@ import user_icon from "../Assets/person.png";
 import email_icon from "../Assets/email.png";
 import password_icon from "../Assets/password.png";
 import google_icon from "../Assets/google.png"; // Assuming you have a Google logo
+// import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
+import { doc, setDoc } from "firebase/firestore";
+// import { auth, db } from "../..firebase"; // Ensure you have the correct imports for auth and db
 import { useNavigate } from "react-router-dom";
 import {
   getAuth,
@@ -13,10 +16,10 @@ import {
   GoogleAuthProvider,
   signInWithPopup,
 } from "firebase/auth";
-import { app } from "../../firebase";
+import { app,auth, db } from "../../firebase";
 import { Eye, EyeOff } from "lucide-react";
 
-const auth = getAuth(app);
+// const auth = getAuth(app);
 
 function LoginSignup() {
   const [action, setAction] = useState("Login");
@@ -36,11 +39,16 @@ function LoginSignup() {
     createUserWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         // Update the user profile with the name
-        return updateProfile(userCredential.user, { displayName: name });
-      })
-      .then(() => {
-        alert("Success! User created with name: " + name);
-        navigate("/RegistrationForm1"); // Redirect to RegistrationForm1 after sign-up
+        return updateProfile(userCredential.user, { displayName: name })
+          .then(() => {
+            // Set the role in Firestore
+            const userRef = doc(db, "roles", userCredential.user.uid);
+            return setDoc(userRef, { role: "startup" });
+          })
+          .then(() => {
+            alert("Success! User created with name: " + name);
+            navigate("/RegistrationForm1"); // Redirect to RegistrationForm1 after sign-up
+          });
       })
       .catch((error) => {
         alert(error.message); // Handle errors
