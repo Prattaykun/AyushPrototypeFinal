@@ -1,0 +1,36 @@
+.loading-screen {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f4efe3;
+  }
+  
+  .loading-animation {
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+    color: #3e432e;
+  }
+  
+  .loading-animation img {
+    width: 100px;
+    height: 100px;
+    animation: spin 3s linear infinite;
+  }
+  
+  .loading-animation h2 {
+    margin-top: 20px;
+    font-size: 24px;
+  }
+  
+  .loading-animation p {
+    margin-top: 10px;
+    font-size: 18px;
+    color: #5b5b3b;
+  }
+  
+  @keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+  

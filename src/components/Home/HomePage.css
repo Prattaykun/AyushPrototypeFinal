@@ -716,3 +716,21 @@ select option {
   /* background: linear-gradient(to bottom, #f6f2e9, #d6e4be); */
   /* padding: 3px; */
 }
+.custom-notices {
+  height: 400px; /* Adjust the height as needed */
+  overflow-y: auto;
+  margin-bottom: 20px; /* Add margin to avoid overlap with other elements */
+  padding: 10px; /* Optional: Add padding for better spacing */
+  border: 1px solid #ccc; /* Optional: Add border for visual separation */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Optional: Add shadow for better visual appearance */
+}
+.notices-title {
+  font-size: 24px; /* Adjust the font size as needed */
+  font-weight: bold; /* Make the text bold */
+  color: #333; /* Set the text color */
+  text-align: center; /* Center align the text */
+  margin-top: 20px; /* Add space above the title */
+  margin-bottom: 20px; /* Add space below the title */
+  padding: 10px; /* Add padding for better spacing */
+  border-bottom: 2px solid #ccc; /* Optional: Add a bottom border for visual separation */
+}

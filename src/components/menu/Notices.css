@@ -1,0 +1,84 @@
+/* Container styling for the notices */
+.notices-container {
+    padding: 2rem;
+    background: #f7f1e3;
+    min-height: 100vh;
+    font-family: 'Verdana', sans-serif;
+  }
+  
+  /* Ayurvedic colors and styling for the title */
+  .notices-title {
+    font-size: 2rem;
+    color: #4b5320;
+    text-align: center;
+    margin-bottom: 2rem;
+    animation: fadeInDown 1s ease-out;
+  }
+  
+  /* Notice list animation */
+  .notice-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    animation: fadeInUp 1.5s ease-in;
+  }
+  
+  /* Individual notice card styling */
+  .notice-card {
+    background: #fff4e6;
+    border: 1px solid #dda15e;
+    border-radius: 8px;
+    padding: 1.5rem;
+    width: 280px;
+    margin: 1rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .notice-card:hover {
+    transform: translateY(-5px);
+  }
+  
+  /* Notice heading with a greenish color theme */
+  .notice-heading {
+    font-size: 1.4rem;
+    color: #4b5320;
+    margin-bottom: 0.5rem;
+  }
+  
+  /* Notice content */
+  .notice-content {
+    font-size: 1rem;
+    color: #505050;
+    margin-bottom: 1rem;
+  }
+  
+  /* Notice date with a subtle style */
+  .notice-date {
+    font-size: 0.85rem;
+    color: #787878;
+  }
+  
+  /* Animations */
+  @keyframes fadeInUp {
+    0% {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes fadeInDown {
+    0% {
+      opacity: 0;
+      transform: translateY(-30px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  

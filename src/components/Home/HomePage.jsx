@@ -6,6 +6,7 @@ import startup_icon from "../Assets/startupindia.jpg";
 import watermark from "../Assets/Plants.jpg.jpg";
 // import 'bootstrap/dist/css/bootstrap.min.css';
 import { Container } from 'react-bootstrap';
+import Notices from "../menu/Notices";
 
 function HomePage() {
   return (
@@ -95,6 +96,13 @@ function HomePage() {
             <li>Access to Government Grants and Resources</li>
           </ul>
         </section>
+         <div>         <h2>Notices</h2>
+         </div>
+         <Container className="custom-notices">
+        {/* Adding Notices Section */}
+        <Notices /> {/* Render the Notices component here */}
+        </Container>
+
 
         <section className="how-to-apply">
           <h2>How to Apply</h2>

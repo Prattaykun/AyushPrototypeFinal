@@ -17,6 +17,8 @@ import policy from "./components/menu/policy";
 import RoleSelect from "./components/RoleSelect/RoleSelect";
 import Admin from "./components/Admin/Admin";
 import GovDashboard from "./components/Dashboard/GovDashboard";
+import ApplicationsGov from "./components/Dashboard/ApplicationsGov";
+import Notices from "./components/menu/Notices";
 import LogSignGov from "./components/LoginSignup/LogSignGov";
 import GovLoadScreen from "./components/LoginSignup/GovLoadScreen";
 import LogSignStake from "./components/LoginSignup/LogSignStake";
@@ -56,7 +58,7 @@ function App() {
         // Navigate to RoleSelect only if not already on the allowed routes
         const allowedPaths = [
           "/", "/LoginSignup", "/Eligibility", "/Feedback", "/RoleSelect",
-          "/LogSignGov", "/LogSignStake", "/LogAdmin", "/Admin", "/GovLoadScreen"
+          "/LogSignGov", "/LogSignStake", "/LogAdmin", "/Admin", "/GovLoadScreen","/policy","/Notices"
         ];
         if (!allowedPaths.includes(location.pathname)) {
           navigate("/RoleSelect");
@@ -124,6 +126,7 @@ function App() {
                 </Link>
                 <Link to="/Feedback" className="menu-item">Feedback</Link>
                  <Link to="/Eligibility" className="menu-item">Eligibility</Link>
+                <Link to="/Notices" className="menu-item">Notices</Link>
                  <Link 
                  onClick={handleLogout}
                  className="menu-item"
@@ -140,13 +143,16 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/Dashboard" element={<ProtectedRoute><Dashboard /></ProtectedRoute>} />
-        <Route path="/Eligibility" element={<ProtectedRoute><Eligibility /></ProtectedRoute>} />
-        <Route path="/Feedback" element={<ProtectedRoute><Feedback/></ProtectedRoute>} />
+        <Route path="/Eligibility" element={<Eligibility />} />
+        <Route path="/Feedback" element={<Feedback/>} />
         <Route path="/LoginSignup" element={<LoginSignup />} />
         <Route path="/LogSignGov" element={<LogSignGov />} />
         <Route path="/GovLoadScreen" element={<GovLoadScreen />} />
-        <Route path="/GovDashboard" element={<ProtectedRoute><Dashboard /></ProtectedRoute>} />
+        <Route path="/GovDashboard" element={<ProtectedRoute><GovDashboard /></ProtectedRoute>} />
+        <Route path="/ApplicationsGov" element={<ProtectedRoute><ApplicationsGov /></ProtectedRoute>} />
         <Route path="/policy" element={<policy />} />
+        <Route path="/Notices" element= {<Notices />} />
+        {/* <Route path="/GovDashboard" element={<GovDashboard />} /> */}
         <Route path="/LogSignStake" element={<LogSignStake />} />
         <Route path="/LogAdmin" element={<LogAdmin />} />
         <Route path="/Admin" element={<Admin />} />
