@@ -192,12 +192,13 @@ ol li:hover {
 .apply-btn {
   background: linear-gradient(
     90deg,
-    #4285f4,
-    #34a853,
-    #fbbc05,
-    #ea4335,
-    #4285f4
+  #778b6c, /* Black */
+  #467101, /* Dark Grey */
+  #86760e, /* Darker Grey */
+  #109b0e, /* Even Darker Grey */
+  #0c6600  /* Black */
   );
+  
   background-size: 200% 100%;
   color: white;
   padding: 14px 28px;
@@ -214,13 +215,30 @@ ol li:hover {
   position: relative;
   overflow: hidden;
   text-decoration: none !important; /* Ensure text is not underlined */
+  animation: rgb-strip 5s linear infinite; /* Add RGB strip animation */
 }
+
 @keyframes rainbow-shift {
   0% {
     background-position: 0% 50%;
   }
   100% {
     background-position: 200% 50%;
+  }
+}
+
+@keyframes rgb-strip {
+  0% {
+    box-shadow: 0 0 10px 0 rgba(255, 0, 0, 0.5), 0 0 20px 0 rgba(255, 0, 0, 0.5), 0 0 30px 0 rgba(255, 0, 0, 0.5);
+  }
+  33% {
+    box-shadow: 0 0 10px 0 rgba(0, 255, 0, 0.5), 0 0 20px 0 rgba(0, 255, 0, 0.5), 0 0 30px 0 rgba(0, 255, 0, 0.5);
+  }
+  66% {
+    box-shadow: 0 0 10px 0 rgba(0, 0, 255, 0.5), 0 0 20px 0 rgba(0, 0, 255, 0.5), 0 0 30px 0 rgba(0, 0, 255, 0.5);
+  }
+  100% {
+    box-shadow: 0 0 10px 0 rgba(255, 0, 0, 0.5), 0 0 20px 0 rgba(255, 0, 0, 0.5), 0 0 30px 0 rgba(255, 0, 0, 0.5);
   }
 }
 

@@ -137,18 +137,20 @@ const ApplicationsGov = () => {
               {applications.map((app) => (
                 <tr key={app.id}>
                   <td>
-                    <button
+                    <div className="btn-group"
+                      role="button"
                       onClick={() => handleStatusUpdate(app.id, 'Approved')}
                       disabled={app.status === 'Approved'}
                     >
                       Approve
-                    </button>
-                    <button
+                    </div>
+                    <div className="btn-group"
+                      role="button"
                       onClick={() => handleStatusUpdate(app.id, 'Rejected')}
                       disabled={app.status === 'Rejected'}
                     >
                       Reject
-                    </button>
+                    </div>
                   </td>
                   <td>{app.status || 'Pending'}</td>
                   <td>{app.submissionDate}</td>

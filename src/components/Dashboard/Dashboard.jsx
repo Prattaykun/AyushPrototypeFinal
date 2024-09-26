@@ -281,8 +281,9 @@ export default function Dashboard() {
           >
             Schedule Meeting
           </button>
-          <Link to="/TrackApplication">
+          
             <button
+              onClick={() => navigate("/TrackApplication")}
               style={buttonStyle}
               onMouseOver={(e) =>
                 (e.currentTarget.style.backgroundColor =
@@ -295,7 +296,7 @@ export default function Dashboard() {
             >
               Track Application
             </button>
-          </Link>
+          
         </div>
       </div>
     </div>

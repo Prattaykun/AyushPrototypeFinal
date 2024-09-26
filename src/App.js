@@ -110,9 +110,9 @@ function App() {
       )}
     </nav>
           <div className="menu-container">
-            <button className="menu-button" onClick={toggleMenu}>
+            <div className="menu-button" role="button" onClick={toggleMenu}>
               Menu
-            </button>
+            </div>
             {menuOpen && (
               <div className="menu-dropdown">
                 <Link to="/policy" className="menu-item">
