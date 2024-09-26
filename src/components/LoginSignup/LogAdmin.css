@@ -1,0 +1,104 @@
+/* General Styling */
+body {
+    font-family: 'Arial', sans-serif; /* Set a clean, readable font */
+    background-color: #e9ecef; /* Light gray background for contrast */
+    margin: 0;
+    padding: 0;
+}
+
+/* Container Styling */
+.submit_container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 100px auto; /* Center vertically with margin */
+    width: 400px; /* Fixed width for the container */
+    background-color: #ffffff; /* White background for contrast */
+    padding: 50px; /* Ample padding for a spacious feel */
+    border-radius: 15px; /* Rounded corners */
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15); /* Soft shadow for depth */
+    animation: fade-in 0.6s ease-in-out; /* Fade-in animation */
+}
+
+/* Fade-in Animation */
+@keyframes fade-in {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Header Styling */
+.submit_container h2 {
+    color: #343a40; /* Dark gray for header */
+    margin-bottom: 30px; /* Space below the header */
+    font-size: 26px; /* Font size for better visibility */
+    text-align: center; /* Centered text */
+    font-weight: bold; /* Bold text for emphasis */
+}
+
+/* Input Fields Styling */
+.admin_input {
+    width: 100%; /* Full width of the container */
+    padding: 14px; /* Ample padding for larger input area */
+    margin-bottom: 20px; /* Space between fields */
+    border-radius: 8px; /* Rounded corners */
+    border: 1px solid #ced4da; /* Light border */
+    font-size: 16px; /* Comfortable font size */
+    transition: border-color 0.3s ease, box-shadow 0.3s ease; /* Smooth transition */
+}
+
+/* Input Focus Styling */
+.admin_input:focus {
+    border-color: #0a5feb; /* Highlight border color on focus */
+    box-shadow: 0 0 5px rgba(10, 94, 235, 0.5); /* Soft glow effect */
+    outline: none; /* Remove default outline */
+}
+
+/* Button Styling */
+.login-button {
+    padding: 12px; /* Padding inside button */
+    font-size: 18px; /* Font size for button text */
+    color: #ffffff; /* White text color */
+    background-color: #0a5feb; /* Primary button color */
+    border: none; /* No border */
+    border-radius: 50px; /* Fully rounded corners */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease; /* Smooth transition */
+    width: 100%; /* Full width button */
+    font-weight: bold; /* Bold text for button */
+}
+
+/* Button Hover Effects */
+.login-button:hover {
+    background-color: #34a853; /* Change to green on hover */
+    transform: translateY(-3px); /* Lift effect on hover */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15); /* Enhanced shadow on hover */
+}
+
+/* Button Active Effects */
+.login-button:active {
+    transform: translateY(1px); /* Reset lift on click */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Reset shadow on click */
+}
+
+/* Responsive Design */
+@media (max-width: 480px) {
+    .submit_container {
+        width: 90%; /* Adjust width for smaller screens */
+        padding: 30px; /* Adjust padding for smaller screens */
+    }
+
+    .submit_container h2 {
+        font-size: 24px; /* Smaller font size for header */
+    }
+
+    .admin_input, .login-button {
+        font-size: 16px; /* Adjust font size for inputs and buttons */
+    }
+}

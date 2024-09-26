@@ -1,44 +1,52 @@
-import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import styles from './LogAdmin.module.css';
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import "./LogAdmin.css";
 
 const LogAdmin = () => {
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
   const navigate = useNavigate();
 
   const handleLogin = (e) => {
-    e.preventDefault(); // Prevent the default form submission
-    if (username === 'Admin' && password === 'Ayush007') {
-      navigate('/Admin');
+    e.preventDefault(); // Prevent default form submission
+
+    // Check credentials
+    if (username === "Admin" && password === "Ayush007") {
+      navigate("/Admin");
     } else {
-      alert('Invalid credentials');
+      alert("Invalid credentials");
     }
   };
 
   return (
-    <div className={styles['submit-container']}>
+    <div className="submit_container">
       <h2>Admin Login</h2>
       <form onSubmit={handleLogin}>
         <div>
-          <label>Username:</label>
+          <label htmlFor="username">Username:</label>
           <input
             type="text"
-            className={styles.input}
+            id="username"
+            className="admin_input"
             value={username}
             onChange={(e) => setUsername(e.target.value)}
+            required // Ensures the field is filled
           />
         </div>
         <div>
-          <label>Password:</label>
+          <label htmlFor="password">Password:</label>
           <input
             type="password"
-            className={styles.input}
+            id="password"
+            className="admin_input"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
+            required // Ensures the field is filled
           />
         </div>
-        <button type="submit" className={styles.Login}>Login</button>
+        <button type="submit" className="login-button">
+          Login
+        </button>
       </form>
     </div>
   );
