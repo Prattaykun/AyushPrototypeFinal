@@ -287,7 +287,7 @@ button:active {
   position: fixed;
   top: 80px; /* Adjust according to header height */
   left: 0;
-  width: 180px;
+  width: 210px;
   background-color: #006e07; /* Soft Ayurvedic background color */
   height: 100vh; /* Full viewport height */
   padding: 20px;
@@ -361,6 +361,7 @@ button:active {
   margin-left: 0vh; /* Footer shift to accommodate menu */
   margin-bottom: 0vh; /* Footer shift to accommodate menu */
   border-top: 2px solid #b08968; /* Earthy Ayurvedic border */
+  width: 100%;
 }
 
 /* Optional: For mobile responsiveness */
