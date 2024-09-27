@@ -68,7 +68,6 @@ function App() {
           "/LogSignGov",
           "/LogSignStake",
           "/LogAdmin",
-          "/Admin",
           "/GovLoadScreen",
           "/FAQ",
           "/Notices",
@@ -181,25 +180,19 @@ function App() {
         <Route 
          path="/ApplicationsGov" 
          element={
-         <ProtectedRoute>
           <ApplicationsGov />
-          </ProtectedRoute>
          } />
 
         <Route
           path="/Eligibility"
           element={
-            <ProtectedRoute>
               <Eligibility />
-            </ProtectedRoute>
           }
         />
         <Route
           path="/Feedback"
           element={
-            <ProtectedRoute>
               <Feedback />
-            </ProtectedRoute>
           }
         />
         <Route path="/LoginSignup" element={<LoginSignup />} />
