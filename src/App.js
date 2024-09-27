@@ -27,6 +27,7 @@ import { getAuth, signOut, onAuthStateChanged } from "firebase/auth";
 import { app, auth, db } from "./firebase";
 import { getDoc, doc } from "firebase/firestore";
 
+
 import ProtectedRoute from "./components/ProtectedRoute"; // Import ProtectedRoute
 // import Feedback from "./components/menu/Feedback";
 import FAQ from "./components/menu/FAQ";
@@ -138,11 +139,20 @@ function App() {
                 <Link to="/RoleSelect" className="menu-item">
                   Login/Signup
                 </Link>
+                <Link to="/PolicyGuideline" className="menu-item">
+                  Policy & Guidelines
+                </Link>
                 <Link to="/Feedback" className="menu-item">
                   Feedback
                 </Link>
                 <Link to="/Eligibility" className="menu-item">
                   Eligibility
+                </Link>
+                <Link to="/Notices" className="menu-item">
+                  Notices
+                </Link>
+                <Link to="/FAQ" className="menu-item">
+                  FAQ
                 </Link>
                 <Link onClick={handleLogout} className="menu-item">
                   Log Out
@@ -163,6 +173,16 @@ function App() {
             </ProtectedRoute>
           }
         />
+        <Route path="/Notices" element={<Notices />} />
+        <Route path="/PolicyGuideline" element={<PolicyGuidline />} />
+        <Route 
+         path="/ApplicationsGov" 
+         element={
+         <ProtectedRoute>
+          <ApplicationsGov />
+          </ProtectedRoute>
+         } />
+
         <Route
           path="/Eligibility"
           element={
@@ -186,7 +206,7 @@ function App() {
           path="/GovDashboard"
           element={
             <ProtectedRoute>
-              <Dashboard />
+              <GovDashboard />
             </ProtectedRoute>
           }
         />
