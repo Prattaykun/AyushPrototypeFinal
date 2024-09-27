@@ -1,6 +1,10 @@
 import React, { useState } from "react";
+import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
+import { app } from "../../firebase";
 import "./LogAdmin.css";
+
+const auth = getAuth(app);
 
 const LogAdmin = () => {
   const [username, setUsername] = useState("");
@@ -10,12 +14,15 @@ const LogAdmin = () => {
   const handleLogin = (e) => {
     e.preventDefault(); // Prevent default form submission
 
-    // Check credentials
-    if (username === "Admin" && password === "Ayush007") {
-      navigate("/Admin");
-    } else {
-      alert("Invalid credentials");
-    }
+    signInWithEmailAndPassword(auth, username, password)
+      .then((userCredential) => {
+        // Signed in
+        const user = userCredential.user;
+        navigate("/Admin");
+      })
+      .catch((error) => {
+        alert("Invalid credentials");
+      });
   };
 
   return (

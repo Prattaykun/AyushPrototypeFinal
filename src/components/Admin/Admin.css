@@ -1,0 +1,57 @@
+.admin-dashboard {
+    padding: 20px;
+    font-family: "Georgia", serif;
+    background-color: #faf3e0; /* Ayurvedic soft background */
+    color: #3e2a12;
+  }
+  
+  .admin-section {
+    margin-bottom: 30px;
+    padding: 15px;
+    background-color: #f3eac2;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border: 2px solid #b08968; /* Earthy Ayurvedic border */
+  }
+  
+  .admin-section h2 {
+    font-size: 22px;
+    color: #5a3e1b; /* Ayurvedic brown for section headers */
+    margin-bottom: 15px;
+  }
+  
+  .admin-section p {
+    font-size: 16px;
+    color: #3e2a12;
+  }
+  
+  .admin-section button {
+    padding: 10px 15px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #b08968;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .admin-section button:hover {
+    background-color: #a17054; /* Darker brown on hover */
+  }
+  
+  .admin-section input {
+    padding: 10px;
+    font-size: 16px;
+    width: 250px;
+    margin-right: 10px;
+  }
+  
+  ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  li {
+    margin-bottom: 10px;
+  }
+  

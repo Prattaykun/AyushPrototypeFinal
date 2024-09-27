@@ -215,7 +215,12 @@ function App() {
         />
         <Route path="/policy" element={<policy />} />
         <Route path="/LogSignStake" element={<LogSignStake />} />
-        <Route path="/LogAdmin" element={<LogAdmin />} />
+        <Route path="/LogAdmin" element={
+          <ProtectedRoute>
+           <LogAdmin />
+          </ProtectedRoute>
+          } 
+        />
         <Route path="/Admin" element={<Admin />} />
         <Route path="/RoleSelect" element={<RoleSelect />} />
         <Route
