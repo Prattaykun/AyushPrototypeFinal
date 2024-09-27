@@ -69,6 +69,9 @@ function App() {
           "/LogAdmin",
           "/Admin",
           "/GovLoadScreen",
+          "/FAQ",
+          "/Notices",
+          "/PolicyGuideline",
         ];
         if (!allowedPaths.includes(location.pathname)) {
           navigate("/RoleSelect");
