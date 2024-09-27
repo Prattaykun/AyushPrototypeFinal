@@ -223,3 +223,27 @@ button:disabled {
 .applications-table th {
   background-color: #f2f2f2; /* Add background color to table headers */
 }
+.btn-group {
+  display: inline-block;
+  padding: 10px 20px;
+  margin: 5px;
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+  cursor: pointer;
+  border-radius: 5px;
+  border: 2px solid #8B4513; /* Ayurvedic brown border */
+  background-color: #F5DEB3; /* Ayurvedic wheat background */
+  color: #8B4513; /* Ayurvedic brown text */
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.btn-group[disabled] {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.btn-group:not([disabled]):hover {
+  background-color: #8B4513; /* Ayurvedic brown background on hover */
+  color: #F5DEB3; /* Ayurvedic wheat text on hover */
+}

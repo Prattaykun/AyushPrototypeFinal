@@ -727,7 +727,7 @@ select option {
   width: 640px; /* Match the iframe width */
   height: 360px; /* Match the iframe height */
   margin: 0 auto; /* Center the container */
-  padding: 20px; /* Add padding for spacing */
+  padding: 4dvh; /* Add padding for spacing */
 }
 
 /* .custom-embed {
@@ -739,6 +739,7 @@ select option {
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-top: 20px;
   /* background: linear-gradient(to bottom, #f6f2e9, #d6e4be); */
   /* padding: 3px; */
 }
