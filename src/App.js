@@ -26,6 +26,7 @@ import LogAdmin from "./components/LoginSignup/LogAdmin";
 import { getAuth, signOut, onAuthStateChanged } from "firebase/auth";
 import { app, auth, db } from "./firebase";
 import { getDoc, doc } from "firebase/firestore";
+import menuicon from "./components/Assets/menu.png";
 
 
 import ProtectedRoute from "./components/ProtectedRoute"; // Import ProtectedRoute
@@ -96,7 +97,7 @@ function App() {
       });
   };
 
-  const [menuOpen, setMenuOpen] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(true);
 
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
@@ -107,6 +108,9 @@ function App() {
       <header className="header-main">
         <div>
           <img src={Logo} alt="Logo Icon" className="logo-img" />
+        </div>
+        <div className="menu-icon" onClick={toggleMenu}>
+          <img src={menuicon} alt="Menu Icon" />
         </div>
         <div className="navbar-main">
           <h1>Ministry of AYUSH - Startup Initiative</h1>
@@ -130,41 +134,37 @@ function App() {
               </Link>
             )}
           </nav>
-          <div className="menu-container">
-            <div className="menu-button" role="button" onClick={toggleMenu}>
-              Menu
-            </div>
-            {menuOpen && (
-              <div className="menu-dropdown">
-                <Link to="/" className="menu-item">
-                  Home
-                </Link>
-                <Link to="/RoleSelect" className="menu-item">
-                  Login/Signup
-                </Link>
-                <Link to="/PolicyGuideline" className="menu-item">
-                  Policy & Guidelines
-                </Link>
-                <Link to="/Feedback" className="menu-item">
-                  Feedback
-                </Link>
-                <Link to="/Eligibility" className="menu-item">
-                  Eligibility
-                </Link>
-                <Link to="/Notices" className="menu-item">
-                  Notices
-                </Link>
-                <Link to="/FAQ" className="menu-item">
-                  FAQ
-                </Link>
-                <Link onClick={handleLogout} className="menu-item">
-                  Log Out
-                </Link>
-              </div>
-            )}
-          </div>
+          {menuOpen && (
+          <div className="menu-container-left">
+  <Link to="/" className="menu-item">
+    Home
+  </Link>
+  <Link to="/RoleSelect" className="menu-item">
+    Login/Signup
+  </Link>
+  <Link to="/PolicyGuideline" className="menu-item">
+    Policy & Guidelines
+  </Link>
+  <Link to="/Feedback" className="menu-item">
+    Feedback
+  </Link>
+  <Link to="/Eligibility" className="menu-item">
+    Eligibility
+  </Link>
+  <Link to="/Notices" className="menu-item">
+    Notices
+  </Link>
+  <Link to="/FAQ" className="menu-item">
+    FAQ
+  </Link>
+  <Link onClick={handleLogout} className="menu-item">
+    Log Out
+  </Link>
+</div>
+          )}
         </div>
       </header>
+    
 
       <Routes>
         <Route path="/" element={<Home />} />

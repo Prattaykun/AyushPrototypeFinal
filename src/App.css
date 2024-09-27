@@ -4,6 +4,7 @@ body {
   background-color: #f5f3f8; /* Light blue background for a modern touch */
   margin: 0;
   padding: 0;
+  
 }
 
 /* Container for the form */
@@ -213,6 +214,7 @@ button:active {
 .logo-img{
   height: 12vh;
   padding-left: 1vw;
+  z-index: 2000;
 }
 
 
@@ -279,4 +281,99 @@ button:active {
 .menu-item:hover {
   background-color: #e0f2f1;
   color: #00796b;
+}
+/* Sidebar menu styling */
+.menu-container-left {
+  position: fixed;
+  top: 80px; /* Adjust according to header height */
+  left: 0;
+  width: 180px;
+  background-color: #006e07; /* Soft Ayurvedic background color */
+  height: 100vh; /* Full viewport height */
+  padding: 20px;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+  border-right: 2px solid #b08968; /* Earthy Ayurvedic border */
+  border-top: 2px solid #b08968; /* Earthy Ayurvedic border */
+  z-index: 1000; /* Ensure the menu stays below the header */
+  overflow-y: auto; /* Enable scrolling if content exceeds the viewport */
+}
+
+/* Menu item styling */
+.menu-container-left .menu-item {
+  display: block;
+  margin-bottom: 15px;
+  padding: 10px 15px;
+  color: #e6ffa2; /* Ayurvedic brown for text */
+  text-decoration: none;
+  font-size: 17px;
+  font-family: "Georgia", serif; /* A natural serif font for Ayurveda */
+  transition: background-color 0.3s ease;
+  border-radius: 5px;
+}
+
+.menu-container-left .menu-item:hover {
+  background-color: #dcc49b; /* Lighter shade on hover */
+  color: #000; /* Darker text on hover */
+}
+.menu-icon {
+  position: absolute;
+  bottom: -20px; /* Adjust as needed to hang below the logo */
+  left: 0; /* Align to the left of the header */
+  width: 40px; /* Adjust width as needed */
+  height: 30px; /* Adjust height as needed */
+  background-color: #006e07; /* Ayurvedic brown background */
+  border-radius: 0 0 5px 5px; /* Rounded bottom corners */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  z-index: 1001; /* Ensure the icon appears above the sidebar */
+  border: 2px solid #b08968; /* Earthy Ayurvedic border */
+}
+
+.menu-icon img {
+  width: 24px; /* Adjust size as needed */
+  height: 24px; /* Adjust size as needed */
+}
+/* Header styling */
+.header-main {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 80px;
+  background-color: #006e07; 
+  display: flex;
+  align-items: center;
+  border-bottom: 2px solid #b08968; /* Earthy Ayurvedic border */
+  justify-content: space-between;
+  padding: 0 20px;
+  z-index: 1001; /* Ensure the header appears above the sidebar */
+}
+
+/* Main content styling */
+.App {
+  margin-left: 250px; /* Shift content to accommodate sidebar */
+  padding-top: 80px; /* Add space for the fixed header */
+}
+
+.App .footer {
+  margin-left: 0vh; /* Footer shift to accommodate menu */
+  margin-bottom: 0vh; /* Footer shift to accommodate menu */
+  border-top: 2px solid #b08968; /* Earthy Ayurvedic border */
+}
+
+/* Optional: For mobile responsiveness */
+@media (max-width: 768px) {
+  .menu-container-left {
+    width: 200px; /* Narrower sidebar for smaller screens */
+  }
+
+  .App {
+    margin-left: 200px; /* Adjust content margin for mobile */
+  }
+
+  .App .footer {
+    margin-left: 200px;
+  }
 }

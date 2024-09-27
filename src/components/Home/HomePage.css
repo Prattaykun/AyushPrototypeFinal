@@ -455,15 +455,17 @@ footer p {
 .welcome-heading {
   text-align: center;
   padding: 40px 20px;
+  width: 90%;
   background: linear-gradient(135deg, #7f9433, #a3b37d);
   border-radius: 20px;
+  margin-left: auto;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
   max-width: 1000px;
   overflow: hidden; /* Hide overflow for smooth animation */
 }
 
 .welcome-heading h1 {
-  font-size: 50px;
+  font-size: 35px;
   font-weight: 700;
   color: #ffffff;
   margin: 0;
@@ -727,7 +729,7 @@ select option {
   width: 640px; /* Match the iframe width */
   height: 360px; /* Match the iframe height */
   margin: 0 auto; /* Center the container */
-  padding: 4dvh; /* Add padding for spacing */
+  padding: 3dvh; /* Add padding for spacing */
 }
 
 /* .custom-embed {
