@@ -17,6 +17,8 @@ import PolicyGuidline from "./components/menu/PolicyGuideline";
 import RoleSelect from "./components/RoleSelect/RoleSelect";
 import Admin from "./components/Admin/Admin";
 import GovDashboard from "./components/Dashboard/GovDashboard";
+import ApplicationsGov from "./components/Dashboard/ApplicationsGov";
+import Notices from "./components/menu/Notices";
 import LogSignGov from "./components/LoginSignup/LogSignGov";
 import GovLoadScreen from "./components/LoginSignup/GovLoadScreen";
 import LogSignStake from "./components/LoginSignup/LogSignStake";
@@ -125,9 +127,9 @@ function App() {
             )}
           </nav>
           <div className="menu-container">
-            <button className="menu-button" onClick={toggleMenu}>
+            <div className="menu-button" role="button" onClick={toggleMenu}>
               Menu
-            </button>
+            </div>
             {menuOpen && (
               <div className="menu-dropdown">
                 <Link to="/" className="menu-item">
@@ -136,12 +138,6 @@ function App() {
                 <Link to="/RoleSelect" className="menu-item">
                   Login/Signup
                 </Link>
-                <Link to="/PolicyGuideline" className="menu-item">
-                  Policy and Guidelines
-                </Link>
-                <Link to="/FAQ" className="menu-item">
-                  FAQ
-                </Link>{" "}
                 <Link to="/Feedback" className="menu-item">
                   Feedback
                 </Link>
@@ -194,7 +190,7 @@ function App() {
             </ProtectedRoute>
           }
         />
-        {/* <Route path="/PolicyGuideline" element={<PolicyGuidline />} /> */}
+        <Route path="/policy" element={<policy />} />
         <Route path="/LogSignStake" element={<LogSignStake />} />
         <Route path="/LogAdmin" element={<LogAdmin />} />
         <Route path="/Admin" element={<Admin />} />

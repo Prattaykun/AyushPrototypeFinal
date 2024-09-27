@@ -29,3 +29,197 @@
   outline: none;
   box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.5); /* Focus outline */
 }
+.gov-dashboard {
+  padding: 20px;
+}
+
+.applications-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.applications-table th, .applications-table td {
+  padding: 10px;
+  border: 1px solid #ddd;
+}
+
+.actions button {
+  margin: 5px;
+  padding: 8px 12px;
+  background-color: #4CAF50; /* Green for approve */
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.actions button:disabled {
+  background-color: #aaa;
+}
+
+.actions button:nth-child(2) {
+  background-color: #f44336; /* Red for reject */
+}
+/* Root colors for Ayurvedic theme */
+:root {
+  --primary-color: #8C593B; /* Earthy brown */
+  --secondary-color: #D4A373; /* Warm golden brown */
+  --accent-color: #679436; /* Herbal green */
+  --background-color: #FAF3E0; /* Light beige */
+  --text-color: #3C2F2F; /* Deep brown */
+}
+
+/* Container styling */
+.gov-dashboard {
+  font-family: 'Poppins', sans-serif;
+  color: var(--text-color);
+  background-color: var(--background-color);
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* Section for posting notice */
+.notice-section {
+  margin-bottom: 20px;
+  padding: 20px;
+  background-color: var(--primary-color);
+  border-radius: 8px;
+  color: white;
+  box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.2);
+  animation: fadeIn 1.2s ease-out;
+}
+
+.notice-section h3 {
+  margin-bottom: 15px;
+  color: var(--accent-color);
+  font-weight: bold;
+}
+
+.notice-section label {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--secondary-color);
+}
+
+.notice-section input[type="text"],
+.notice-section textarea {
+  width: 100%;
+  padding: 10px;
+  border: 2px solid var(--accent-color);
+  border-radius: 5px;
+  margin-bottom: 15px;
+  font-size: 16px;
+  background-color: #FFF;
+  transition: border-color 0.3s ease;
+}
+
+.notice-section input[type="text"]:focus,
+.notice-section textarea:focus {
+  border-color: var(--secondary-color);
+  outline: none;
+}
+
+/* Button styling */
+button {
+  background-color: var(--accent-color);
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+  box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
+  animation: pulse 2s infinite;
+}
+
+button:hover {
+  background-color: var(--secondary-color);
+}
+
+button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+/* Success and error messages */
+.success-message,
+.error-message {
+  font-size: 14px;
+  margin-top: 10px;
+}
+
+.success-message {
+  color: #679436;
+  animation: slideIn 1s ease;
+}
+
+.error-message {
+  color: #FF4C4C;
+}
+
+/* Button for navigation to ApplicationsGov */
+.applications-button {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.applications-button button {
+  background-color: var(--primary-color);
+}
+
+/* Ayurvedic animations */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideIn {
+  0% {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+.table-container {
+  width: 100%;
+  height: 100vh; /* Full viewport height */
+  overflow: auto; /* Enable both horizontal and vertical scrolling */
+  box-sizing: border-box; /* Include padding and border in the element's total width and height */
+  padding: 10px; /* Optional: Add padding for better spacing */
+}
+
+.applications-table {
+  width: 100%;
+  border-collapse: collapse; /* Ensure borders are collapsed */
+}
+
+.applications-table th, .applications-table td {
+  border: 1px solid #ccc; /* Add border to table cells */
+  padding: 8px; /* Add padding to table cells */
+  text-align: left; /* Align text to the left */
+}
+
+.applications-table th {
+  background-color: #f2f2f2; /* Add background color to table headers */
+}

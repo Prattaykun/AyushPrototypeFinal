@@ -185,6 +185,18 @@ const RegistrationForm2 = () => {
         {[...Array(Number(formData.members) || 1)].map((_, idx) => (
           <div key={idx}>
             <h4>Member {idx + 1} Details</h4>
+
+            <div className="input-group">
+              <label>Name</label>
+              <input
+                type="text"
+                name={`member${idx}_name`}
+                value={formData[`member${idx}_name`] || ""}
+                onChange={handleChange}
+                required
+              />
+            </div>
+
             <div className="input-group">
               <label>Father's Name</label>
               <input

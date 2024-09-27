@@ -43,7 +43,7 @@ function LoginSignup() {
           .then(() => {
             // Set the role in Firestore
             const userRef = doc(db, "roles", userCredential.user.uid);
-            return setDoc(userRef, { role: "startup" });
+            return setDoc(userRef, { role: "startup" },);
           })
           .then(() => {
             alert("Success! User created with name: " + name);

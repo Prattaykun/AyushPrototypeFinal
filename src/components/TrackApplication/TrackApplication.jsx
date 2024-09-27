@@ -1,33 +1,70 @@
-import React from "react";
-import "./TrackApplication.css";
+import React, { useEffect, useState } from 'react';
+import { doc, getDoc } from 'firebase/firestore';
+import { auth, db } from '../../firebase'; // Import auth and db from your firebase setup
+import './TrackApplication.css'; // Add your styles here
 
-export default function TrackApplication() {
-  // Example status data (you can fetch this from an API in a real app)
-  const status = "In Review"; // Possible values: "Pending", "In Review", "Approved", "Rejected"
-  const progress = 60; // Progress percentage
+const TrackApplication = () => {
+  const [status, setStatus] = useState('In Review');
+  const [submissionDate, setSubmissionDate] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const currentUser = auth.currentUser; // Gets the currently authenticated user
+
+  useEffect(() => {
+    const fetchApplicationStatus = async () => {
+      if (currentUser) {
+        const applicationDoc = doc(db, 'users', currentUser.uid);
+        try {
+          const docSnap = await getDoc(applicationDoc);
+          if (docSnap.exists()) {
+            const data = docSnap.data();
+            setStatus(data.status || 'In Review'); // Default to "In Review" if no status found
+            setSubmissionDate(data.submissionDate); // Get submission date
+          } else {
+            console.log('No such document!');
+          }
+        } catch (error) {
+          console.error('Error fetching document:', error);
+        } finally {
+          setLoading(false);
+        }
+      }
+    };
+
+    fetchApplicationStatus();
+  }, [currentUser]);
+
+  if (loading) {
+    return <div>Loading...</div>;
+  }
+
+ // Convert ISO string to Indian Date Format (DD/MM/YYYY)
+ const formatDateToIndianFormat = (isoString) => {
+  if (isoString) {
+    const date = new Date(isoString); // Parse ISO string into a Date object
+    return date.toLocaleDateString('en-IN'); // Indian date format
+  }
+  return 'N/A'; // If submission date is null or invalid
+};
+
+
 
   return (
-    <div className="track-container">
-      <h1 className="track-title">Track Your Application</h1>
-      <div className="track-card">
-        <h2 className="status-title">Current Status</h2>
-        <div
-          className={`status-badge ${status
-            .replace(/\s+/g, "-")
-            .toLowerCase()}`}
-        >
-          {status}
-        </div>
-        <div className="progress-container">
-          <div className="progress-bar" style={{ width: `${progress}%` }}></div>
-        </div>
-        <p className="progress-text">{progress}% Completed</p>
-        <div className="details-container">
-          <h3>Application Details:</h3>
-          <p>Submitted on: September 15, 2024</p>
-          <p>Expected Review Date: September 30, 2024</p>
-        </div>
+    <div className="container mt-5 track-application-container">
+      <h2 className="text-center mb-4">Track Your Application</h2>
+      <div className="application-status">
+        <p>
+          <strong>Status: </strong>
+          <span className={`status-${status.toLowerCase()}`}>{status}</span>
+        </p>
+        {submissionDate && (
+          <p>
+            <strong>Application submitted on: </strong>
+            {formatDateToIndianFormat(submissionDate)}
+          </p>
+        )}
       </div>
     </div>
   );
-}
+};
+
+export default TrackApplication;

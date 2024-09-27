@@ -1,13 +1,18 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link,useNavigate } from "react-router-dom";
 import "./HomePage.css";
 import logo_icon from "../Assets/ayushlogo.jpg";
 import startup_icon from "../Assets/startupindia.jpg";
 import watermark from "../Assets/Plants.jpg.jpg";
 // import 'bootstrap/dist/css/bootstrap.min.css';
 import { Container } from 'react-bootstrap';
+import Notices from "../menu/Notices";
+
+
 
 function HomePage() {
+
+  const navigate = useNavigate();
   return (
     <div>
       <main className="main-content">
@@ -95,13 +100,20 @@ function HomePage() {
             <li>Access to Government Grants and Resources</li>
           </ul>
         </section>
+         <div>         <h2>Notices</h2>
+         </div>
+         <Container className="custom-notices">
+        {/* Adding Notices Section */}
+        <Notices /> {/* Render the Notices component here */}
+        </Container>
+
 
         <section className="how-to-apply">
           <h2>How to Apply</h2>
-          <p>
+          <div className="sub-head">
             Interested startups can apply through our online portal. Simply
             follow the steps:
-          </p>
+          </div>
           <ol>
             <li>Register your startup on our portal.</li>
             <li>Submit your proposal and business plan.</li>
@@ -109,9 +121,15 @@ function HomePage() {
               Our team will review and get back to you with the next steps.
             </li>
           </ol>
-          <Link to="/RoleSelect">
-            <button className="apply-btn">Apply Now</button>
-          </Link>
+          
+          <div className="apply-btn"
+           role="button"
+           onClick={() => navigate("/RoleSelect")}
+           >
+            Apply Now
+            </div>       
+           
+
         </section>
 
         <section className="contact-us">

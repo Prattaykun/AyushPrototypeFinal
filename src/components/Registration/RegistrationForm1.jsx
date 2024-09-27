@@ -30,13 +30,14 @@ const RegistrationForm1 = () => {
       await setDoc(doc(db, "users", user.uid), {
         ...formData, // Save form data
         step: 1,    // Track step of form
+        submissionDate: new Date().toISOString(), // Add the current date and time
       });
       navigate("/RegistrationForm2"); // Navigate to the next form
     } catch (error) {
       console.error("Error saving form data:", error);
     }
   };
-
+  
   return (
     <div className="form-container">
       <h2>Basic Details</h2>
