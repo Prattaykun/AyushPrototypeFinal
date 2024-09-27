@@ -3,7 +3,7 @@ import "./App.css";
 import Dashboard from "./components/Dashboard/Dashboard";
 import LoginSignup from "./components/LoginSignup/LoginSignup";
 import RegistrationForm1 from "./components/Registration/RegistrationForm1";
-import { Routes, Route, useNavigate,useLocation } from "react-router-dom";
+import { Routes, Route, useNavigate, useLocation } from "react-router-dom";
 import RegistrationForm2 from "./components/Registration/RegistrationForm2";
 import RegistrationForm3 from "./components/Registration/RegistrationForm3";
 import Home from "./components/Home/HomePage";
@@ -13,7 +13,7 @@ import Logo from "./components/Assets/favicon.png";
 import TrackApplication from "./components/TrackApplication/TrackApplication"; // Ensure this is the correct path
 import Eligibility from "./components/menu/Eligibility";
 import Feedback from "./components/menu/Feedback";
-import policy from "./components/menu/policy";
+import PolicyGuidline from "./components/menu/PolicyGuideline";
 import RoleSelect from "./components/RoleSelect/RoleSelect";
 import Admin from "./components/Admin/Admin";
 import GovDashboard from "./components/Dashboard/GovDashboard";
@@ -21,12 +21,13 @@ import LogSignGov from "./components/LoginSignup/LogSignGov";
 import GovLoadScreen from "./components/LoginSignup/GovLoadScreen";
 import LogSignStake from "./components/LoginSignup/LogSignStake";
 import LogAdmin from "./components/LoginSignup/LogAdmin";
-import { getAuth,signOut, onAuthStateChanged } from "firebase/auth";
-import { app,auth, db } from "./firebase";
+import { getAuth, signOut, onAuthStateChanged } from "firebase/auth";
+import { app, auth, db } from "./firebase";
 import { getDoc, doc } from "firebase/firestore";
 
 import ProtectedRoute from "./components/ProtectedRoute"; // Import ProtectedRoute
 // import Feedback from "./components/menu/Feedback";
+import FAQ from "./components/menu/FAQ";
 
 // const auth = getAuth(app);
 
@@ -40,7 +41,7 @@ function App() {
     const unsubscribe = onAuthStateChanged(auth, async (currentUser) => {
       if (currentUser) {
         setUser(currentUser);
-        const roleDoc = await getDoc(doc(db, 'roles', currentUser.uid));
+        const roleDoc = await getDoc(doc(db, "roles", currentUser.uid));
         if (roleDoc.exists()) {
           setRole(roleDoc.data().role);
         }
@@ -55,8 +56,16 @@ function App() {
 
         // Navigate to RoleSelect only if not already on the allowed routes
         const allowedPaths = [
-          "/", "/LoginSignup", "/Eligibility", "/Feedback", "/RoleSelect",
-          "/LogSignGov", "/LogSignStake", "/LogAdmin", "/Admin", "/GovLoadScreen"
+          "/",
+          "/LoginSignup",
+          "/Eligibility",
+          "/Feedback",
+          "/RoleSelect",
+          "/LogSignGov",
+          "/LogSignStake",
+          "/LogAdmin",
+          "/Admin",
+          "/GovLoadScreen",
         ];
         if (!allowedPaths.includes(location.pathname)) {
           navigate("/RoleSelect");
@@ -96,65 +105,133 @@ function App() {
         <div className="navbar-main">
           <h1>Ministry of AYUSH - Startup Initiative</h1>
           <nav>
-      <Link to="/" className="nav-link">Home</Link>
-      {user ? (
-        role === 'startup' ? (
-          <Link to="/Dashboard" className="nav-link">Dashboard</Link>
-        ) : role === 'govtofficial' ? (
-          <Link to="/GovDashboard" className="nav-link">Government Dashboard</Link>
-        ) : null
-      ) : (
-        <Link to="/RoleSelect" className="nav-link">Login/Signup</Link>
-      )}
-    </nav>
+            <Link to="/" className="nav-link">
+              Home
+            </Link>
+            {user ? (
+              role === "startup" ? (
+                <Link to="/Dashboard" className="nav-link">
+                  Dashboard
+                </Link>
+              ) : role === "govtofficial" ? (
+                <Link to="/GovDashboard" className="nav-link">
+                  Government Dashboard
+                </Link>
+              ) : null
+            ) : (
+              <Link to="/RoleSelect" className="nav-link">
+                Login/Signup
+              </Link>
+            )}
+          </nav>
           <div className="menu-container">
             <button className="menu-button" onClick={toggleMenu}>
               Menu
             </button>
             {menuOpen && (
               <div className="menu-dropdown">
-                <Link to="/policy" className="menu-item">
-                  Policy and Guidelines
-                </Link>
                 <Link to="/" className="menu-item">
                   Home
                 </Link>
                 <Link to="/RoleSelect" className="menu-item">
                   Login/Signup
                 </Link>
-                <Link to="/Feedback" className="menu-item">Feedback</Link>
-                 <Link to="/Eligibility" className="menu-item">Eligibility</Link>
-                 <Link 
-                 onClick={handleLogout}
-                 className="menu-item"
-                 >
+                <Link to="/PolicyGuideline" className="menu-item">
+                  Policy and Guidelines
+                </Link>
+                <Link to="/FAQ" className="menu-item">
+                  FAQ
+                </Link>{" "}
+                <Link to="/Feedback" className="menu-item">
+                  Feedback
+                </Link>
+                <Link to="/Eligibility" className="menu-item">
+                  Eligibility
+                </Link>
+                <Link onClick={handleLogout} className="menu-item">
                   Log Out
                 </Link>
-
               </div>
             )}
           </div>
         </div>
       </header>
-      
+
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/Dashboard" element={<ProtectedRoute><Dashboard /></ProtectedRoute>} />
-        <Route path="/Eligibility" element={<ProtectedRoute><Eligibility /></ProtectedRoute>} />
-        <Route path="/Feedback" element={<ProtectedRoute><Feedback/></ProtectedRoute>} />
+        <Route
+          path="/Dashboard"
+          element={
+            <ProtectedRoute>
+              <Dashboard />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/Eligibility"
+          element={
+            <ProtectedRoute>
+              <Eligibility />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/Feedback"
+          element={
+            <ProtectedRoute>
+              <Feedback />
+            </ProtectedRoute>
+          }
+        />
         <Route path="/LoginSignup" element={<LoginSignup />} />
         <Route path="/LogSignGov" element={<LogSignGov />} />
         <Route path="/GovLoadScreen" element={<GovLoadScreen />} />
-        <Route path="/GovDashboard" element={<ProtectedRoute><Dashboard /></ProtectedRoute>} />
-        <Route path="/policy" element={<policy />} />
+        <Route
+          path="/GovDashboard"
+          element={
+            <ProtectedRoute>
+              <Dashboard />
+            </ProtectedRoute>
+          }
+        />
+        {/* <Route path="/PolicyGuideline" element={<PolicyGuidline />} /> */}
         <Route path="/LogSignStake" element={<LogSignStake />} />
         <Route path="/LogAdmin" element={<LogAdmin />} />
         <Route path="/Admin" element={<Admin />} />
-        <Route path="/RoleSelect" element={<RoleSelect/>} />
-        <Route path="/RegistrationForm1" element={<ProtectedRoute><RegistrationForm1 /></ProtectedRoute>} />
-        <Route path="/RegistrationForm2" element={<ProtectedRoute><RegistrationForm2 /></ProtectedRoute>} />
-        <Route path="/RegistrationForm3" element={<ProtectedRoute><RegistrationForm3 /></ProtectedRoute>} />
-        <Route path="/TrackApplication" element={<ProtectedRoute><TrackApplication /></ProtectedRoute>} />
+        <Route path="/RoleSelect" element={<RoleSelect />} />
+        <Route
+          path="/RegistrationForm1"
+          element={
+            <ProtectedRoute>
+              <RegistrationForm1 />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/RegistrationForm2"
+          element={
+            <ProtectedRoute>
+              <RegistrationForm2 />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/RegistrationForm3"
+          element={
+            <ProtectedRoute>
+              <RegistrationForm3 />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/TrackApplication"
+          element={
+            <ProtectedRoute>
+              <TrackApplication />
+            </ProtectedRoute>
+          }
+        />
+        <Route path="/FAQ" element={<FAQ />} />
       </Routes>
 
       <footer className="footer">

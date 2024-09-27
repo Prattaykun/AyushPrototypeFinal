@@ -1,0 +1,77 @@
+.guideline-container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .guideline-header {
+    text-align: center;
+    background-color: #5a9;
+    color: white;
+    padding: 20px;
+    border-radius: 8px 8px 0 0;
+  }
+  
+  .guideline-header h1 {
+    margin: 0;
+    font-size: 24px;
+  }
+  
+  .guideline-header p {
+    margin-top: 10px;
+    font-size: 16px;
+  }
+  
+  .guideline-section {
+    margin-top: 20px;
+    padding: 20px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  }
+  
+  .guideline-section h2 {
+    font-size: 20px;
+    margin-bottom: 10px;
+    color: #444;
+  }
+  
+  .guideline-section ul,
+  .guideline-section ol {
+    padding-left: 20px;
+    margin-bottom: 20px;
+  }
+  
+  .guideline-section ul li,
+  .guideline-section ol li {
+    margin-bottom: 10px;
+  }
+  
+  .guideline-section a {
+    color: #5a9;
+    text-decoration: none;
+  }
+  
+  .guideline-section a:hover {
+    text-decoration: underline;
+  }
+  
+  .guideline-section p {
+    margin-bottom: 15px;
+  }
+  
+  .guideline-section ul li::before {
+    content: "• ";
+    color: #5a9;
+    font-weight: bold;
+  }
+  
+  .guideline-section ol li {
+    list-style-type: decimal;
+  }
+  
