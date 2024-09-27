@@ -148,6 +148,12 @@ function App() {
                 <Link to="/Eligibility" className="menu-item">
                   Eligibility
                 </Link>
+                <Link to="/Notices" className="menu-item">
+                  Notices
+                </Link>
+                <Link to="/FAQ" className="menu-item">
+                  FAQ
+                </Link>
                 <Link onClick={handleLogout} className="menu-item">
                   Log Out
                 </Link>
