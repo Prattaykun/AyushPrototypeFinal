@@ -72,10 +72,13 @@ function LoginSignup() {
     signInWithPopup(auth, provider)
       .then((result) => {
         console.log("Google Sign-In Success");
-
+  
         // Differentiate between login and sign-up for Google
         if (action === "Sign Up") {
-          navigate("/RegistrationForm1"); // Redirect to RegistrationForm1 after Google sign-up
+          const userRef = doc(db, "roles", result.user.uid);
+          return setDoc(userRef, { role: "startup" }).then(() => {
+            navigate("/RegistrationForm1"); // Redirect to RegistrationForm1 after Google sign-up
+          });
         } else {
           navigate("/Dashboard"); // Redirect to dashboard on Google login
         }
@@ -85,7 +88,6 @@ function LoginSignup() {
         alert(error.message); // Handle errors
       });
   };
-
   return (
     <div className="container">
       <div className="header">

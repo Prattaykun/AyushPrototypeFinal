@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { getFirestore, collection, doc, getDoc, addDoc } from "firebase/firestore";
+import { getFirestore, collection, doc, getDoc,getDocs, addDoc, updateDoc, deleteDoc,deleteField, } from "firebase/firestore";
 import { getAuth, onAuthStateChanged, deleteUser } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
 import { app } from "../../firebase";
@@ -27,13 +27,21 @@ function Admin() {
     return null;
   };
 
-  // Fetch users from Firebase authentication
-  useEffect(() => {
-    const fetchUsers = async () => {
-      // Code to fetch user list and their roles from Firebase
-    };
-    fetchUsers();
-  }, []);
+// Fetch users and their roles from Firestore (roles collection)
+useEffect(() => {
+  const fetchUsers = async () => {
+    const usersSnapshot = await getDocs(collection(db, "roles"));
+    const usersList = [];
+    for (const userDoc of usersSnapshot.docs) {
+      const userData = userDoc.data();
+      const userDetailDoc = await getDoc(doc(db, "users", userDoc.id));
+      const userDetailData = userDetailDoc.exists() ? userDetailDoc.data() : {};
+      usersList.push({ uid: userDoc.id, ...userData, member0_email: userDetailData.member0_email });
+    }
+    setUsers(usersList);
+  };
+  fetchUsers();
+}, []);
 
   // Check user role on component mount
   useEffect(() => {
@@ -70,13 +78,29 @@ function Admin() {
   // Delete user function
   const handleDeleteUser = async (uid) => {
     try {
-      const user = await auth.getUser(uid);
-      await deleteUser(user);
+      await deleteUser(auth.currentUser); // This is a placeholder. Requires backend for user deletion by admin.
+      await deleteDoc(doc(db, "roles", uid));
       setMessage("User deleted successfully!");
+      setUsers(users.filter(user => user.uid !== uid)); // Remove the user from the UI
     } catch (error) {
       setMessage("Error deleting user: " + error.message);
     }
   };
+
+ // Edit user role function
+ const handleEditUserRole = async (uid, newRole) => {
+  try {
+    const userRef = doc(db, "roles", uid);
+    await updateDoc(userRef, { role: newRole });
+    setMessage("User role updated successfully!");
+    // Update the user in the UI
+    setUsers(users.map(user => user.uid === uid ? { ...user, role: newRole } : user));
+  } catch (error) {
+    setMessage("Error updating user role: " + error.message);
+  }
+};
+
+
 
   return (
     <div className="admin-dashboard">
@@ -88,8 +112,11 @@ function Admin() {
         <ul>
           {users.map((user) => (
             <li key={user.uid}>
-              {user.email} - {user.role}
+             {user.member0_email} - {user.email} - Role: {user.role}
               <button onClick={() => handleDeleteUser(user.uid)}>Delete</button>
+              <button onClick={() => handleEditUserRole(user.uid, prompt("Enter new role:", user.role))}>
+                Edit Role
+              </button>
             </li>
           ))}
         </ul>

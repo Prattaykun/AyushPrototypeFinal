@@ -74,4 +74,51 @@
   .guideline-section ol li {
     list-style-type: decimal;
   }
-  
+  /* Container for the About Us section */
+.about-us-box {
+  background-color: #ffffff; /* White background for the box */
+  border: 1px solid #e0e0e0; /* Light gray border */
+  border-radius: 12px; /* Increased border-radius for a softer look */
+  padding: 20px;
+  max-width: 800px;
+  margin: 30px auto;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* Softer shadow for depth */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.about-us-box:hover {
+  transform: scale(1.02); /* Slightly enlarge the box */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Increased shadow for hover effect */
+}
+
+/* Heading Style */
+.about-us-box h2 {
+  font-size: 28px;
+  color: #004d40; /* Deep green color */
+  margin-bottom: 15px;
+  border-bottom: 2px solid #004d40;
+  padding-bottom: 10px;
+  font-weight: 700; /* Increased weight for emphasis */
+}
+
+/* Paragraph Style */
+.about-us-box p {
+  font-size: 16px;
+  text-align: justify;
+  text-justify: inter-word;
+  color: #333; /* Darker text color for readability */
+  line-height: 1.8;
+  margin: 0;
+  transition: color 0.3s ease; /* Smooth color transition */
+}
+
+/* Bold Text in Paragraph */
+.about-us-box p b {
+  font-weight: bold;
+  color: #2e7d32; /* Highlight color for bold text */
+}
+
+/* Hover Effect on Paragraph */
+.about-us-box:hover p {
+  color: #2e7d32; /* Change color on hover */
+}

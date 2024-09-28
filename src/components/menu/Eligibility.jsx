@@ -18,7 +18,7 @@ const Eligibility = () => {
 
   return (
     <div className="eligibility-container">
-      <h2>Check Your Eligibility</h2>
+      <h2>Check Your Eligibility for Registering as a Startup</h2>
       <div className="input-group">
         <label htmlFor="startupAge">Startup Age (in years):</label>
         <input

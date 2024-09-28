@@ -78,7 +78,7 @@ const FAQ = () => {
       <h2>For Startups/Business Users</h2>
       {renderFAQs(startupFAQs)}
 
-      <h2>For Regulators/Stakeholders</h2>
+      <h2>For Regulators</h2>
       {renderFAQs(regulatorFAQs)}
 
       <h2>Technical Support and Troubleshooting</h2>

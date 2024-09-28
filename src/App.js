@@ -23,6 +23,8 @@ import LogSignGov from "./components/LoginSignup/LogSignGov";
 import GovLoadScreen from "./components/LoginSignup/GovLoadScreen";
 import LogSignStake from "./components/LoginSignup/LogSignStake";
 import LogAdmin from "./components/LoginSignup/LogAdmin";
+import StakeDashboard from "./components/Dashboard/StakeDashboard";
+import AboutUs from "./components/menu/AboutUs";
 import { getAuth, signOut, onAuthStateChanged } from "firebase/auth";
 import { app, auth, db } from "./firebase";
 import { getDoc, doc } from "firebase/firestore";
@@ -72,6 +74,7 @@ function App() {
           "/FAQ",
           "/Notices",
           "/PolicyGuideline",
+          "/AboutUs",
         ];
         if (!allowedPaths.includes(location.pathname)) {
           navigate("/RoleSelect");
@@ -156,6 +159,9 @@ function App() {
   <Link to="/FAQ" className="menu-item">
     FAQ
   </Link>
+  <Link to="/AboutUs" className="menu-item">
+    About Us 
+  </Link>
   <Link onClick={handleLogout} className="menu-item">
     Log Out
   </Link>
@@ -166,6 +172,7 @@ function App() {
     
 
       <Routes>
+        
         <Route path="/" element={<Home />} />
         <Route
           path="/Dashboard"
@@ -182,7 +189,7 @@ function App() {
          element={
           <ApplicationsGov />
          } />
-
+        <Route path="/AboutUs" element={<AboutUs />} />
         <Route
           path="/Eligibility"
           element={
@@ -208,10 +215,9 @@ function App() {
         />
         <Route path="/policy" element={<policy />} />
         <Route path="/LogSignStake" element={<LogSignStake />} />
+        <Route path="/StakeDashboard" element={<StakeDashboard />} />
         <Route path="/LogAdmin" element={
-          <ProtectedRoute>
            <LogAdmin />
-          </ProtectedRoute>
           } 
         />
         <Route path="/Admin" element={<Admin />} />

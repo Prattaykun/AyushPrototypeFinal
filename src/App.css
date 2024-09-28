@@ -302,10 +302,10 @@ button:active {
 .menu-container-left .menu-item {
   display: block;
   margin-bottom: 15px;
-  padding: 10px 15px;
+  padding: 8px 12px;
   color: #e6ffa2; /* Ayurvedic brown for text */
   text-decoration: none;
-  font-size: 17px;
+  font-size: 15px;
   font-family: "Georgia", serif; /* A natural serif font for Ayurveda */
   transition: background-color 0.3s ease;
   border-radius: 5px;
