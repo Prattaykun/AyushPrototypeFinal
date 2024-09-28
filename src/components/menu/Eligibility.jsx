@@ -16,58 +16,17 @@ const Eligibility = () => {
     setEligibility(isEligible);
   };
 
-  return (
-    <div className="eligibility-container">
-      <h2>Check Your Eligibility for Registering as a Startup</h2>
-      <div className="input-group">
-        <label htmlFor="startupAge">Startup Age (in years):</label>
-        <input
-          type="number"
-          id="startupAge"
-          value={startupAge}
-          onChange={(e) => setStartupAge(e.target.value)}
-        />
-      </div>
-      <div className="input-group">
-        <label htmlFor="location">Select Your Country:</label>
-        <select
-          id="location"
-          value={location}
-          onChange={(e) => setLocation(e.target.value)}
-        >
-          <option value="">Select Country</option>
-          <option value="India">India</option>
-          <option value="United States">United States</option>
-          <option value="United Kingdom">United Kingdom</option>
-          <option value="Canada">Canada</option>
-          <option value="Australia">Australia</option>
-          {/* Add more country options as needed */}
-        </select>
-      </div>
-      <div className="input-group">
-        <label htmlFor="turnover">Annual Turnover (in INR):</label>
-        <input
-          type="number"
-          id="turnover"
-          value={turnover}
-          onChange={(e) => setTurnover(e.target.value)}
-        />
-      </div>
-      <button className="check-elg" onClick={checkEligibility}>
-        Check Eligibility
-        </button>
+  
+    const [selectedOption, setSelectedOption] = useState('startup');
+  
+    const handleSelectChange = (e) => {
+      setSelectedOption(e.target.value);
+    };
+  
 
-       {eligibility !== null && (
-        <div className={`result ${eligibility ? "eligible" : "not-eligible"}`}>
-          {eligibility ? (
-            <p>You are eligible!</p>
-          ) : (
-            <p>Sorry, you are not eligible.</p>
-          )}
-        </div>
-       )}
-      <div className="about-us-box">
-        <h1>Eligibility: (For Startups)</h1>
+  const startupEligibility = (
+    <div className="about-us-box">
+      <h1>Eligibility: (For Startups)</h1>
         <p>
           To be eligible for AYUSH startup registration and receive funding, a startup must meet certain criteria defined by the Ministry of AYUSH, Government of India. AYUSH refers to the traditional systems of medicine such as Ayurveda, Yoga, Naturopathy, Unani, Siddha, and Homeopathy. Here's an outline of the general criteria and requirements for registration and funding:
         </p>
@@ -156,6 +115,167 @@ const Eligibility = () => {
             <li>Leverage incubation centers or accelerators that specifically cater to the AYUSH industry for mentorship and additional support.</li>
           </ul>
         </p>
+    </div>
+  );
+
+  const stakeholdersEligibility = (
+    <div className="about-us-box">
+      <h1>Stakeholders</h1>
+      <h2>Criteria:</h2>
+      <p>
+        To become a stakeholder in the AYUSH Startup Registration program, the criteria typically align with contributing to or supporting startups that promote and innovate within the AYUSH (Ayurveda, Yoga & Naturopathy, Unani, Siddha, and Homeopathy) sector. Stakeholders could be individuals, organizations, or institutions that are part of the larger AYUSH ecosystem, providing resources, services, or expertise to the startups. Below are the typical criteria for becoming an AYUSH stakeholder:
+      </p>
+      <h3>1. Type of Stakeholders</h3>
+      <ul>
+        <li>Incubators and Accelerators with a focus on supporting AYUSH-based startups.</li>
+        <li>Academic Institutions and Research Centers that contribute to scientific research and innovation in AYUSH practices.</li>
+        <li>Healthcare Providers, hospitals, or clinics that integrate AYUSH systems into their offerings.</li>
+        <li>Investors (Venture Capitalists, Angel Investors) who fund and support AYUSH startups.</li>
+        <li>An individual/ entity/ company of India or,</li>
+        <li>A foreign entity having at-least one registered office in India.</li>
+        <li>Manufacturers of AYUSH products, including herbal medicines, supplements, and wellness products.</li>
+        <li>Training Institutes that offer education and skill development in the field of AYUSH.</li>
+        <li>Industry Experts who can provide technical support, mentoring, or domain expertise.</li>
+        <li>Government bodies or regulatory agencies that facilitate the growth of AYUSH through policy implementation.</li>
+        <li>Non-Governmental Organizations (NGOs) or non-profits working in the wellness, public health, or AYUSH sectors.</li>
+      </ul>
+      <h3>2. Contribution to the AYUSH Ecosystem:</h3>
+      <p>
+        Incubators/Accelerators: Should be recognized entities that offer incubation or acceleration programs for AYUSH startups, providing them with mentorship, access to facilities, and business development support.
+      </p>
+      <p>
+        Research Institutions/Academic Partners: Should focus on research, development, and validation of AYUSH practices, creating scientific backing for products and services.
+      </p>
+      <p>
+        Investors: Venture capitalists and angel investors should demonstrate an interest in the AYUSH sector, with a track record of investments in health and wellness, traditional medicine, or related industries.
+      </p>
+      <p>
+        Manufacturers/Service Providers: Stakeholders should have a legitimate setup for manufacturing or distributing AYUSH products or services and comply with AYUSH standards.
+      </p>
+      <h3>3. Alignment with AYUSH Principles:</h3>
+      <p>
+        The stakeholder must demonstrate a commitment to AYUSH principles, whether through research, product development, service offerings, or investment. This includes a focus on sustainable practices, promoting holistic health and wellness, and preserving traditional knowledge systems.
+      </p>
+      <p>
+        Collaborations should aim to develop and promote AYUSH products, therapies, and treatments that align with government-approved guidelines.
+      </p>
+      <h3>4. Compliance with AYUSH Guidelines and Certifications:</h3>
+      <p>
+        Manufacturers and service providers should adhere to AYUSH regulations and standards for the production, marketing, and distribution of AYUSH products. This includes ensuring proper GMP (Good Manufacturing Practices) and acquiring necessary certifications from regulatory bodies like the Ministry of AYUSH.
+      </p>
+      <p>
+        Healthcare Providers should follow AYUSH-prescribed treatment guidelines and maintain certification/accreditation with appropriate councils (such as the Central Council for Research in Ayurvedic Sciences or Central Council for Research in Homoeopathy).
+      </p>
+      <h3>5. Network and Support for Startups:</h3>
+      <p>
+        Stakeholders should actively support the AYUSH startup ecosystem by offering resources, funding, or mentorship. This could include:
+      </p>
+      <ul>
+        <li>Access to labs, equipment, or manufacturing facilities.</li>
+        <li>Financial investments or grants.</li>
+        <li>Technical or business mentoring.</li>
+        <li>Partnership in research or clinical trials for AYUSH products.</li>
+      </ul>
+      <h3>6. Engagement with AYUSH Incubation Centers:</h3>
+      <p>
+        AYUSH stakeholders may collaborate with or be part of AYUSH Incubation Centers supported by the Ministry of AYUSH and institutions like Atal Innovation Mission (AIM). These centers help startups with product development, R&D, and business strategies.
+      </p>
+      <h3>7. Documentation and Registration:</h3>
+      <p>
+        Stakeholders should be registered under the appropriate business or professional category (such as healthcare provider, investor, manufacturer, or educational institution). Necessary documentation may include:
+      </p>
+      <ul>
+        <li>Proof of incorporation/registration.</li>
+        <li>Certifications and licenses (e.g., GMP for manufacturers, AYUSH certification for healthcare providers).</li>
+        <li>Business plans or detailed proposals outlining contributions to the AYUSH sector.</li>
+        <li>Proof of prior engagements, investments, or collaborations in the AYUSH ecosystem.</li>
+      </ul>
+      <h3>8. Focus on Innovation and Commercialization:</h3>
+      <p>
+        Stakeholders should demonstrate their capacity to promote innovation and commercialization within the AYUSH sector. This could include:
+      </p>
+      <ul>
+        <li>Research partnerships for product innovation.</li>
+        <li>Investments in cutting-edge AYUSH technologies (e.g., digital health apps, telemedicine platforms).</li>
+        <li>Development of AYUSH-based nutraceuticals, cosmeceuticals, or wellness tourism models.</li>
+      </ul>
+      <h3>9. Government or AYUSH Ministry Collaboration:</h3>
+      <p>
+        Many stakeholders may collaborate with AYUSH Ministry initiatives or policies, providing their expertise, services, or resources. These stakeholders should demonstrate alignment with government programs, policies, and public health initiatives focused on promoting AYUSH practices.
+      </p>
+      <h3>Which are the already Funding Agencies?</h3>
+      <ul>
+        <li>Department of Ayurveda, Yoga & Naturopathy, Unani, Siddha and Homeopathy (AYUSH). <a href="https://ayush.gov.in/#!/">LINK</a></li>
+        <li>Central Council for Research in Ayurvedic Sciences (CCRAS) <a href="https://ccras.nic.in/">LINK</a></li>
+        <li>National Medicinal Plants Board (NMPB) <a href="http://nmpb.nic.in/">LINK</a></li>
+        <li>Department of Biotechnology (DBT) <a href="http://dbtindia.gov.in/">LINK</a></li>
+        <li>Department of Science and Technology (DST) <a href="http://dst.gov.in/">LINK</a></li>
+        <li>Indian Council of Medical Research (ICMR) <a href="http://icmr.gov.in/">LINK</a></li>
+      </ul>
+    </div>
+  );
+
+
+
+
+
+  return (
+    <div className="eligibility-container">
+      <h2>Check Your Eligibility for Registering as a Startup</h2>
+      <div className="input-group">
+        <label htmlFor="startupAge">Startup Age (in years):</label>
+        <input
+          type="number"
+          id="startupAge"
+          value={startupAge}
+          onChange={(e) => setStartupAge(e.target.value)}
+        />
+      </div>
+      <div className="input-group">
+        <label htmlFor="location">Select Your Country:</label>
+        <select
+          id="location"
+          value={location}
+          onChange={(e) => setLocation(e.target.value)}
+        >
+          <option value="">Select Country</option>
+          <option value="India">India</option>
+          <option value="United States">United States</option>
+          <option value="United Kingdom">United Kingdom</option>
+          <option value="Canada">Canada</option>
+          <option value="Australia">Australia</option>
+          {/* Add more country options as needed */}
+        </select>
+      </div>
+      <div className="input-group">
+        <label htmlFor="turnover">Annual Turnover (in INR):</label>
+        <input
+          type="number"
+          id="turnover"
+          value={turnover}
+          onChange={(e) => setTurnover(e.target.value)}
+        />
+      </div>
+      <button className="check-elg" onClick={checkEligibility}>
+        Check Eligibility
+        </button>
+
+       {eligibility !== null && (
+        <div className={`result ${eligibility ? "eligible" : "not-eligible"}`}>
+          {eligibility ? (
+            <p>You are eligible!</p>
+          ) : (
+            <p>Sorry, you are not eligible.</p>
+          )}
+        </div>
+       )}
+     
+      <select className="check-elg" value={selectedOption} onChange={handleSelectChange}>
+        <option value="startup">Startup Eligibility</option>
+        <option value="stakeholders">Stakeholders Eligibility</option>
+      </select>
+      <div className="about-us-box">
+        {selectedOption === 'startup' ? startupEligibility : stakeholdersEligibility}
       </div>
     </div>
   );

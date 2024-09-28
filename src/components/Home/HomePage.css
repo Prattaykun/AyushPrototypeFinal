@@ -146,6 +146,45 @@ section {
 .about-us-box:hover p {
   color: #2e7d32; /* Change color on hover */
 }
+.embed-logo {
+  display: flex;             /* Align images in a row */
+  flex-wrap: wrap;           /* Allows wrapping to the next line if there's not enough space */
+  justify-content: space-around; /* Space evenly between the images */
+  align-items: center;       /* Center images vertically */
+  padding: 20px;
+}
+
+.embed-logo div {
+  position: relative;        /* Allows positioning of the green strip */
+  transition: transform 0.3s ease;
+  margin: 10px;              /* Adds space around each image */
+}
+
+.embed-logo img {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);   /* Light shadow */
+  border-radius: 8px;                         /* Slightly rounded corners */
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.embed-logo img:hover {
+  box-shadow: 0 8px 16px rgba(0, 128, 0, 0.2); /* Greenish shadow on hover */
+  transform: translateY(-5px);                 /* Lift effect on hover */
+}
+
+.embed-logo div::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 4px;
+  background-color: lightgreen;   /* Light green strip */
+  transition: width 0.3s ease;    /* Smooth width transition */
+}
+
+.embed-logo div:hover::after {
+  width: 100%;  /* Expand the green strip on hover */
+}
 
 /* List Styling */
 ul {

@@ -1,12 +1,17 @@
 import React from "react";
 import { Link,useNavigate } from "react-router-dom";
 import "./HomePage.css";
-import logo_icon from "../Assets/ayushlogo.jpg";
+import logo_icon from "../Assets/favicon.png";
 import startup_icon from "../Assets/startupindia.jpg";
 import watermark from "../Assets/Plants.jpg.jpg";
 // import 'bootstrap/dist/css/bootstrap.min.css';
 import { Container } from 'react-bootstrap';
 import Notices from "../menu/Notices";
+import ccras from "../Assets/ccras.png";
+import nmpb from "../Assets/nmpb.png";
+import dbt from "../Assets/DBT.png";
+import dst from "../Assets/dst.png";
+import icmr from "../Assets/icmr.png";
 
 
 
@@ -131,6 +136,45 @@ function HomePage() {
            
 
         </section>
+        <div className="embed-logo">
+        <div>
+      {/* The anchor tag wraps the image, making it clickable */}
+      <a href="https://ayush.gov.in/" target="_blank" rel="noopener noreferrer">
+        <img src={logo_icon} alt="logo icon" style={{ width: '100px', height: 'auto' }} />
+      </a>
+    </div>
+    <div>
+      {/* The anchor tag wraps the image, making it clickable */}
+      <a href="https://ccras.nic.in/" target="_blank" rel="noopener noreferrer">
+        <img src={ccras} alt="ccras" style={{ width: '100px', height: 'auto' }} />
+      </a>
+    </div>
+    <div>
+      {/* The anchor tag wraps the image, making it clickable */}
+      <a href="https://nmpb.nic.in" target="_blank" rel="noopener noreferrer">
+        <img src={nmpb} alt="nmpb" style={{ width: '100px', height: 'auto' }} />
+      </a>
+    </div>
+    <div>
+      {/* The anchor tag wraps the image, making it clickable */}
+      <a href="https://dbtindia.gov.in" target="_blank" rel="noopener noreferrer">
+        <img src={dbt} alt="dbt" style={{ width: '100px', height: 'auto' }} />
+      </a>
+    </div>
+    <div>
+      {/* The anchor tag wraps the image, making it clickable */}
+      <a href="http://dst.gov.in" target="_blank" rel="noopener noreferrer">
+        <img src={dst} alt="dst" style={{ width: '100px', height: 'auto' }} />
+      </a>
+    </div>
+    <div>
+      {/* The anchor tag wraps the image, making it clickable */}
+      <a href="http://icmr.gov.in" target="_blank" rel="noopener noreferrer">
+        <img src={icmr} alt="icmr" style={{ width: '100px', height: 'auto' }} />
+      </a>
+    </div>
+
+        </div>
 
         <section className="contact-us">
           <h2>Contact Us</h2>
