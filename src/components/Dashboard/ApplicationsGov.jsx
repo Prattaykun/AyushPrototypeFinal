@@ -11,6 +11,10 @@ const ApplicationsGov = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
+  // Pagination state
+  const [currentPage, setCurrentPage] = useState(1);
+  const rowsPerPage = 5; // Number of rows per page
+
   useEffect(() => {
     const fetchApplications = async () => {
       try {
@@ -71,6 +75,13 @@ const ApplicationsGov = () => {
     XLSX.writeFile(wb, 'applications.xlsx');
   };
 
+  // Pagination logic
+  const lastRowIndex = currentPage * rowsPerPage;
+  const firstRowIndex = lastRowIndex - rowsPerPage;
+  const currentRows = applications.slice(firstRowIndex, lastRowIndex);
+
+  const totalPages = Math.ceil(applications.length / rowsPerPage);
+
   if (loading) {
     return <div>Loading applications...</div>;
   }
@@ -85,12 +96,13 @@ const ApplicationsGov = () => {
       <button className="btn btn-primary" onClick={downloadSpreadsheet}>
         Download as Spreadsheet
       </button>
+      
       {applications.length === 0 ? (
         <p>No applications available.</p>
       ) : (
         <div className="table-responsive">
           <Table striped bordered hover className="applications-table">
-            <thead>
+          <thead>
               <tr>
                 <th>Actions</th>
                 <th>Status</th>
@@ -223,6 +235,25 @@ const ApplicationsGov = () => {
               ))}
             </tbody>
           </Table>
+          <div className="pagination-controls">
+            <button
+              className="btn btn-secondary"
+              onClick={() => setCurrentPage((prev) => prev - 1)}
+              disabled={currentPage === 1}
+            >
+              Previous
+            </button>
+            <span>
+              Page {currentPage} of {totalPages}
+            </span>
+            <button
+              className="btn btn-secondary"
+              onClick={() => setCurrentPage((prev) => prev + 1)}
+              disabled={currentPage === totalPages}
+            >
+              Next
+            </button>
+          </div>
         </div>
       )}
     </div>
