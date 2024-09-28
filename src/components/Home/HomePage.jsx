@@ -136,7 +136,13 @@ function HomePage() {
            
 
         </section>
+      
+         <div>
+          <h2>Our Collaborators</h2>
+         </div>
+
         <div className="embed-logo">
+          
         <div>
       {/* The anchor tag wraps the image, making it clickable */}
       <a href="https://ayush.gov.in/" target="_blank" rel="noopener noreferrer">
