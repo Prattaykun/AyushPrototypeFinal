@@ -6,13 +6,15 @@ const PolicyGuideline = () => {
     <div className="guideline-container">
       <header className="guideline-header">
         <h1>Ayush Ministry Startup Registration Policy Guidelines</h1>
-        <p>
+        
+      </header>
+      <div className="about-us-box">
+      <p>
           Welcome to the Ayush Ministry's Startup Registration Portal. Below are
           the guidelines and policies for new startups registering under the
           Ayush ecosystem.
         </p>
-      </header>
-
+      </div>
       <section className="guideline-section">
         <h2>Eligibility Criteria</h2>
         <p>
