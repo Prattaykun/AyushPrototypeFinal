@@ -6,19 +6,34 @@ function ChatPopup({ chatVisible, toggleChatbot }) {
   const [chatbotResponse, setChatbotResponse] = useState('Send "Hi" to start a conversation!');
   const [showOptions, setShowOptions] = useState(false);
   const [showInitialHiButton, setShowInitialHiButton] = useState(true); // New state for initial "Hi" button
+  const [awaitingUserConfirmation, setAwaitingUserConfirmation] = useState(false); // To handle the loop for "Ask anything else?"
 
   // Handles sending the message
   const sendMessage = () => {
     const validGreetings = ['hey', 'hi', 'hello', 'how are you', 'good morning', 'good evening', 'good afternoon', 'hii'];
+    const userResponse = userInput.trim().toLowerCase();
+
     if (userInput.trim()) {
-      const normalizedInput = userInput.trim().toLowerCase();
-      if (validGreetings.includes(normalizedInput)) {
-        setChatbotResponse('Hello! Please choose from the following options:');
-        setShowOptions(true);
-        setShowInitialHiButton(false); // Remove Hi button after greeting
+      if (awaitingUserConfirmation) {
+        if (userResponse === 'yes') {
+          // If the user wants to ask more questions, show the options again
+          setChatbotResponse('Please choose from the following options:');
+          setShowOptions(true);
+        } else {
+          // If the user says something other than "yes", end the chat
+          setChatbotResponse('Thank you for chatting! If you have more questions, feel free to ask later.');
+          setShowOptions(false);
+          setAwaitingUserConfirmation(false);
+        }
       } else {
-        setChatbotResponse('Please enter a valid response to start the chat.');
-        setShowOptions(false);
+        if (validGreetings.includes(userResponse)) {
+          setChatbotResponse('Hello! Please choose from the following options:');
+          setShowOptions(true);
+          setShowInitialHiButton(false); // Remove Hi button after greeting
+        } else {
+          setChatbotResponse('Please enter a valid response to start the chat.');
+          setShowOptions(false);
+        }
       }
       setUserInput(''); // Clear the input after sending
     }
@@ -103,7 +118,16 @@ function ChatPopup({ chatVisible, toggleChatbot }) {
         setChatbotResponse('Invalid option selected.');
         break;
     }
+
+    // Ask if the user wants to ask anything else after the response
     setShowOptions(false);
+    setAwaitingUserConfirmation(true);
+    setChatbotResponse((prev) => (
+      <>
+        {prev}
+        <p>Do you want to ask anything else? (yes/no)</p>
+      </>
+    ));
   };
 
   // Clears the chat area
@@ -112,6 +136,7 @@ function ChatPopup({ chatVisible, toggleChatbot }) {
     setChatbotResponse('Send "Hi" to start a conversation!');
     setShowOptions(false);
     setShowInitialHiButton(true); // Show Hi button again after clearing chat
+    setAwaitingUserConfirmation(false);
   };
 
   // Handles the "Hi" button click
