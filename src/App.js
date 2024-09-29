@@ -31,6 +31,7 @@ import { getAuth, signOut, onAuthStateChanged } from "firebase/auth";
 import { app, auth, db } from "./firebase";
 import { getDoc, doc } from "firebase/firestore";
 import menuicon from "./components/Assets/menu.png";
+import Schemes from "./components/menu/Schemes";
 
 
 import ProtectedRoute from "./components/ProtectedRoute"; // Import ProtectedRoute
@@ -123,6 +124,7 @@ const toggleTranslation = () => {
           "/PolicyGuideline",
           "/AboutUs",
           "/ChatPopup",
+          "/Schemes",
         ];
         if (!allowedPaths.includes(location.pathname)) {
           navigate("/RoleSelect");
@@ -191,34 +193,40 @@ const toggleTranslation = () => {
           </nav>
           {menuOpen && (
           <div className="menu-container-left">
-  <Link to="/" className="menu-item">
-    Home
-  </Link>
-  <Link to="/RoleSelect" className="menu-item">
-    Login/Signup
-  </Link>
-  <Link to="/PolicyGuideline" className="menu-item">
-    Policy & Guidelines
-  </Link>
-  <Link to="/Feedback" className="menu-item">
-    Feedback
-  </Link>
-  <Link to="/Eligibility" className="menu-item">
-    Eligibility
-  </Link>
-  <Link to="/Notices" className="menu-item">
-    Notices
-  </Link>
-  <Link to="/FAQ" className="menu-item">
-    FAQ
-  </Link>
-  <Link to="/AboutUs" className="menu-item">
-    About Us 
-  </Link>
-  <Link onClick={handleLogout} className="menu-item">
-    Log Out
-  </Link>
-</div>
+          <Link to="/" className="menu-item">
+            Home
+          </Link>
+          <Link to="/PolicyGuideline" className="menu-item">
+            Policy & Guidelines
+          </Link>
+          <Link to="/Feedback" className="menu-item">
+            Feedback
+          </Link>
+          <Link to="/Eligibility" className="menu-item">
+            Eligibility
+          </Link>
+          <Link to="/Notices" className="menu-item">
+            Notices
+          </Link>
+          <Link to="/Schemes" className="menu-item">
+            Schemes 
+          </Link>
+          <Link to="/FAQ" className="menu-item">
+            FAQ
+          </Link>
+          <Link to="/AboutUs" className="menu-item">
+            About Us 
+          </Link>
+          {user ? (
+            <Link onClick={handleLogout} className="menu-item">
+              Log Out
+            </Link>
+          ) : (
+            <Link to="/RoleSelect" className="menu-item">
+              Login/Signup
+            </Link>
+          )}
+        </div>
           )}
         </div>
       </header>
@@ -242,6 +250,7 @@ const toggleTranslation = () => {
             </ProtectedRoute>
           }
         />
+        <Route path="/Schemes" element={<Schemes />} />
         <Route path="/Notices" element={<Notices />} />
         <Route path="/PolicyGuideline" element={<PolicyGuidline />} />
         <Route 
