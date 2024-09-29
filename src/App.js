@@ -8,6 +8,7 @@ import RegistrationForm2 from "./components/Registration/RegistrationForm2";
 import RegistrationForm3 from "./components/Registration/RegistrationForm3";
 import Home from "./components/Home/HomePage";
 import ChatBoticon from "./components/ChatBotIcon/ChatBotIcon";
+import ChatPopup from "./components/ChatBotIcon/ChatPopup";
 import { Link } from "react-router-dom";
 import Logo from "./components/Assets/favicon.png";
 import TrackApplication from "./components/TrackApplication/TrackApplication"; // Ensure this is the correct path
@@ -40,6 +41,14 @@ import FAQ from "./components/menu/FAQ";
 function App() {
   const [user, setUser] = useState(null);
   const [role, setRole] = useState(null);
+
+  const [chatVisible, setChatVisible] = useState(false);
+  // const [isOpen, setIsOpen] = useState(false);
+  const toggleChatbot = () => {
+    // setIsOpen(!isOpen);
+    setChatVisible(!chatVisible);
+  };
+
 
   const navigate = useNavigate(); // useNavigate for navigation
   const location = useLocation();
@@ -75,6 +84,7 @@ function App() {
           "/Notices",
           "/PolicyGuideline",
           "/AboutUs",
+          "/ChatPopup",
         ];
         if (!allowedPaths.includes(location.pathname)) {
           navigate("/RoleSelect");
@@ -230,6 +240,7 @@ function App() {
             </ProtectedRoute>
           }
         />
+        <Route path="/ChatPopup" element={<ChatPopup />} />
         <Route
           path="/RegistrationForm2"
           element={
@@ -246,6 +257,7 @@ function App() {
             </ProtectedRoute>
           }
         />
+
         <Route
           path="/TrackApplication"
           element={
@@ -257,10 +269,22 @@ function App() {
         <Route path="/FAQ" element={<FAQ />} />
       </Routes>
 
+      <div >
+      {/* <h1>Chatbot Interface</h1> */}
+      {/* Button positioned in the bottom-right corner */}
+      <div className="chatbot-container">
+        <ChatBoticon toggleChatbot={toggleChatbot} />
+      </div>
+      <ChatPopup chatVisible={chatVisible} toggleChatbot={toggleChatbot} />
+    </div>
+
       <footer className="footer">
         <p>&copy; 2024 Ayush Ministry. All rights reserved.</p>
       </footer>
-      <ChatBoticon />
+      
+      
+
+
     </div>
   );
 }

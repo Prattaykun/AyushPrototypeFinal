@@ -33,7 +33,8 @@ function HomePage() {
         <iframe 
           width="640" 
           height="360" 
-          src="https://www.youtube.com/embed/RPqgNibeKEI"
+          src="https://www.youtube.com/embed/RPqgNibeKEI?autoplay=1"
+          allow="autoplay; encrypted-media"
           allowFullScreen
           title="YouTube Video"
         ></iframe>
@@ -169,13 +170,13 @@ function HomePage() {
     </div>
     <div>
       {/* The anchor tag wraps the image, making it clickable */}
-      <a href="http://dst.gov.in" target="_blank" rel="noopener noreferrer">
+      <a href="https://dst.gov.in" target="_blank" rel="noopener noreferrer">
         <img src={dst} alt="dst" style={{ width: '100px', height: 'auto' }} />
       </a>
     </div>
     <div>
       {/* The anchor tag wraps the image, making it clickable */}
-      <a href="http://icmr.gov.in" target="_blank" rel="noopener noreferrer">
+      <a href="https://icmr.gov.in" target="_blank" rel="noopener noreferrer">
         <img src={icmr} alt="icmr" style={{ width: '100px', height: 'auto' }} />
       </a>
     </div>

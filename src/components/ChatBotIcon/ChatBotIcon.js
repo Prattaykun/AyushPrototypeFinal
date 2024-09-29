@@ -1,21 +1,15 @@
-// src/components/ChatBotIcon.js
-import React, { useState } from "react";
-import "./ChatBotIcon.css"; // Import CSS for the icon
 
-const ChatBotIcon = () => {
-  const [isOpen, setIsOpen] = useState(false);
+import React,{useState} from 'react';
+import './ChatBotIcon.css'; // Import the CSS file
 
-  const toggleChat = () => {
-    setIsOpen(!isOpen);
-  };
+function ChatBotIcon({toggleChatbot, chatVisible}) {
 
+  
   return (
-    <div className="chatbot-container">
-      <div
-        className={`chatbot-icon ${isOpen ? "open" : ""}`}
-        onClick={toggleChat}
-      >
-        <svg
+    <div className='chatbot-container'>
+    <div onClick={toggleChatbot} role="button" className={`chatbot-icon ${chatVisible ? "open" : ""}`}>
+     
+    <svg
           width="30"
           height="30"
           viewBox="0 0 24 24"
@@ -27,23 +21,10 @@ const ChatBotIcon = () => {
             fill="#ffffff"
           />
         </svg>
-      </div>
-      {isOpen && (
-        <div className="chatbot-window">
-          <div className="chatbot-header">
-            <h4>Chat with us!</h4>
-            <button onClick={toggleChat} className="close-btn">
-              x
-            </button>
-          </div>
-          <div className="chatbot-body">
-            {/* Chatbot functionality would be integrated here */}
-            <p>Chatbot is currently under construction.</p>
-          </div>
-        </div>
-      )}
+
+    </div>
     </div>
   );
-};
+}
 
 export default ChatBotIcon;

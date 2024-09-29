@@ -4,7 +4,7 @@
   position: fixed;
   bottom: 20px;
   right: 20px;
-  z-index: 1000;
+  z-index: 1050;
 }
 
 .chatbot-icon {
@@ -100,4 +100,142 @@
   margin: 0;
   font-size: 14px;
   color: #333;
+}
+/* App.css */
+
+
+
+/* Chatbox style */
+.chatbox-style {
+  position: fixed;
+  bottom: 70px; /* Space above the button */
+  right: 20px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  width: 90%; /* Use percentage for width */
+  max-width: 400px; /* Maximum width */
+  padding: 20px;
+  background-color: #f9f9f9;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  z-index: 1000; /* Ensure it appears above other content */
+}
+
+/* Chat header style (includes title and close button) */
+.chat-header-style {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Close button style */
+.close-button-style {
+  background-color: red;
+  border: none;
+  color: white;
+  cursor: pointer;
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
+/* Chat area style */
+.chat-area-style {
+  height: 150px; /* Adjust height for better visibility */
+  overflow-y: auto;
+  background-color: #fff;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+/* Input field style */
+.input-style {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+/* Send button style */
+.send-button-style {
+  padding: 10px 15px;
+  background-color: #4caf50;
+  border: none;
+  border-radius: 5px;
+  color: #fff;
+  cursor: pointer;
+  margin-right: 10px;
+}
+
+/* Clear button style */
+.clear-button-style {
+  padding: 10px 15px;
+  background-color: #f44336;
+  border: none;
+  border-radius: 5px;
+  color: #fff;
+  cursor: pointer;
+}
+
+/* Button container style (for aligning Send and Clear buttons) */
+.button-container-style {
+  display: flex;
+  justify-content: space-between;
+}
+
+/* Options container style */
+.options-style {
+  margin-top: 10px;
+}
+
+/* Option button style */
+.option-button-style {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  margin: 5px 0;
+  background-color: #61dafb;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 600px) {
+  .button-style {
+    font-size: 1.2rem; /* Smaller font size on small screens */
+    padding: 8px 12px; /* Adjust padding */
+  }
+
+  .chatbox-style {
+    width: 95%; /* Full width on small screens */
+  }
+
+  .chat-area-style {
+    height: 120px; /* Smaller height for small screens */
+  }
+}
+.hi-button-style {
+  background-color: #4CAF50; /* Green background */
+  border: none; /* Remove border */
+  color: white; /* White text */
+  padding: 10px 20px; /* Add some padding */
+  text-align: center; /* Center the text */
+  text-decoration: none; /* Remove underline */
+  display: inline-block; /* Display as inline-block */
+  font-size: 16px; /* Increase font size */
+  margin: 10px 0; /* Add some margin */
+  border-radius: 8px; /* Rounded corners */
+  cursor: pointer; /* Pointer cursor on hover */
+  transition: background-color 0.3s ease; /* Smooth hover transition */
+}
+
+.hi-button-style:hover {
+  background-color: #45a049; /* Darker green on hover */
+}
+
+.initial-hi-container {
+  text-align: center; /* Center the button horizontally */
+  margin-top: 20px; /* Add some space at the top */
 }
