@@ -188,19 +188,19 @@ function ChatPopup({ chatVisible, toggleChatbot }) {
         {showOptions && (
           <div className="options-style">
             <div role="button" onClick={() => handleOptionSelect('AYUSH Startup Registration')} className="option-button-style">
-              Option 1: AYUSH Startup Registration
+             AYUSH Startup Registration
             </div>
             <div role="button" onClick={() => handleOptionSelect('AYUSH Stakeholder Registration')} className="option-button-style">
-              Option 2: AYUSH Stakeholder Registration
+             AYUSH Stakeholder Registration
             </div>
             <div role="button" onClick={() => handleOptionSelect('Startup Guidelines')} className="option-button-style">
-              Option 3: Startup Guidelines
+              Startup Guidelines
             </div>
             <div role="button" onClick={() => handleOptionSelect('AYUSH Initiatives')} className="option-button-style">
-              Option 4: AYUSH Initiatives
+              AYUSH Initiatives
             </div>
             <div role="button" onClick={() => handleOptionSelect('How to Check Eligibility')} className="option-button-style">
-              Option 5: How to Check Eligibility
+             How to Check Eligibility
             </div>
           </div>
         )}

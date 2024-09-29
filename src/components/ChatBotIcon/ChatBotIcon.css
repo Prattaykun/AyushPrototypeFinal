@@ -188,17 +188,18 @@
 /* Options container style */
 .options-style {
   margin-top: 10px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 2px;
 }
 
 /* Option button style */
 .option-button-style {
-  display: flex;
-  width: 65%;
+  width: 80%;
   font-size: 12px;
   padding: 5px;
-  margin: 5px 0;
   background-color: #61dafb;
-  border: none;
+  border:rgb(31, 29, 29);
   border-radius: 10px;
   cursor: pointer;
 }
