@@ -125,6 +125,9 @@ function ChatPopup({ chatVisible, toggleChatbot }) {
     setChatbotResponse((prev) => (
       <>
         {prev}
+        <p>If you need further help, contact us on:</p>
+        <p>Email: startups@ayush.gov.in</p>
+        <p>Phone: +91 1234 567 890</p>
         <p>Do you want to ask anything else? (yes/no)</p>
       </>
     ));
@@ -149,7 +152,7 @@ function ChatPopup({ chatVisible, toggleChatbot }) {
     chatVisible && (
       <div className="chatbox-style">
         <div className="chat-header-style">
-          <h3>AYUSH Startup Chat</h3>
+          <h3>Chat with Us</h3>
           <div role="button" onClick={toggleChatbot} className="close-button-style">
             X
           </div>

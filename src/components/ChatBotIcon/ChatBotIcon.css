@@ -2,14 +2,14 @@
 
 .chatbot-container {
   position: fixed;
-  bottom: 20px;
+  bottom: 10px;
   right: 20px;
   z-index: 1050;
 }
 
 .chatbot-icon {
-  width: 60px;
-  height: 60px;
+  width: 50px;
+  height: 50px;
   background-color: #007bff;
   border-radius: 50%;
   display: flex;
@@ -139,11 +139,12 @@
 
 /* Chat area style */
 .chat-area-style {
-  height: 150px; /* Adjust height for better visibility */
+  height:120px; /* Adjust height for better visibility */
   overflow-y: auto;
   background-color: #fff;
-  padding: 10px;
-  margin-bottom: 10px;
+  padding: 5px;
+  font-size: 13px;
+  margin-bottom: 5px;
   border: 1px solid #ddd;
   border-radius: 5px;
 }
@@ -191,13 +192,14 @@
 
 /* Option button style */
 .option-button-style {
-  display: block;
-  width: 100%;
-  padding: 10px;
+  display: flex;
+  width: 65%;
+  font-size: 12px;
+  padding: 5px;
   margin: 5px 0;
   background-color: #61dafb;
   border: none;
-  border-radius: 5px;
+  border-radius: 10px;
   cursor: pointer;
 }
 
