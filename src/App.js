@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "./App.css";
+import axios from "axios"; // Import Axios for API requests
 import Dashboard from "./components/Dashboard/Dashboard";
 import LoginSignup from "./components/LoginSignup/LoginSignup";
 import RegistrationForm1 from "./components/Registration/RegistrationForm1";
@@ -39,6 +40,9 @@ import FAQ from "./components/menu/FAQ";
 // const auth = getAuth(app);
 
 function App() {
+  const [translated, setTranslated] = useState(false); // Track translation state
+  const [translatedContent, setTranslatedContent] = useState(null); // Hold translated text
+
   const [user, setUser] = useState(null);
   const [role, setRole] = useState(null);
 
@@ -48,6 +52,40 @@ function App() {
     // setIsOpen(!isOpen);
     setChatVisible(!chatVisible);
   };
+
+  // Function to translate the content of the homepage
+  const translateToHindi = async () => {
+    try {
+      const textToTranslate = document.querySelector(".main-content").innerText;
+
+      // Fetch request as per the example you provided
+      const res = await fetch("https://libretranslate.com/translate", {
+        method: "POST",
+        body: JSON.stringify({
+          q: textToTranslate,
+          source: "en",
+          target: "hi"
+        }),
+        headers: { "Content-Type": "application/json" }
+      });
+
+      const data = await res.json();
+      setTranslatedContent(data.translatedText);
+      setTranslated(true);
+    } catch (error) {
+      console.error("Error during translation:", error);
+    }
+  };
+
+// Function to toggle between Hindi and English
+const toggleTranslation = () => {
+  if (translated) {
+    setTranslated(false);
+  } else {
+    translateToHindi();
+  }
+};
+
 
 
   const navigate = useNavigate(); // useNavigate for navigation
@@ -126,6 +164,11 @@ function App() {
         </div>
         <div className="navbar-main">
           <h1>Ministry of AYUSH - Startup Initiative</h1>
+          <div role="button" onClick={toggleTranslation} className="translate-btn">
+            {translated ? "Show in English" : "Translate to Hindi"}
+          </div>
+
+
           <nav>
             <Link to="/" className="nav-link">
               Home
@@ -183,7 +226,14 @@ function App() {
 
       <Routes>
         
-        <Route path="/" element={<Home />} />
+        <Route 
+        path="/" 
+        element={translated ? (
+          <div className="translated-content">{translatedContent}</div>
+        ) : (
+          <Home />
+        )}
+        />
         <Route
           path="/Dashboard"
           element={
