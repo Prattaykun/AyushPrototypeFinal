@@ -1,8 +1,8 @@
 /* Schemes.css */
 
-.container {
+.containerd {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsive grid */
+    grid-template-columns: repeat(minmax(300px, 1fr)); /* Responsive grid */
     gap: 20px; /* Space between grid items */
     max-width: 1200px;
     margin: 0 auto;

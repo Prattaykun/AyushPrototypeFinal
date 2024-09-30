@@ -59,7 +59,7 @@ const SchemeCard = ({ title, description, link, moreInfo }) => {
 
 const Schemes = () => {
   return (
-    <div className="container">
+    <div className="containerd">
       <h1 className="custom-underline">Government Schemes</h1>
       {schemesData.map((scheme, index) => (
         <SchemeCard
